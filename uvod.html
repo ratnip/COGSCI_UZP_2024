@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Uvod | Programirajmo u R-u</title>
   <meta name="description" content="Udžbenik za predmet ‘Osnove statističkog programiranja’ na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Uvod | Programirajmo u R-u" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2025-03-07" />
+<meta name="date" content="2025-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -238,6 +238,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostajuće-nepoznate-i-nemoguće-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
 <li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vježbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="vektori.html"><a href="vektori.html"><i class="fa fa-check"></i><b>3</b> Vektori, matrice i liste</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="vektori.html"><a href="vektori.html#vektori-1"><i class="fa fa-check"></i><b>3.1</b> Vektori</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="vektori.html"><a href="vektori.html#stvaranje-vektora"><i class="fa fa-check"></i><b>3.1.1</b> Stvaranje vektora</a></li>
+<li class="chapter" data-level="3.1.2" data-path="vektori.html"><a href="vektori.html#operator"><i class="fa fa-check"></i><b>3.1.2</b> Operator <code>[</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="vektori.html"><a href="vektori.html#principi-vektorizacije-i-recikliranja"><i class="fa fa-check"></i><b>3.1.3</b> Principi vektorizacije i recikliranja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="vektori.html"><a href="vektori.html#indeksni-vektori"><i class="fa fa-check"></i><b>3.2</b> Indeksni vektori</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="vektori.html"><a href="vektori.html#lokacijsko-referenciranje"><i class="fa fa-check"></i><b>3.2.1</b> Lokacijsko referenciranje</a></li>
+<li class="chapter" data-level="3.2.2" data-path="vektori.html"><a href="vektori.html#uvjetno-referenciranje"><i class="fa fa-check"></i><b>3.2.2</b> Uvjetno referenciranje</a></li>
+<li class="chapter" data-level="3.2.3" data-path="vektori.html"><a href="vektori.html#imensko-referenciranje"><i class="fa fa-check"></i><b>3.2.3</b> Imensko referenciranje</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="vektori.html"><a href="vektori.html#matrice-i-polja"><i class="fa fa-check"></i><b>3.3</b> Matrice i polja</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="vektori.html"><a href="vektori.html#rezanje-matrica"><i class="fa fa-check"></i><b>3.3.1</b> Rezanje matrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vježbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="okviri.html"><a href="okviri.html"><i class="fa fa-check"></i><b>4</b> Liste, podatkovni okviri i faktori</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="okviri.html"><a href="okviri.html#liste"><i class="fa fa-check"></i><b>4.1</b> Liste</a></li>
+<li class="chapter" data-level="4.2" data-path="okviri.html"><a href="okviri.html#podatkovni-okviri"><i class="fa fa-check"></i><b>4.2</b> Podatkovni okviri</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="okviri.html"><a href="okviri.html#odabir-redaka-i-stupaca-podatkovnih-okvira"><i class="fa fa-check"></i><b>4.2.1</b> Odabir redaka i stupaca podatkovnih okvira</a></li>
+<li class="chapter" data-level="4.2.2" data-path="okviri.html"><a href="okviri.html#dodavanje-i-brisanje-redaka-i-stupaca"><i class="fa fa-check"></i><b>4.2.2</b> Dodavanje i brisanje redaka i stupaca</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="okviri.html"><a href="okviri.html#faktori"><i class="fa fa-check"></i><b>4.3</b> Faktori</a></li>
+<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vježbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -308,7 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Izvršne datoteke možete pokrenuti i pustiti čarobnjaka da instalira sve potrebne komponente na vaše računalo. Preporučuje se prihvatiti sve nazivne opcije osim mape instalacije - umjesto podmape “<em>Program Files</em>” bolje je instalirati R direktno u osnovnu mapu (npr. “<em>C:\R\R-4.4.1</em>”). Na ovaj način biti će lakše pronaći trenutno instaliranu inačicu i eventualno kasnije ažurirati. Iz istih razloga preporučuje se <em>RStudio</em> instalirati u mapu “<em>C:\R\RStudio</em>”. U slučaju da niste mogućnosti ili ne želite odabrati ove mape, možete definirati neke druge ili zadržati nazivne opcije - ovaj izbor ne bi u konačnici trebao bitno utjecati na daljnji rad.</p>
 <p>Nakon instalacije sučelja <em>RStudio</em> dovoljno je isto jednostavno pokrenuti uz pomoć stvorene kratice na radnoj mapi (ili alternativno, uz pomoć izvršne datoteke <em>RStudio.exe</em> u odabranoj mapi za instalaciju). Nakon pokretanja aplikacija bi trebala izgledati slično sljedećoj slici:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="figures/RStudio1.png" alt="Izgled sučelja RStudio" width="583" />
+<img src="figures/RStudio1.png" alt="Izgled sučelja RStudio"  />
 <p class="caption">
 Slika 1.1: Izgled sučelja RStudio
 </p>
@@ -327,7 +358,7 @@ Slika 1.1: Izgled sučelja RStudio
 <p>Prikažimo kako radi interaktivna konzola. Uz pomoć tipkovnice možemo utipkati jednostavan matematički izraz - npr. <code>3 + 2</code> i stisnuti tipku <em>ENTER</em>. Vidimo da će nam R odmah pružiti rezultat - možemo ga koristiti i kao kalkulator!</p>
 <p>Za matematičke izraze koje nije jednostavno “utipkati” moramo koristiti funkcije. Tako npr. drugi korijen možemo izračunati uz pomoć funkcije <code>sqrt()</code>. Pokušajmo u konzolu utipkati <code>sqrt(10)</code> i stisnuti <em>ENTER</em>. R nam opet odmah prikazuje rezultat. U ovom trenutku zaslon bi nam trebao izgledati otprilike kao na sljedećoj slici.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="figures/RStudio2.png" alt="R kao kalkulator" width="587" />
+<img src="figures/RStudio2.png" alt="R kao kalkulator"  />
 <p class="caption">
 Slika 1.2: R kao kalkulator
 </p>
@@ -341,7 +372,7 @@ Slika 1.2: R kao kalkulator
 <p>Vidimo da se “radni dio” na lijevoj strani razdvojio na dva dijela. Gornji dio predstavlja prostor za našu “skriptu” - zapravo niz naredbi koje želimo izvršiti - dok interaktivna konzola sada zauzima donji dio radne plohe. Ukoliko želimo, možemo pomicanjem granice promijeniti veličinu ovih (a i ostalih prozora), no za sada je bitno da imamo pregled i skripte i konzole.</p>
 <p>Upišimo dvije naredbe u prozor za pisanje skripte - prva neka bude <code>print("Pozdrav!")</code> a ispod nje opet jednostavan matematički izraz <code>3 + 4</code>. Vratimo kursor na prvi redak i stisnimo kombinaciju tipki CTRL + ENTER. Ukoliko smo ispravno pratili navedene korake, naredba na mjestu koje se nalazio kursor automatski će se preslikati u interaktivnu konzolu i izvršiti. Kursor će sada biti na mjestu sljedeće naredbe koju također možemo izvršiti sa CTRL + ENTER. Zaslon bi sada trebao izgledati slično sljedećoj slici.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="figures/RStudio3.png" alt="R skripta" width="582" />
+<img src="figures/RStudio3.png" alt="R skripta"  />
 <p class="caption">
 Slika 1.3: R skripta
 </p>
@@ -387,7 +418,7 @@ Slika 1.3: R skripta
 <p>Isječak koda ponaša se isto kao i standardna R skripta - možemo upisivati naredbe i izvršavati ih. Razlika je samo u tome što - ukoliko želimo - rezultate možemo vidjeti i odmah u samom <em>R Markdown</em> dokumentu. Ako nam ova opcija smeta možemo ju isključiti (klik na zupčanik u alatnoj traci i odabir <code>Chunk output in console</code>) no u pravilu nam odgovara da se rezultat ugradi u dokument kako bi naknadno mogli ponovo pregledavati rezultate prethodnih isječaka.</p>
 <p>Ako smo pratili upute, zaslon bi mogao izgledati slično sljedećoj slici:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
-<img src="figures/RStudio4.png" alt="R Markdown dokument" width="584" />
+<img src="figures/RStudio4.png" alt="R Markdown dokument"  />
 <p class="caption">
 Slika 1.4: R Markdown dokument
 </p>
@@ -403,7 +434,7 @@ Slika 1.4: R Markdown dokument
 <h3><span class="header-section-number">1.4.1</span> Poželjne karakteristike procesa analize podataka<a href="uvod.html#poželjne-karakteristike-procesa-analize-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Analiza podataka kroz programske skripte specifičan je proces koji se razlikuje od uobičajenog pristupa programiranju. Ovo je pogotovo slučaj kada se radi o inicijalnom, istraživačkom segmentu analize gdje smo usredotočeni na otkrivanje karakteristika podatkovnog skupa, definiranje određenih pretpostavki, postavljanje hipoteza i donošenje zaključaka. Ovakva analiza podatake je često, složen, iterativan i naglašeno interaktivan proces, koji zahtjeva strogo kontrolorani i organizirani pristup njegovoj provedbi.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
-<img src="figures/proces0.png" alt="R Markdown dokument" width="366" />
+<img src="figures/proces0.png" alt="R Markdown dokument"  />
 <p class="caption">
 Slika 1.5: R Markdown dokument
 </p>
@@ -552,51 +583,51 @@ Slika 1.7: Mape koje stvara ProjectTemplate
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"],
-"google": false,
-"instapper": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-},
-"toolbar": {
-"position": "fixed",
-"edit": null,
-"download": null,
-"search": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "google", "twitter", "weibo", "instapaper"],
+    "google": false,
+    "instapper": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "toolbar": {
+    "position": "fixed",
+    "edit": null,
+    "download": null,
+    "search": true
+  }
 });
 });
 </script>
