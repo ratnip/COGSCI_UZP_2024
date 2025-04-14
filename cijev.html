@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2025-04-07" />
+<meta name="date" content="2025-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="paketi.html"/>
-
+<link rel="next" href="datumi.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,6 +329,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vježbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="datumi.html"><a href="datumi.html"><i class="fa fa-check"></i><b>8</b> Rad sa vremenskim podacima</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="datumi.html"><a href="datumi.html#rad-sa-datumima"><i class="fa fa-check"></i><b>8.1</b> Rad sa datumima</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="datumi.html"><a href="datumi.html#klasa-date"><i class="fa fa-check"></i><b>8.1.1</b> Klasa <code>Date</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="datumi.html"><a href="datumi.html#klase-posixct-i-posixlt"><i class="fa fa-check"></i><b>8.2</b> Klase <code>POSIXct</code> i <code>POSIXlt</code></a></li>
+<li class="chapter" data-level="8.3" data-path="datumi.html"><a href="datumi.html#paket-lubridate"><i class="fa fa-check"></i><b>8.3</b> Paket <code>lubridate</code></a></li>
+<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vježbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="nizovi.html"><a href="nizovi.html"><i class="fa fa-check"></i><b>9</b> Obrada znakovnih nizova</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="nizovi.html"><a href="nizovi.html#rad-sa-znakovnim-nizovima"><i class="fa fa-check"></i><b>9.1</b> Rad sa znakovnim nizovima</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="nizovi.html"><a href="nizovi.html#analiza-teksta-i-regularni-izrazi"><i class="fa fa-check"></i><b>9.1.1</b> Analiza teksta i regularni izrazi</a></li>
+<li class="chapter" data-level="9.1.2" data-path="nizovi.html"><a href="nizovi.html#paket-stringr"><i class="fa fa-check"></i><b>9.1.2</b> Paket <code>stringr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vježbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -510,7 +529,7 @@ div.csl-indent {
 <span id="cb274-4"><a href="cijev.html#cb274-4" tabindex="-1"></a><span class="fu">glimpse</span>(studenti)</span>
 <span id="cb274-5"><a href="cijev.html#cb274-5" tabindex="-1"></a><span class="fu">head</span>(studenti)</span></code></pre></div>
 <pre><code>## Rows: 27 Columns: 10
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (9): Prezime, Ime, Matematika 1, Fizika 1, Programiranje, Osnove elektro...
 ## dbl (1): JMBAG
@@ -1033,7 +1052,7 @@ Obavimo ovu funkciju nad našim podatkovnim okvirom.</li>
 <span id="cb315-2"><a href="cijev.html#cb315-2" tabindex="-1"></a></span>
 <span id="cb315-3"><a href="cijev.html#cb315-3" tabindex="-1"></a><span class="fu">summary</span>(iris1)</span></code></pre></div>
 <pre><code>## Rows: 50 Columns: 4
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl (4): Sepal.Length, Sepal.Width, Petal.Length, Petal.Width
 ## 
@@ -1146,11 +1165,6 @@ Obavimo ovu funkciju nad našim podatkovnim okvirom.</li>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Programirajmo u R-u</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.fer.unizg.hr/en/damir.pintar" property="cc:attributionName" rel="cc:attributionURL">Damir Pintar</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://ratnip.github.io/FER_OPJR/" rel="dct:source">https://ratnip.github.io/FER_OPJR/</a></p>
 
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div class="csl-entry">
-Bache, Stefan Milton, and Hadley Wickham. 2014. <em>Magrittr: A Forward-Pipe Operator for r</em>. <a href="https://CRAN.R-project.org/package=magrittr">https://CRAN.R-project.org/package=magrittr</a>.
-</div>
-</div>
 </div>
 </div>
 <h3>References</h3>
@@ -1164,8 +1178,8 @@ Bache, Stefan Milton, and Hadley Wickham. 2014. <em>Magrittr: A Forward-Pipe Ope
           </div>
         </div>
       </div>
-<a href="paketi.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="paketi.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datumi.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

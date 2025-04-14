@@ -62,3 +62,12 @@ uredni-podaci
 funkcije-pivot_longer-i-pivot_wider
 funkcije-separate-i-unite
 funkcije-drop_na-i-replace_na
+datumi
+rad-sa-datumima
+klasa-date
+klase-posixct-i-posixlt
+paket-lubridate
+nizovi
+rad-sa-znakovnim-nizovima
+analiza-teksta-i-regularni-izrazi
+paket-stringr
