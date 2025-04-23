@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2025-04-14" />
+<meta name="date" content="2025-04-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,7 +132,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -348,6 +348,22 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vježbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><i class="fa fa-check"></i><b>10</b> Prilagodba podatkovnih skupova uz paket <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#ogledni-podatkovni-skup-titanic"><i class="fa fa-check"></i><b>10.1</b> Ogledni podatkovni skup: <em>Titanic</em></a></li>
+<li class="chapter" data-level="10.2" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#stvaranje-podskupa-obzervacija-uz-filter-i-slice"><i class="fa fa-check"></i><b>10.2</b> Stvaranje podskupa obzervacija uz <code>filter</code> i <code>slice</code></a></li>
+<li class="chapter" data-level="10.3" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#stvaranje-podskupa-varijabli-uz-select"><i class="fa fa-check"></i><b>10.3</b> Stvaranje podskupa varijabli uz <code>select</code></a></li>
+<li class="chapter" data-level="10.4" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#stvaranje-novih-stupaca-uz-mutate"><i class="fa fa-check"></i><b>10.4</b> Stvaranje novih stupaca uz <code>mutate</code></a></li>
+<li class="chapter" data-level="10.5" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#ogledni-podatkovni-skup-houston-flights"><i class="fa fa-check"></i><b>10.5</b> Ogledni podatkovni skup: <em>Houston flights</em></a></li>
+<li class="chapter" data-level="10.6" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#grupiranje-i-agregacija-uz-group_by-i-summarise"><i class="fa fa-check"></i><b>10.6</b> Grupiranje i agregacija uz <code>group_by</code> i <code>summarise</code></a></li>
+<li class="chapter" data-level="10.7" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#spajanje-podatkovnih-okvira-uz-join-funkcije"><i class="fa fa-check"></i><b>10.7</b> Spajanje podatkovnih okvira uz join funkcije</a></li>
+<li class="chapter" data-level="10.8" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#integracija-sa-vanjskim-izvorima-podataka"><i class="fa fa-check"></i><b>10.8</b> Integracija sa vanjskim izvorima podataka</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredište-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
+<li class="chapter" data-level="10.8.2" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#rad-sa-relacijskim-bazama"><i class="fa fa-check"></i><b>10.8.2</b> Rad sa relacijskim bazama</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vježbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -368,14 +384,14 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Programirajmo u R-u</h1>
 <p class="author"><em>Damir Pintar</em></p>
-<p class="date"><em>2025-04-14</em></p>
+<p class="date"><em>2025-04-23</em></p>
 </div>
 <div id="udžbenik-za-predmet-uvod-u-znanost-o-podacima-cogsci-202425" class="section level1 unnumbered hasAnchor">
 <h1>(Udžbenik za predmet “Uvod u znanost o podacima”, CogSci, 2024/25)<a href="index.html#udžbenik-za-predmet-uvod-u-znanost-o-podacima-cogsci-202425" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
 <p><font color="red"> ** NAPOMENA: Za vrijeme odvijanja predmeta “Uvod u znanost o podacima” u tekućoj akademskoj godini provodi se revizija poglavlja udžbenika. Nakon što se materija odradi na predavanjima te završi ciklus predaje radnih bilježnica nova poglavlja će se dinamički dodavati u ovaj HTML dokument. Ukoliko vam je nužno potreban pristup cjelokupnim materijalima kontaktirajte autora udžbenika na <a href="mailto:damir.pintar@fer.hr" class="email">damir.pintar@fer.hr</a> ** </font></p>
 <hr />
-<p><img src="figures/proba.png" /><!-- --></p>
+<p><img src="figures/proba.png" width="800" /></p>
 <div id="predgovor" class="section level2 unnumbered hasAnchor">
 <h2>Predgovor<a href="index.html#predgovor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ovaj udžbenik nastao je iz interaktivnih lekcija korištenih na predmetu “Osnove statističkog programiranja” na Fakultetu elektrotehnike i računarstva Sveučilišta u Zagrebu. No teme koje se ovdje obrađuju nisu korisne samo studentima navedenog fakulteta - poznavanje jezika R dobro će doći kako u akademskom, tako i u poslovnom svijetu.</p>

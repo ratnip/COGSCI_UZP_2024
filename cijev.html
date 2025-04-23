@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2025-04-14" />
+<meta name="date" content="2025-04-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,7 +132,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -348,6 +348,22 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vježbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><i class="fa fa-check"></i><b>10</b> Prilagodba podatkovnih skupova uz paket <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#ogledni-podatkovni-skup-titanic"><i class="fa fa-check"></i><b>10.1</b> Ogledni podatkovni skup: <em>Titanic</em></a></li>
+<li class="chapter" data-level="10.2" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#stvaranje-podskupa-obzervacija-uz-filter-i-slice"><i class="fa fa-check"></i><b>10.2</b> Stvaranje podskupa obzervacija uz <code>filter</code> i <code>slice</code></a></li>
+<li class="chapter" data-level="10.3" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#stvaranje-podskupa-varijabli-uz-select"><i class="fa fa-check"></i><b>10.3</b> Stvaranje podskupa varijabli uz <code>select</code></a></li>
+<li class="chapter" data-level="10.4" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#stvaranje-novih-stupaca-uz-mutate"><i class="fa fa-check"></i><b>10.4</b> Stvaranje novih stupaca uz <code>mutate</code></a></li>
+<li class="chapter" data-level="10.5" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#ogledni-podatkovni-skup-houston-flights"><i class="fa fa-check"></i><b>10.5</b> Ogledni podatkovni skup: <em>Houston flights</em></a></li>
+<li class="chapter" data-level="10.6" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#grupiranje-i-agregacija-uz-group_by-i-summarise"><i class="fa fa-check"></i><b>10.6</b> Grupiranje i agregacija uz <code>group_by</code> i <code>summarise</code></a></li>
+<li class="chapter" data-level="10.7" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#spajanje-podatkovnih-okvira-uz-join-funkcije"><i class="fa fa-check"></i><b>10.7</b> Spajanje podatkovnih okvira uz join funkcije</a></li>
+<li class="chapter" data-level="10.8" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#integracija-sa-vanjskim-izvorima-podataka"><i class="fa fa-check"></i><b>10.8</b> Integracija sa vanjskim izvorima podataka</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredište-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
+<li class="chapter" data-level="10.8.2" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#rad-sa-relacijskim-bazama"><i class="fa fa-check"></i><b>10.8.2</b> Rad sa relacijskim bazama</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vježbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -529,7 +545,7 @@ div.csl-indent {
 <span id="cb274-4"><a href="cijev.html#cb274-4" tabindex="-1"></a><span class="fu">glimpse</span>(studenti)</span>
 <span id="cb274-5"><a href="cijev.html#cb274-5" tabindex="-1"></a><span class="fu">head</span>(studenti)</span></code></pre></div>
 <pre><code>## Rows: 27 Columns: 10
-## ── Column specification ──────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (9): Prezime, Ime, Matematika 1, Fizika 1, Programiranje, Osnove elektro...
 ## dbl (1): JMBAG
@@ -1052,7 +1068,7 @@ Obavimo ovu funkciju nad našim podatkovnim okvirom.</li>
 <span id="cb315-2"><a href="cijev.html#cb315-2" tabindex="-1"></a></span>
 <span id="cb315-3"><a href="cijev.html#cb315-3" tabindex="-1"></a><span class="fu">summary</span>(iris1)</span></code></pre></div>
 <pre><code>## Rows: 50 Columns: 4
-## ── Column specification ──────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl (4): Sepal.Length, Sepal.Width, Petal.Length, Petal.Width
 ## 
