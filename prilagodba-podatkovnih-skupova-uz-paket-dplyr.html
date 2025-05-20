@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Prilagodba podatkovnih skupova uz paket dplyr | Programirajmo u R-u</title>
   <meta name="description" content="Udžbenik za predmet ‘Osnove statističkog programiranja’ na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Prilagodba podatkovnih skupova uz paket dplyr | Programirajmo u R-u" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2025-05-18" />
+<meta name="date" content="2025-05-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -438,7 +438,7 @@ div.csl-indent {
 <span id="cb394-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb394-3" tabindex="-1"></a><span class="fu">glimpse</span>(titanic)</span>
 <span id="cb394-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb394-4" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
 <pre><code>## Rows: 891 Columns: 12
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (5): Name, Sex, Ticket, Cabin, Embarked
 ## dbl (7): PassengerId, Survived, Pclass, Age, SibSp, Parch, Fare
@@ -1218,8 +1218,8 @@ div.csl-indent {
 <span id="cb460-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb460-10" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">MeanArrDelay =</span> <span class="fu">round</span>(<span class="fu">mean</span>(ArrDelay, </span>
 <span id="cb460-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb460-11" tabindex="-1"></a>         <span class="at">na.rm =</span> T) , <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb460-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb460-12" tabindex="-1"></a>         <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(MeanArrDelay))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;DayOfWeek&#39;. You can override using the
-## `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;DayOfWeek&#39;. You can
+## override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 21 × 3
 ##    DayOfWeek Dest  MeanArrDelay
 ##        &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt;
