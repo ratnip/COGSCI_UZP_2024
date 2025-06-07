@@ -105,3 +105,9 @@ binomna-razdioba
 normalna-razdioba
 procjena-funkcije-gustoće-razdiobe-i-kvantil-kvantil-graf
 monte-carlo-simulacije
+regresija
+strojno-učenje
+jednostavna-linearna-regresija
+funkcija-lm
+linearna-regresija-i-kategorijske-varijable
+višestruka-multipla-linearna-regresija
