@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Rad sa vremenskim podacima | Programirajmo u R-u</title>
+  <meta name="description" content="Udžbenik za predmet ‘Uvod u znanost o podacima’ studija Primjenjene kognitivne znanosti na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Rad sa vremenskim podacima | Programirajmo u R-u" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Udžbenik za predmet ‘Uvod u znanost o podacima’ studija Primjenjene kognitivne znanosti na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Rad sa vremenskim podacima | Programirajmo u R-u" />
+  
+  <meta name="twitter:description" content="Udžbenik za predmet ‘Uvod u znanost o podacima’ studija Primjenjene kognitivne znanosti na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
+  
+
+<meta name="author" content="Damir Pintar" />
+
+
+<meta name="date" content="2026-04-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="cijev.html"/>
+<link rel="next" href="nizovi.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+.showopt {
+  background-color: #004c93;
+  color: #FFFFFF; 
+  width: 140px;
+  height: 4	0px;
+  text-align: center;
+  vertical-align: middle !important;
+  float: right;
+  font-family: sans-serif;
+  font-size:10 pt;
+  border-radius: 8px;
+}
+
+.showopt:hover {
+    background-color: #dfe4f2;
+    color: #004c93;
+}
+
+pre.plot {
+  background-color: white !important;
+}
+</style>
+
+<script>
+ $(document).ready(function() {
+
+  $chunks = $('.fold');
+
+  $chunks.each(function () {
+
+    // add button to source code chunks
+    if ( $(this).hasClass('s') ) {
+      $('pre.r', this).prepend("<div class=\"showopt\">Prikaži rješenje</div><br style=\"line-height:22px;\"/>");
+      $('pre.r', this).children('code').attr('class', 'folded');
+    }
+
+    // add button to output chunks
+    if ( $(this).hasClass('o') ) {
+      $('pre:not(.r)', this).has('code').prepend("<div class=\"showopt\">Prikaži ispis</div><br style=\"line-height:22px;\"/>");
+      $('pre:not(.r)', this).children('code:not(r)').addClass('folded');
+
+      // add button to plots
+      $(this).find('img').wrap('<pre class=\"plot\"></pre>');
+      $('pre.plot', this).prepend("<div class=\"showopt\">Prikaži sliku</div><br style=\"line-height:22px;\"/>");
+      $('pre.plot', this).children('img').addClass('folded');
+
+    }
+  });
+
+  // hide all chunks when document is loaded
+  $('.folded').css('display', 'none')
+
+  // function to toggle the visibility
+  $('.showopt').click(function() {
+    var label = $(this).html();
+    if (label.indexOf("Prikaži") >= 0) {
+      $(this).html(label.replace("Prikaži", "Sakrij"));
+    } else {
+      $(this).html(label.replace("Sakrij", "Prikaži"));
+    }
+    $(this).siblings('code, img').slideToggle('fast', 'swing');
+  });
+});
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>(Udžbenik za predmet “Uvod u znanost o podacima” studija CogSci FER)</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predgovor"><i class="fa fa-check"></i>Predgovor</a></li>
+</ul></li>
+<li class="part"><span><b>I Osnovni elementi jezika R</b></span></li>
+<li class="chapter" data-level="1" data-path="uvod.html"><a href="uvod.html"><i class="fa fa-check"></i><b>1</b> Uvod</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="uvod.html"><a href="uvod.html#%C5%A1to-je-programski-jezik-r"><i class="fa fa-check"></i><b>1.1</b> Što je programski jezik R?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="uvod.html"><a href="uvod.html#op%C4%87enito-o-r-u"><i class="fa fa-check"></i><b>1.1.1</b> Općenito o R-u</a></li>
+<li class="chapter" data-level="1.1.2" data-path="uvod.html"><a href="uvod.html#alternative-jeziku-r"><i class="fa fa-check"></i><b>1.1.2</b> Alternative jeziku R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="uvod.html"><a href="uvod.html#instalacija-programske-podr%C5%A1ke"><i class="fa fa-check"></i><b>1.2</b> Instalacija programske podrške</a></li>
+<li class="chapter" data-level="1.3" data-path="uvod.html"><a href="uvod.html#pregled-razvojnog-su%C4%8Delja-rstudio"><i class="fa fa-check"></i><b>1.3</b> Pregled razvojnog sučelja <em>RStudio</em></a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="uvod.html"><a href="uvod.html#interaktivna-konzola"><i class="fa fa-check"></i><b>1.3.1</b> Interaktivna konzola</a></li>
+<li class="chapter" data-level="1.3.2" data-path="uvod.html"><a href="uvod.html#pisanje-r-skripti"><i class="fa fa-check"></i><b>1.3.2</b> Pisanje R skripti</a></li>
+<li class="chapter" data-level="1.3.3" data-path="uvod.html"><a href="uvod.html#instalacija-dodatnih-paketa"><i class="fa fa-check"></i><b>1.3.3</b> Instalacija dodatnih paketa</a></li>
+<li class="chapter" data-level="1.3.4" data-path="uvod.html"><a href="uvod.html#r-markdown"><i class="fa fa-check"></i><b>1.3.4</b> <em>R Markdown</em></a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="uvod.html"><a href="uvod.html#organizacija-procesa-podatkovne-analize-uz-r-i-rstudio"><i class="fa fa-check"></i><b>1.4</b> Organizacija procesa podatkovne analize uz R i RStudio</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="uvod.html"><a href="uvod.html#po%C5%BEeljne-karakteristike-procesa-analize-podataka"><i class="fa fa-check"></i><b>1.4.1</b> Poželjne karakteristike procesa analize podataka</a></li>
+<li class="chapter" data-level="1.4.2" data-path="uvod.html"><a href="uvod.html#organizacija-mapa-za-potrebe-analize-podataka"><i class="fa fa-check"></i><b>1.4.2</b> Organizacija mapa za potrebe analize podataka</a></li>
+<li class="chapter" data-level="1.4.3" data-path="uvod.html"><a href="uvod.html#pojam-projekta"><i class="fa fa-check"></i><b>1.4.3</b> Pojam projekta</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="uvod.html"><a href="uvod.html#kako-koristiti-ovaj-ud%C5%BEbenik"><i class="fa fa-check"></i><b>1.5</b> Kako koristiti ovaj udžbenik?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tipovi.html"><a href="tipovi.html"><i class="fa fa-check"></i><b>2</b> Osnovni tipovi podataka</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tipovi.html"><a href="tipovi.html#osnovni-tipovi-podataka"><i class="fa fa-check"></i><b>2.1</b> Osnovni tipovi podataka</a></li>
+<li class="chapter" data-level="2.2" data-path="tipovi.html"><a href="tipovi.html#operatori"><i class="fa fa-check"></i><b>2.2</b> Operatori</a></li>
+<li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostaju%C4%87e-nepoznate-i-nemogu%C4%87e-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
+<li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vje%C5%BEbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="vektori.html"><a href="vektori.html"><i class="fa fa-check"></i><b>3</b> Vektori, matrice i liste</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="vektori.html"><a href="vektori.html#vektori-1"><i class="fa fa-check"></i><b>3.1</b> Vektori</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="vektori.html"><a href="vektori.html#stvaranje-vektora"><i class="fa fa-check"></i><b>3.1.1</b> Stvaranje vektora</a></li>
+<li class="chapter" data-level="3.1.2" data-path="vektori.html"><a href="vektori.html#operator"><i class="fa fa-check"></i><b>3.1.2</b> Operator <code>[</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="vektori.html"><a href="vektori.html#principi-vektorizacije-i-recikliranja"><i class="fa fa-check"></i><b>3.1.3</b> Principi vektorizacije i recikliranja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="vektori.html"><a href="vektori.html#indeksni-vektori"><i class="fa fa-check"></i><b>3.2</b> Indeksni vektori</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="vektori.html"><a href="vektori.html#lokacijsko-referenciranje"><i class="fa fa-check"></i><b>3.2.1</b> Lokacijsko referenciranje</a></li>
+<li class="chapter" data-level="3.2.2" data-path="vektori.html"><a href="vektori.html#uvjetno-referenciranje"><i class="fa fa-check"></i><b>3.2.2</b> Uvjetno referenciranje</a></li>
+<li class="chapter" data-level="3.2.3" data-path="vektori.html"><a href="vektori.html#imensko-referenciranje"><i class="fa fa-check"></i><b>3.2.3</b> Imensko referenciranje</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="vektori.html"><a href="vektori.html#matrice-i-polja"><i class="fa fa-check"></i><b>3.3</b> Matrice i polja</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="vektori.html"><a href="vektori.html#rezanje-matrica"><i class="fa fa-check"></i><b>3.3.1</b> Rezanje matrica</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vje%C5%BEbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="okviri.html"><a href="okviri.html"><i class="fa fa-check"></i><b>4</b> Liste, podatkovni okviri i faktori</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="okviri.html"><a href="okviri.html#liste"><i class="fa fa-check"></i><b>4.1</b> Liste</a></li>
+<li class="chapter" data-level="4.2" data-path="okviri.html"><a href="okviri.html#podatkovni-okviri"><i class="fa fa-check"></i><b>4.2</b> Podatkovni okviri</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="okviri.html"><a href="okviri.html#odabir-redaka-i-stupaca-podatkovnih-okvira"><i class="fa fa-check"></i><b>4.2.1</b> Odabir redaka i stupaca podatkovnih okvira</a></li>
+<li class="chapter" data-level="4.2.2" data-path="okviri.html"><a href="okviri.html#dodavanje-i-brisanje-redaka-i-stupaca"><i class="fa fa-check"></i><b>4.2.2</b> Dodavanje i brisanje redaka i stupaca</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="okviri.html"><a href="okviri.html#faktori"><i class="fa fa-check"></i><b>4.3</b> Faktori</a></li>
+<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vje%C5%BEbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="uvjet.html"><a href="uvjet.html"><i class="fa fa-check"></i><b>5</b> Uvjetne naredbe i petlje</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="uvjet.html"><a href="uvjet.html#naredbe-kontrole-toka"><i class="fa fa-check"></i><b>5.1</b> Naredbe kontrole toka</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="uvjet.html"><a href="uvjet.html#uvjetno-izvo%C4%91enje-naredbi"><i class="fa fa-check"></i><b>5.1.1</b> Uvjetno izvođenje naredbi</a></li>
+<li class="chapter" data-level="5.1.2" data-path="uvjet.html"><a href="uvjet.html#programske-petlje"><i class="fa fa-check"></i><b>5.1.2</b> Programske petlje</a></li>
+<li class="chapter" data-level="5.1.3" data-path="uvjet.html"><a href="uvjet.html#petlja-repeat"><i class="fa fa-check"></i><b>5.1.3</b> Petlja <code>repeat</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="uvjet.html"><a href="uvjet.html#petlja-while"><i class="fa fa-check"></i><b>5.1.4</b> Petlja <code>while</code></a></li>
+<li class="chapter" data-level="5.1.5" data-path="uvjet.html"><a href="uvjet.html#petlja-for"><i class="fa fa-check"></i><b>5.1.5</b> Petlja <code>for</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="uvjet.html"><a href="uvjet.html#zadaci-za-vje%C5%BEbu-3"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="paketi.html"><a href="paketi.html"><i class="fa fa-check"></i><b>6</b> Paketi i funkcije</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="paketi.html"><a href="paketi.html#rad-s-paketima"><i class="fa fa-check"></i><b>6.1</b> Rad s paketima</a></li>
+<li class="chapter" data-level="6.2" data-path="paketi.html"><a href="paketi.html#ugra%C4%91ene-funkcije"><i class="fa fa-check"></i><b>6.2</b> Ugrađene funkcije</a></li>
+<li class="chapter" data-level="6.3" data-path="paketi.html"><a href="paketi.html#kako-definirati-funkciju"><i class="fa fa-check"></i><b>6.3</b> Kako definirati funkciju</a></li>
+<li class="chapter" data-level="6.4" data-path="paketi.html"><a href="paketi.html#%C5%A1to-su-apply-funkcije"><i class="fa fa-check"></i><b>6.4</b> Što su <code>apply</code> funkcije?</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="paketi.html"><a href="paketi.html#funkcija-apply"><i class="fa fa-check"></i><b>6.4.1</b> Funkcija <code>apply</code></a></li>
+<li class="chapter" data-level="6.4.2" data-path="paketi.html"><a href="paketi.html#funkcije-lapply-i-sapply"><i class="fa fa-check"></i><b>6.4.2</b> Funkcije <code>lapply</code> i <code>sapply</code></a></li>
+<li class="chapter" data-level="6.4.3" data-path="paketi.html"><a href="paketi.html#ostale-funkcije-iz-porodice-apply-i-dostupne-alternative"><i class="fa fa-check"></i><b>6.4.3</b> Ostale funkcije iz porodice <code>apply</code> i dostupne alternative</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="paketi.html"><a href="paketi.html#zadaci-za-vje%C5%BEbu-4"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="part"><span><b>II Upravljanje podacima i vizualizacije</b></span></li>
+<li class="chapter" data-level="7" data-path="cijev.html"><a href="cijev.html"><i class="fa fa-check"></i><b>7</b> Koncept urednih podataka</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cijev.html"><a href="cijev.html#operator-cjevovoda"><i class="fa fa-check"></i><b>7.1</b> Operator cjevovoda</a></li>
+<li class="chapter" data-level="7.2" data-path="cijev.html"><a href="cijev.html#uredni-podaci"><i class="fa fa-check"></i><b>7.2</b> Uredni podaci</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="cijev.html"><a href="cijev.html#funkcije-pivot_longer-i-pivot_wider"><i class="fa fa-check"></i><b>7.2.1</b> Funkcije <code>pivot_longer</code> i <code>pivot_wider</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="cijev.html"><a href="cijev.html#funkcije-separate-i-unite"><i class="fa fa-check"></i><b>7.2.2</b> Funkcije <code>separate</code> i <code>unite</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="cijev.html"><a href="cijev.html#funkcije-drop_na-i-replace_na"><i class="fa fa-check"></i><b>7.2.3</b> Funkcije <code>drop_NA</code> i <code>replace_NA</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vje%C5%BEbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="datumi.html"><a href="datumi.html"><i class="fa fa-check"></i><b>8</b> Rad sa vremenskim podacima</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="datumi.html"><a href="datumi.html#rad-sa-vremenskim-tipovima-podataka"><i class="fa fa-check"></i><b>8.1</b> Rad sa vremenskim tipovima podataka</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="datumi.html"><a href="datumi.html#klasa-date"><i class="fa fa-check"></i><b>8.1.1</b> Klasa <code>Date</code></a></li>
+<li class="chapter" data-level="8.1.2" data-path="datumi.html"><a href="datumi.html#formatska-specifikacija"><i class="fa fa-check"></i><b>8.1.2</b> Formatska specifikacija</a></li>
+<li class="chapter" data-level="8.1.3" data-path="datumi.html"><a href="datumi.html#klasa-posixct"><i class="fa fa-check"></i><b>8.1.3</b> Klasa <code>POSIXct</code></a></li>
+<li class="chapter" data-level="8.1.4" data-path="datumi.html"><a href="datumi.html#formatska-specifikacija-i-vremenske-zone"><i class="fa fa-check"></i><b>8.1.4</b> Formatska specifikacija i vremenske zone</a></li>
+<li class="chapter" data-level="8.1.5" data-path="datumi.html"><a href="datumi.html#aritmetika-sa-vremenskim-tipovima-podataka"><i class="fa fa-check"></i><b>8.1.5</b> Aritmetika sa vremenskim tipovima podataka</a></li>
+<li class="chapter" data-level="8.1.6" data-path="datumi.html"><a href="datumi.html#klasa-i-funkcija-difftime"><i class="fa fa-check"></i><b>8.1.6</b> Klasa i funkcija <code>difftime</code></a></li>
+<li class="chapter" data-level="8.1.7" data-path="datumi.html"><a href="datumi.html#funkcija-seq-i-vremenski-tipovi-podataka"><i class="fa fa-check"></i><b>8.1.7</b> Funkcija <code>seq</code> i vremenski tipovi podataka</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="datumi.html"><a href="datumi.html#paket-lubridate"><i class="fa fa-check"></i><b>8.2</b> Paket <code>lubridate</code></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="datumi.html"><a href="datumi.html#parsiranje-datuma-i-vremenskih-oznaka"><i class="fa fa-check"></i><b>8.2.1</b> Parsiranje datuma i vremenskih oznaka</a></li>
+<li class="chapter" data-level="8.2.2" data-path="datumi.html"><a href="datumi.html#paket-lubridate-i-vremenske-oznake"><i class="fa fa-check"></i><b>8.2.2</b> Paket <code>lubridate</code> i vremenske oznake</a></li>
+<li class="chapter" data-level="8.2.3" data-path="datumi.html"><a href="datumi.html#izvla%C4%8Denje-i-postavljanje-segmenata-datuma-i-vremena"><i class="fa fa-check"></i><b>8.2.3</b> Izvlačenje i postavljanje segmenata datuma i vremena</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="datumi.html"><a href="datumi.html#trenutci-intervali-trajanja-i-periodi"><i class="fa fa-check"></i><b>8.3</b> Trenutci, intervali, trajanja i periodi</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="datumi.html"><a href="datumi.html#intervali"><i class="fa fa-check"></i><b>8.3.1</b> Intervali</a></li>
+<li class="chapter" data-level="8.3.2" data-path="datumi.html"><a href="datumi.html#period"><i class="fa fa-check"></i><b>8.3.2</b> Period</a></li>
+<li class="chapter" data-level="8.3.3" data-path="datumi.html"><a href="datumi.html#trajanje"><i class="fa fa-check"></i><b>8.3.3</b> Trajanje</a></li>
+<li class="chapter" data-level="8.3.4" data-path="datumi.html"><a href="datumi.html#pomo%C4%87ne-funkcije-za-rad-sa-vremenskim-intervalima"><i class="fa fa-check"></i><b>8.3.4</b> Pomoćne funkcije za rad sa vremenskim intervalima</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="datumi.html"><a href="datumi.html#dodatna-literatura"><i class="fa fa-check"></i><b>8.4</b> Dodatna literatura</a></li>
+<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vje%C5%BEbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="nizovi.html"><a href="nizovi.html"><i class="fa fa-check"></i><b>9</b> Obrada znakovnih nizova</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="nizovi.html"><a href="nizovi.html#rad-sa-znakovnim-nizovima"><i class="fa fa-check"></i><b>9.1</b> Rad sa znakovnim nizovima</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="nizovi.html"><a href="nizovi.html#analiza-teksta-i-regularni-izrazi"><i class="fa fa-check"></i><b>9.1.1</b> Analiza teksta i regularni izrazi</a></li>
+<li class="chapter" data-level="9.1.2" data-path="nizovi.html"><a href="nizovi.html#paket-stringr"><i class="fa fa-check"></i><b>9.1.2</b> Paket <code>stringr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vje%C5%BEbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programirajmo u R-u</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="datumi" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Rad sa vremenskim podacima<a href="datumi.html#datumi" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<hr />
+<div id="rad-sa-vremenskim-tipovima-podataka" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Rad sa vremenskim tipovima podataka<a href="datumi.html#rad-sa-vremenskim-tipovima-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Upravljanje datumima i vremenskim oznakama često je izazovno jer moramo voditi računa o više stvari odjednom:</p>
+<ul>
+<li>različitim oblicima zapisa datuma i vremena</li>
+<li>različitim internim reprezentacijama</li>
+<li>vremenskim zonama</li>
+<li>razlici između matematičkog i kalendarskog poimanja vremena</li>
+</ul>
+<p>Jedan od često korištenih standarda je tzv. <em>unix vrijeme</em> odnosno <em>POSIX vrijeme</em>, gdje se vrijeme bilježi kao broj sekundi protekao od ponoći 1. siječnja 1970. u vremenskoj zoni UTC (<em>Coordinated Universal Time</em>).</p>
+<p>U jeziku R za ovo poglavlje najvažnije su dvije klase:</p>
+<ul>
+<li><code>Date</code> za prikaz datuma</li>
+<li><code>POSIXct</code> za prikaz vremenske oznake</li>
+</ul>
+<p>Za praktičniji rad koristit ćemo i paket <code>lubridate</code>.</p>
+<hr />
+<div id="klasa-date" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Klasa <code>Date</code><a href="datumi.html#klasa-date" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Klasu <code>Date</code> koristimo kada nas zanima datum, ali ne i točno vrijeme neke opservacije ili poslovnog događaja. Ova klasa nema poseban konstruktor, nego objekte ove klase najčešće stvaramo pomoću funkcija:</p>
+<ul>
+<li><code>Sys.Date()</code> koja vraća današnji datum</li>
+<li><code>as.Date()</code> kojoj prosljeđujemo znakovni niz koji predstavlja datum</li>
+</ul>
+<p>Funkcija <code>as.Date()</code> po <em>default</em>-u prihvaća datume oblika <code>%Y-%m-%d</code>, gdje <code>%Y</code> predstavlja četveroznamenkastu godinu, a <code>%m</code> i <code>%d</code> dvoznamenkasti mjesec i dan.</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="datumi.html#cb326-1" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span>
+<span id="cb326-2"><a href="datumi.html#cb326-2" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2026-04-01&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2026-04-02&quot;
+## [1] &quot;2026-04-01&quot;</code></pre>
+<hr />
+</div>
+<div id="formatska-specifikacija" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Formatska specifikacija<a href="datumi.html#formatska-specifikacija" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ako želimo interpretirati datum zapisan u nekom drugom obliku, funkciji <code>as.Date()</code> moramo dodati parametar <code>format</code> koji opisuje zapis kojeg koristimo. Na primjer, za zapis <code>28/10/1978</code> vrijednost parametra <code>format</code> treba biti <code>%d/%m/%Y</code>.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="datumi.html#cb328-1" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;28/10/1978&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;1978-10-28&quot;</code></pre>
+<p>Sve moguće formatske specifikacije možemo pogledati uz pomoć naredbe <code>?strptime</code>.</p>
+<hr />
+</div>
+<div id="klasa-posixct" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Klasa <code>POSIXct</code><a href="datumi.html#klasa-posixct" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Klasa <code>POSIXct</code> nam je pogodna kada nije dovoljno pohraniti samo datum, nego moramo znati i točno vrijeme neke opservacije ili poslovnog događaja. Objekte ove klase najčešće stvaramo pomoću funkcija:</p>
+<ul>
+<li><code>Sys.time()</code> koja vraća trenutnu vremensku oznaku</li>
+<li><code>as.POSIXct()</code> kojoj kao parametar prosljeđujemo znakovni niz koji predstavlja datum i vrijeme</li>
+</ul>
+<p>Funkcija <code>as.POSIXct()</code> najčešće očekuje vremensku oznaku oblika <code>%Y-%m-%d %H:%M:%S</code>, gdje <code>%H</code>, <code>%M</code> i <code>%S</code> predstavljaju sate, minute i sekunde u 24-satnom obliku zapisa.</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="datumi.html#cb330-1" tabindex="-1"></a><span class="fu">Sys.time</span>()</span>
+<span id="cb330-2"><a href="datumi.html#cb330-2" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2026-04-01 14:05:12&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2026-04-02 18:53:29 CEST&quot;
+## [1] &quot;2026-04-01 14:05:12 CEST&quot;</code></pre>
+<hr />
+</div>
+<div id="formatska-specifikacija-i-vremenske-zone" class="section level3 hasAnchor" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Formatska specifikacija i vremenske zone<a href="datumi.html#formatska-specifikacija-i-vremenske-zone" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kao i kod klase <code>Date</code>, za parsiranje drugačijih oblika vremenskih oznaka možemo koristiti parametar <code>format</code>.</p>
+<p>Kod vremenskih oznaka važna je i vremenska zona. Funkcije poput <code>Sys.time()</code> i <code>as.POSIXct()</code> po <em>default</em>-u se oslanjaju na podatke operativnog sustava. Ako želimo biti eksplicitni, funkciji <code>as.POSIXct()</code> možemo dodati i parametar <code>tz</code>.</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="datumi.html#cb332-1" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2026-04-01 14:05:12&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;Europe/Zagreb&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2026-04-01 14:05:12 CEST&quot;</code></pre>
+<p>Imena vremenskih zona su standardizirana (tzv. Olsonove vremenske zone), a u R-u ih možemo pregledati pomoću funkcije <code>OlsonNames()</code>. Trenutnu vremensku zonu sustava možemo ispisati pomoću funkcije <code>Sys.timezone()</code>.</p>
+<hr />
+<p><strong>Zadatak 8.1 - klase <code>Date</code> i <code>POSIXct</code></strong></p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="datumi.html#cb334-1" tabindex="-1"></a><span class="co"># ispišite današnji datum</span></span>
+<span id="cb334-2"><a href="datumi.html#cb334-2" tabindex="-1"></a></span>
+<span id="cb334-3"><a href="datumi.html#cb334-3" tabindex="-1"></a><span class="co"># ispišite trenutnu vremensku oznaku</span></span>
+<span id="cb334-4"><a href="datumi.html#cb334-4" tabindex="-1"></a></span>
+<span id="cb334-5"><a href="datumi.html#cb334-5" tabindex="-1"></a><span class="co"># pretvorite sljedeće znakovne nizove u objekt tipa `Date` i ispišite rezultat na zaslon:</span></span>
+<span id="cb334-6"><a href="datumi.html#cb334-6" tabindex="-1"></a><span class="co"># &quot;1986-12-27&quot;</span></span>
+<span id="cb334-7"><a href="datumi.html#cb334-7" tabindex="-1"></a><span class="co"># &quot;2016-31-05&quot;</span></span>
+<span id="cb334-8"><a href="datumi.html#cb334-8" tabindex="-1"></a><span class="co"># &quot;17. 9. 2015.&quot;</span></span>
+<span id="cb334-9"><a href="datumi.html#cb334-9" tabindex="-1"></a></span>
+<span id="cb334-10"><a href="datumi.html#cb334-10" tabindex="-1"></a><span class="co"># pretvorite sljedeće znakovne nizove u vremenske oznake i ispišite ih na zaslon:</span></span>
+<span id="cb334-11"><a href="datumi.html#cb334-11" tabindex="-1"></a><span class="co"># &quot;2015-10-28 15:30:42&quot;</span></span>
+<span id="cb334-12"><a href="datumi.html#cb334-12" tabindex="-1"></a><span class="co"># &quot;01-12-2001 14:30&quot;   &lt;-- oznaka očitana u New York-u, SAD, vremenska zona EST</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="datumi.html#cb335-1" tabindex="-1"></a><span class="co"># ispišite današnji datum</span></span>
+<span id="cb335-2"><a href="datumi.html#cb335-2" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span>
+<span id="cb335-3"><a href="datumi.html#cb335-3" tabindex="-1"></a></span>
+<span id="cb335-4"><a href="datumi.html#cb335-4" tabindex="-1"></a><span class="co"># ispišite trenutnu vremensku oznaku</span></span>
+<span id="cb335-5"><a href="datumi.html#cb335-5" tabindex="-1"></a><span class="fu">Sys.time</span>()</span>
+<span id="cb335-6"><a href="datumi.html#cb335-6" tabindex="-1"></a></span>
+<span id="cb335-7"><a href="datumi.html#cb335-7" tabindex="-1"></a><span class="co"># pretvorite sljedeće znakovne nizove u objekt tipa `Date` i ispišite rezultat na zaslon:</span></span>
+<span id="cb335-8"><a href="datumi.html#cb335-8" tabindex="-1"></a><span class="co"># &quot;1986-12-27&quot;</span></span>
+<span id="cb335-9"><a href="datumi.html#cb335-9" tabindex="-1"></a><span class="co"># &quot;2016-31-05&quot;</span></span>
+<span id="cb335-10"><a href="datumi.html#cb335-10" tabindex="-1"></a><span class="co"># &quot;17. 9. 2015.&quot;</span></span>
+<span id="cb335-11"><a href="datumi.html#cb335-11" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;1986-12-27&quot;</span>)</span>
+<span id="cb335-12"><a href="datumi.html#cb335-12" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2016-31-05&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%Y-%d-%m&quot;</span>)</span>
+<span id="cb335-13"><a href="datumi.html#cb335-13" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;17. 9. 2015.&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d. %m. %Y.&quot;</span>)</span>
+<span id="cb335-14"><a href="datumi.html#cb335-14" tabindex="-1"></a></span>
+<span id="cb335-15"><a href="datumi.html#cb335-15" tabindex="-1"></a><span class="co"># pretvorite sljedeće znakovne nizove u vremenske oznake i ispišite ih na zaslon:</span></span>
+<span id="cb335-16"><a href="datumi.html#cb335-16" tabindex="-1"></a><span class="co"># &quot;2015-10-28 15:30:42&quot;</span></span>
+<span id="cb335-17"><a href="datumi.html#cb335-17" tabindex="-1"></a><span class="co"># &quot;01-12-2001 14:30&quot;   &lt;-- oznaka očitana u New York-u, SAD, vremenska zona EST</span></span>
+<span id="cb335-18"><a href="datumi.html#cb335-18" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2015-10-28 15:30:42&quot;</span>)</span>
+<span id="cb335-19"><a href="datumi.html#cb335-19" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;01-12-2001 14:30&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;EST&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d-%m-%Y %H:%M&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2026-04-02&quot;
+## [1] &quot;2026-04-02 18:53:29 CEST&quot;
+## [1] &quot;1986-12-27&quot;
+## [1] &quot;2016-05-31&quot;
+## [1] &quot;2015-09-17&quot;
+## [1] &quot;2015-10-28 15:30:42 CET&quot;
+## [1] &quot;2001-12-01 14:30:00 EST&quot;</code></pre>
+</div>
+<hr />
+</div>
+<div id="aritmetika-sa-vremenskim-tipovima-podataka" class="section level3 hasAnchor" number="8.1.5">
+<h3><span class="header-section-number">8.1.5</span> Aritmetika sa vremenskim tipovima podataka<a href="datumi.html#aritmetika-sa-vremenskim-tipovima-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Velika prednost vremenskih tipova podataka je to što računalo “zna” pravila rada s datumima i vremenom. Zbog toga su podržane i osnovne aritmetičke operacije:</p>
+<ul>
+<li>zbrajanje i oduzimanje datuma te cijelog broja</li>
+<li>zbrajanje i oduzimanje vremenske oznake te cijelog broja</li>
+<li>oduzimanje dva datuma ili dvije vremenske oznake</li>
+</ul>
+<p>Kod datuma se cijeli broj interpretira kao broj dana, a kod vremenskih oznaka kao broj sekundi.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="datumi.html#cb337-1" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> <span class="dv">100</span></span>
+<span id="cb337-2"><a href="datumi.html#cb337-2" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2026-10-01&quot;</span>) <span class="sc">-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2025-10-01&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2026-04-02 18:51:49 CEST&quot;
+## Time difference of 365 days</code></pre>
+<hr />
+<p><strong>Zadatak 8.2 - aritmetika s datumima</strong></p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="datumi.html#cb339-1" tabindex="-1"></a><span class="co"># ispišite koji je datum bio 1000 dana prije današnjeg datuma</span></span>
+<span id="cb339-2"><a href="datumi.html#cb339-2" tabindex="-1"></a></span>
+<span id="cb339-3"><a href="datumi.html#cb339-3" tabindex="-1"></a><span class="co"># dodajte jedan dan datumima 28.2.2015. i 28.2.2016. i ispišite rezultat</span></span>
+<span id="cb339-4"><a href="datumi.html#cb339-4" tabindex="-1"></a></span>
+<span id="cb339-5"><a href="datumi.html#cb339-5" tabindex="-1"></a><span class="co"># ispišite koliko je dana prošlo od 1.1.2000. do danas</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="datumi.html#cb340-1" tabindex="-1"></a><span class="co"># ispišite koji je datum bio 1000 dana prije današnjeg datuma</span></span>
+<span id="cb340-2"><a href="datumi.html#cb340-2" tabindex="-1"></a><span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">1000</span></span>
+<span id="cb340-3"><a href="datumi.html#cb340-3" tabindex="-1"></a></span>
+<span id="cb340-4"><a href="datumi.html#cb340-4" tabindex="-1"></a><span class="co"># dodajte jedan dan datumima 28.2.2015. i 28.2.2016. i ispišite rezultat</span></span>
+<span id="cb340-5"><a href="datumi.html#cb340-5" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2015-02-28&quot;</span>) <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb340-6"><a href="datumi.html#cb340-6" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2016-02-28&quot;</span>) <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb340-7"><a href="datumi.html#cb340-7" tabindex="-1"></a></span>
+<span id="cb340-8"><a href="datumi.html#cb340-8" tabindex="-1"></a><span class="co"># ispišite koliko je dana prošlo od 1.1.2000. do danas</span></span>
+<span id="cb340-9"><a href="datumi.html#cb340-9" tabindex="-1"></a><span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2000-01-01&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2023-07-07&quot;
+## [1] &quot;2015-03-01&quot;
+## [1] &quot;2016-02-29&quot;
+## Time difference of 9588 days</code></pre>
+</div>
+<hr />
+<p><strong>Zadatak 8.3 - aritmetika s vremenskim oznakama</strong></p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="datumi.html#cb342-1" tabindex="-1"></a><span class="co"># ispišite koje će biti vrijeme 1000 sekundi od ovog trenutka</span></span>
+<span id="cb342-2"><a href="datumi.html#cb342-2" tabindex="-1"></a></span>
+<span id="cb342-3"><a href="datumi.html#cb342-3" tabindex="-1"></a><span class="co"># ispišite koliko je prošlo sati od ponoći 1.1.2015. do sad</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="datumi.html#cb343-1" tabindex="-1"></a><span class="co"># ispišite koje će biti vrijeme 1000 sekundi od ovog trenutka</span></span>
+<span id="cb343-2"><a href="datumi.html#cb343-2" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">+</span> <span class="dv">1000</span></span>
+<span id="cb343-3"><a href="datumi.html#cb343-3" tabindex="-1"></a></span>
+<span id="cb343-4"><a href="datumi.html#cb343-4" tabindex="-1"></a><span class="co"># ispišite koliko je prošlo sati od ponoći 1.1.2015. do sad</span></span>
+<span id="cb343-5"><a href="datumi.html#cb343-5" tabindex="-1"></a><span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;2015-01-01 00:00:00&quot;</span>, <span class="at">units =</span> <span class="st">&quot;hours&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2026-04-02 19:10:10 CEST&quot;
+## Time difference of 98633.89 hours</code></pre>
+</div>
+<hr />
+</div>
+<div id="klasa-i-funkcija-difftime" class="section level3 hasAnchor" number="8.1.6">
+<h3><span class="header-section-number">8.1.6</span> Klasa i funkcija <code>difftime</code><a href="datumi.html#klasa-i-funkcija-difftime" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kada oduzimamo dva datuma ili dvije vremenske oznake, rezultat nije običan broj nego objekt klase <code>difftime</code>, koji predstavlja vremenski razmak.</p>
+<p>Kod ispisa se po <em>default</em>-u koristi automatski odabir jedinice (<code>units = "auto"</code>). Ako želimo rezultat u točno određenoj jedinici, koristimo funkciju <code>difftime()</code> i parametar <code>units</code>, npr. <code>"seconds"</code>, <code>"minutes"</code>, <code>"hours"</code>, <code>"days"</code> ili <code>"weeks"</code>.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="datumi.html#cb345-1" tabindex="-1"></a><span class="fu">difftime</span>(<span class="fu">Sys.Date</span>(), <span class="st">&quot;2000-01-01&quot;</span>, <span class="at">units =</span> <span class="st">&quot;hours&quot;</span>)</span></code></pre></div>
+<pre><code>## Time difference of 230113 hours</code></pre>
+<p>Funkcija <code>difftime()</code> radi i s vremenskim oznakama, pa se možemo spustiti sve do razine sekunde. Ako nam treba samo broj, rezultat možemo pretvoriti pomoću funkcije <code>as.numeric()</code>.</p>
+<hr />
+<p><strong>Zadatak 8.4 - funkcija <code>difftime</code></strong></p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="datumi.html#cb347-1" tabindex="-1"></a><span class="co"># koliko je prošlo tjedana između 1.3.2016. i 1.3.2015.?</span></span>
+<span id="cb347-2"><a href="datumi.html#cb347-2" tabindex="-1"></a><span class="co"># koristite funkciju `difftime`</span></span>
+<span id="cb347-3"><a href="datumi.html#cb347-3" tabindex="-1"></a><span class="co"># NAPOMENA: ne morate eksplicitno pozvati funkciju `as.Date`, funkcija `difftime`</span></span>
+<span id="cb347-4"><a href="datumi.html#cb347-4" tabindex="-1"></a><span class="co">#       će to sama učiniti ako pošaljete datum u default-nom obliku</span></span>
+<span id="cb347-5"><a href="datumi.html#cb347-5" tabindex="-1"></a></span>
+<span id="cb347-6"><a href="datumi.html#cb347-6" tabindex="-1"></a><span class="co"># koliko je prošlo sati od 1.3.2015. do danas?</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="datumi.html#cb348-1" tabindex="-1"></a><span class="co"># koliko je prošlo tjedana između 1.3.2016. i 1.3.2015.?</span></span>
+<span id="cb348-2"><a href="datumi.html#cb348-2" tabindex="-1"></a><span class="fu">difftime</span>(<span class="st">&quot;2016-03-01&quot;</span>, <span class="st">&quot;2015-03-01&quot;</span>, <span class="at">units =</span> <span class="st">&quot;weeks&quot;</span>)</span>
+<span id="cb348-3"><a href="datumi.html#cb348-3" tabindex="-1"></a></span>
+<span id="cb348-4"><a href="datumi.html#cb348-4" tabindex="-1"></a><span class="co"># koliko je prošlo sati od 1.3.2015. do danas?</span></span>
+<span id="cb348-5"><a href="datumi.html#cb348-5" tabindex="-1"></a><span class="fu">difftime</span>(<span class="fu">Sys.Date</span>(), <span class="st">&quot;2015-03-01&quot;</span>, <span class="at">units =</span> <span class="st">&quot;hours&quot;</span>)</span></code></pre></div>
+<pre><code>## Time difference of 52.28571 weeks
+## Time difference of 97201 hours</code></pre>
+</div>
+<hr />
+</div>
+<div id="funkcija-seq-i-vremenski-tipovi-podataka" class="section level3 hasAnchor" number="8.1.7">
+<h3><span class="header-section-number">8.1.7</span> Funkcija <code>seq</code> i vremenski tipovi podataka<a href="datumi.html#funkcija-seq-i-vremenski-tipovi-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Jezik R implementira i posebnu varijantu funkcije <code>seq()</code> za rad s vremenskim tipovima podataka:</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="datumi.html#cb350-1" tabindex="-1"></a><span class="fu">seq</span>(from, to, by, <span class="at">length.out =</span> <span class="cn">NULL</span>, <span class="at">along.with =</span> <span class="cn">NULL</span>, ...)</span></code></pre></div>
+<p>Najvažniji parametri su:</p>
+<ul>
+<li><code>from</code> – početni datum ili vremenska oznaka</li>
+<li><code>to</code> – konačni datum ili vremenska oznaka</li>
+<li><code>by</code> – korak sekvence; može biti broj ili tekst poput <code>"7 days"</code>, <code>"2 weeks"</code>, <code>"30 mins"</code></li>
+<li><code>length.out</code> – željena duljina sekvence</li>
+<li><code>along.with</code> – vektor čiju duljinu koristimo kao referencu</li>
+</ul>
+<p>Kod objekata klase <code>Date</code> broj u argumentu <code>by</code> znači broj dana, a kod objekata klase <code>POSIXct</code> broj sekundi.</p>
+<hr />
+<p><strong>Zadatak 8.5 - funkcija <code>seq</code> i vremenski tip podataka</strong></p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="datumi.html#cb351-1" tabindex="-1"></a><span class="co"># ispišite sekvencu datuma od 1.1.2020. do 1.2.2030. u koracima od 6 mjeseci</span></span>
+<span id="cb351-2"><a href="datumi.html#cb351-2" tabindex="-1"></a></span>
+<span id="cb351-3"><a href="datumi.html#cb351-3" tabindex="-1"></a></span>
+<span id="cb351-4"><a href="datumi.html#cb351-4" tabindex="-1"></a><span class="co"># ispišite sekvencu koja predstavlja današnji dan jednoliko razdijeljen u 15 vremenskih oznaka</span></span>
+<span id="cb351-5"><a href="datumi.html#cb351-5" tabindex="-1"></a><span class="co"># NAPOMENA: pripazite na tip podatka koji `seq` očekuje i vremensku zonu!</span></span>
+<span id="cb351-6"><a href="datumi.html#cb351-6" tabindex="-1"></a></span>
+<span id="cb351-7"><a href="datumi.html#cb351-7" tabindex="-1"></a></span>
+<span id="cb351-8"><a href="datumi.html#cb351-8" tabindex="-1"></a><span class="co"># napravite raspored čišćenja zajedničkih prostora za stambenu zgradu</span></span>
+<span id="cb351-9"><a href="datumi.html#cb351-9" tabindex="-1"></a><span class="co"># prostori se moraju čistiti svaka 3 tjedna</span></span>
+<span id="cb351-10"><a href="datumi.html#cb351-10" tabindex="-1"></a><span class="co"># svaki stan mora imati svoj datum čišćenja</span></span>
+<span id="cb351-11"><a href="datumi.html#cb351-11" tabindex="-1"></a></span>
+<span id="cb351-12"><a href="datumi.html#cb351-12" tabindex="-1"></a><span class="co"># stanovi su opisani sljedećim podatkovnim okvirom</span></span>
+<span id="cb351-13"><a href="datumi.html#cb351-13" tabindex="-1"></a>stanovi <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">broj_stana =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb351-14"><a href="datumi.html#cb351-14" tabindex="-1"></a>                      <span class="at">prezime =</span> <span class="fu">c</span>(<span class="st">&quot;Ebert&quot;</span>, <span class="st">&quot;Ladovac&quot;</span>, <span class="st">&quot;Cerić&quot;</span>, <span class="st">&quot;Dikla&quot;</span>, <span class="st">&quot;Anić&quot;</span>,</span>
+<span id="cb351-15"><a href="datumi.html#cb351-15" tabindex="-1"></a>                                  <span class="st">&quot;Perić&quot;</span>, <span class="st">&quot;Žužić&quot;</span>, <span class="st">&quot;Babić&quot;</span>, <span class="st">&quot;Ibiz&quot;</span>, <span class="st">&quot;Radler&quot;</span>))</span>
+<span id="cb351-16"><a href="datumi.html#cb351-16" tabindex="-1"></a></span>
+<span id="cb351-17"><a href="datumi.html#cb351-17" tabindex="-1"></a><span class="co"># dodajte stupac `ciscenje` sa po jednim datumom za svaki pojedini stan </span></span>
+<span id="cb351-18"><a href="datumi.html#cb351-18" tabindex="-1"></a><span class="co"># redom po brojevima stana, za idućih 10 čišćenja počevši od današnjeg datuma</span></span>
+<span id="cb351-19"><a href="datumi.html#cb351-19" tabindex="-1"></a><span class="co"># (za ambiciozne: dodajte 5 takvih stupaca koji će pokrivati 50</span></span>
+<span id="cb351-20"><a href="datumi.html#cb351-20" tabindex="-1"></a><span class="co"># nastupajućih čišćenja)</span></span>
+<span id="cb351-21"><a href="datumi.html#cb351-21" tabindex="-1"></a></span>
+<span id="cb351-22"><a href="datumi.html#cb351-22" tabindex="-1"></a></span>
+<span id="cb351-23"><a href="datumi.html#cb351-23" tabindex="-1"></a><span class="co"># ispisite podatkovni okvir `stanovi` </span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="datumi.html#cb352-1" tabindex="-1"></a><span class="co"># ispišite sekvencu datuma od 1.1.2020. do 1.1.2030. u koracima od 6 mjeseci</span></span>
+<span id="cb352-2"><a href="datumi.html#cb352-2" tabindex="-1"></a><span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">&#39;2020-01-01&#39;</span>), <span class="fu">as.Date</span>(<span class="st">&#39;2030-01-01&#39;</span>), <span class="at">by =</span> <span class="st">&quot;6 months&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;2020-01-01&quot; &quot;2020-07-01&quot; &quot;2021-01-01&quot; &quot;2021-07-01&quot; &quot;2022-01-01&quot;
+##  [6] &quot;2022-07-01&quot; &quot;2023-01-01&quot; &quot;2023-07-01&quot; &quot;2024-01-01&quot; &quot;2024-07-01&quot;
+## [11] &quot;2025-01-01&quot; &quot;2025-07-01&quot; &quot;2026-01-01&quot; &quot;2026-07-01&quot; &quot;2027-01-01&quot;
+## [16] &quot;2027-07-01&quot; &quot;2028-01-01&quot; &quot;2028-07-01&quot; &quot;2029-01-01&quot; &quot;2029-07-01&quot;
+## [21] &quot;2030-01-01&quot;</code></pre>
+</div>
+<div class="fold s o">
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="datumi.html#cb354-1" tabindex="-1"></a><span class="co"># ispišite sekvencu koja predstavlja današnji dan jednoliko razdijeljen u 15 vremenskih oznaka</span></span>
+<span id="cb354-2"><a href="datumi.html#cb354-2" tabindex="-1"></a><span class="co"># NAPOMENA: pripazite na tip podatka koji `seq` očekuje i vremensku zonu!</span></span>
+<span id="cb354-3"><a href="datumi.html#cb354-3" tabindex="-1"></a><span class="fu">seq</span>(<span class="fu">as.POSIXct</span>(<span class="fu">Sys.Date</span>(), <span class="at">tz =</span> <span class="st">&quot;CET&quot;</span>), <span class="fu">as.POSIXct</span>(<span class="fu">Sys.Date</span>()<span class="sc">+</span><span class="dv">1</span>, <span class="at">tz =</span> <span class="st">&quot;CET&quot;</span>), <span class="at">length.out =</span> <span class="dv">15</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;2026-04-02 02:00:00 CEST&quot; &quot;2026-04-02 03:42:51 CEST&quot;
+##  [3] &quot;2026-04-02 05:25:42 CEST&quot; &quot;2026-04-02 07:08:34 CEST&quot;
+##  [5] &quot;2026-04-02 08:51:25 CEST&quot; &quot;2026-04-02 10:34:17 CEST&quot;
+##  [7] &quot;2026-04-02 12:17:08 CEST&quot; &quot;2026-04-02 14:00:00 CEST&quot;
+##  [9] &quot;2026-04-02 15:42:51 CEST&quot; &quot;2026-04-02 17:25:42 CEST&quot;
+## [11] &quot;2026-04-02 19:08:34 CEST&quot; &quot;2026-04-02 20:51:25 CEST&quot;
+## [13] &quot;2026-04-02 22:34:17 CEST&quot; &quot;2026-04-03 00:17:08 CEST&quot;
+## [15] &quot;2026-04-03 02:00:00 CEST&quot;</code></pre>
+</div>
+<div class="fold s o">
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="datumi.html#cb356-1" tabindex="-1"></a><span class="co"># dodajte stupac `ciscenje` sa po jednim datumom za svaki pojedini stan </span></span>
+<span id="cb356-2"><a href="datumi.html#cb356-2" tabindex="-1"></a><span class="co"># redom po brojevima stana, počevši od današnjeg datuma</span></span>
+<span id="cb356-3"><a href="datumi.html#cb356-3" tabindex="-1"></a><span class="fu">seq</span>(<span class="fu">Sys.Date</span>(), <span class="at">by =</span> <span class="st">&quot;3 weeks&quot;</span>, </span>
+<span id="cb356-4"><a href="datumi.html#cb356-4" tabindex="-1"></a>    <span class="at">along.with =</span> stanovi<span class="sc">$</span>broj_stana) <span class="ot">-&gt;</span> stanovi<span class="sc">$</span>ciscenje</span>
+<span id="cb356-5"><a href="datumi.html#cb356-5" tabindex="-1"></a>stanovi</span></code></pre></div>
+<pre><code>##    broj_stana prezime   ciscenje
+## 1           1   Ebert 2026-04-02
+## 2           2 Ladovac 2026-04-23
+## 3           3   Cerić 2026-05-14
+## 4           4   Dikla 2026-06-04
+## 5           5    Anić 2026-06-25
+## 6           6   Perić 2026-07-16
+## 7           7   Žužić 2026-08-06
+## 8           8   Babić 2026-08-27
+## 9           9    Ibiz 2026-09-17
+## 10         10  Radler 2026-10-08</code></pre>
+</div>
+<div class="fold s o">
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="datumi.html#cb358-1" tabindex="-1"></a><span class="co"># (za ambiciozne: dodajte 5 takvih stupaca koji će pokrivati 50</span></span>
+<span id="cb358-2"><a href="datumi.html#cb358-2" tabindex="-1"></a><span class="co"># nastupajućih čišćenja)</span></span>
+<span id="cb358-3"><a href="datumi.html#cb358-3" tabindex="-1"></a>stanovi <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">broj_stana =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb358-4"><a href="datumi.html#cb358-4" tabindex="-1"></a>                      <span class="at">prezime =</span> <span class="fu">c</span>(<span class="st">&quot;Ebert&quot;</span>, <span class="st">&quot;Ladovac&quot;</span>, <span class="st">&quot;Cerić&quot;</span>, <span class="st">&quot;Dikla&quot;</span>, <span class="st">&quot;Anić&quot;</span>,</span>
+<span id="cb358-5"><a href="datumi.html#cb358-5" tabindex="-1"></a>                                  <span class="st">&quot;Perić&quot;</span>, <span class="st">&quot;Žužić&quot;</span>, <span class="st">&quot;Babić&quot;</span>, <span class="st">&quot;Ibiz&quot;</span>, <span class="st">&quot;Radler&quot;</span>))</span>
+<span id="cb358-6"><a href="datumi.html#cb358-6" tabindex="-1"></a></span>
+<span id="cb358-7"><a href="datumi.html#cb358-7" tabindex="-1"></a>ciscenje <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">broj_stana =</span> <span class="fu">rep</span>(stanovi<span class="sc">$</span>broj_stana, <span class="dv">5</span>), </span>
+<span id="cb358-8"><a href="datumi.html#cb358-8" tabindex="-1"></a>                       <span class="at">prezime =</span> <span class="fu">rep</span>(stanovi<span class="sc">$</span>prezime, <span class="dv">5</span>), </span>
+<span id="cb358-9"><a href="datumi.html#cb358-9" tabindex="-1"></a>                       <span class="at">ciklus =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="fu">nrow</span>(stanovi)),</span>
+<span id="cb358-10"><a href="datumi.html#cb358-10" tabindex="-1"></a>                       <span class="at">ciscenje =</span> <span class="fu">seq</span>(<span class="fu">Sys.Date</span>(), <span class="at">by =</span> <span class="st">&quot;3 weeks&quot;</span>, </span>
+<span id="cb358-11"><a href="datumi.html#cb358-11" tabindex="-1"></a>                            <span class="at">length.out =</span> <span class="fu">nrow</span>(stanovi) <span class="sc">*</span> <span class="dv">5</span>))</span>
+<span id="cb358-12"><a href="datumi.html#cb358-12" tabindex="-1"></a></span>
+<span id="cb358-13"><a href="datumi.html#cb358-13" tabindex="-1"></a>stanovi <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(ciscenje, <span class="at">names_from =</span> ciklus, <span class="at">names_prefix =</span> <span class="st">&quot;ciklus_&quot;</span>, <span class="at">values_from =</span> ciscenje)</span>
+<span id="cb358-14"><a href="datumi.html#cb358-14" tabindex="-1"></a></span>
+<span id="cb358-15"><a href="datumi.html#cb358-15" tabindex="-1"></a><span class="fu">head</span>(stanovi)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   broj_stana prezime ciklus_1   ciklus_2   ciklus_3   ciklus_4   ciklus_5  
+##        &lt;int&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;     &lt;date&gt;     &lt;date&gt;     &lt;date&gt;    
+## 1          1 Ebert   2026-04-02 2026-10-29 2027-05-27 2027-12-23 2028-07-20
+## 2          2 Ladovac 2026-04-23 2026-11-19 2027-06-17 2028-01-13 2028-08-10
+## 3          3 Cerić   2026-05-14 2026-12-10 2027-07-08 2028-02-03 2028-08-31
+## 4          4 Dikla   2026-06-04 2026-12-31 2027-07-29 2028-02-24 2028-09-21
+## 5          5 Anić    2026-06-25 2027-01-21 2027-08-19 2028-03-16 2028-10-12
+## 6          6 Perić   2026-07-16 2027-02-11 2027-09-09 2028-04-06 2028-11-02</code></pre>
+</div>
+<hr />
+</div>
+</div>
+<div id="paket-lubridate" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Paket <code>lubridate</code><a href="datumi.html#paket-lubridate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Iako jezik R ima relativno dobru podršku za rad sa datumima i vremenskim oznakama, iako neke stvari otežavaju rad sa istima:</p>
+<ul>
+<li>nestandardni načini zapisa datuma i vremenskih oznaka zahtjevaju pisanje formatske specifikacije</li>
+<li>upravljanje vremenskim zonama je nekad otežano zbog nekonzistentnih rezultata poziva funkcija (stavljanje nazivne UTC zone ili očitavanje zone operativnog sustava)</li>
+<li>izvlačenje segmenata datuma/vremenske oznake te izmjena istih može biti kompleksna
+<ul>
+<li>R nudi posebnu klasu <code>POSIXlt</code> gdje se vremenska oznaka zapisuje u obliku liste kako bi gornje funkcije bile omogućene</li>
+</ul></li>
+</ul>
+<p>Paket <code>lubridate</code> dizajniran je upravo sa idejom da ove probleme i zadatke učini intuitivnijima i jednostavnijima.</p>
+<div id="parsiranje-datuma-i-vremenskih-oznaka" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Parsiranje datuma i vremenskih oznaka<a href="datumi.html#parsiranje-datuma-i-vremenskih-oznaka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Umjesto pisanja formatskih specifikacija, <code>lubridate</code> nudi niz “inteligentnih” funkcija koje omogućuju brzo i učinkovito parsiranje vremenskih podataka. Nazivi ovih funkcija odgovaraju komponentama oznake redoslijedom kako se pojavljuju, tako da npr. imamo:</p>
+<ul>
+<li>funkciju <code>ymd</code> koja očekuje znakovni niz koji predstavlja datum u poretku godina-mjesec-datum</li>
+<li>funkciju <code>dmy_hm</code> koja očekuje znakovni niz koji predstavlja vremensku oznaku u poretku datum-mjesec-godina-sati-minute</li>
+<li>itd.</li>
+</ul>
+<p>Dodatno, paket <code>lubridate</code> zamjenjuje pozive <code>Sys.Date()</code> i <code>Sys.time()</code> intuitivnijim inačicama <code>today()</code> i <code>now()</code>.</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="datumi.html#cb360-1" tabindex="-1"></a><span class="co">#library(lubridate)</span></span>
+<span id="cb360-2"><a href="datumi.html#cb360-2" tabindex="-1"></a><span class="fu">dmy_hms</span>(<span class="st">&quot;12.12.2024. 11:35:45pm&quot;</span>)</span>
+<span id="cb360-3"><a href="datumi.html#cb360-3" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2024-12-12 23:35:45 UTC&quot;
+## [1] &quot;2026-04-02&quot;</code></pre>
+<p><strong>Zadatak 8.6 - funkcije paketa <code>lubridate</code> za parsiranje datuma i vremenskih oznaka</strong></p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="datumi.html#cb362-1" tabindex="-1"></a><span class="co"># library(lubridate)   #učitati ako je potrebno!</span></span>
+<span id="cb362-2"><a href="datumi.html#cb362-2" tabindex="-1"></a></span>
+<span id="cb362-3"><a href="datumi.html#cb362-3" tabindex="-1"></a><span class="co"># koristeći se funkcijama iz paketa `lubridate`</span></span>
+<span id="cb362-4"><a href="datumi.html#cb362-4" tabindex="-1"></a><span class="co"># pretvorite sljedeće znakovne nizove u datume/vremenske oznake</span></span>
+<span id="cb362-5"><a href="datumi.html#cb362-5" tabindex="-1"></a><span class="co"># i ispišite ih na zaslon</span></span>
+<span id="cb362-6"><a href="datumi.html#cb362-6" tabindex="-1"></a><span class="co">#  &quot;2016-07-31&quot;</span></span>
+<span id="cb362-7"><a href="datumi.html#cb362-7" tabindex="-1"></a><span class="co">#  &quot;28.2.1983.&quot;</span></span>
+<span id="cb362-8"><a href="datumi.html#cb362-8" tabindex="-1"></a><span class="co"># &quot;17.5.1977. 23:15&quot;</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="datumi.html#cb363-1" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">&quot;2016-07-31&quot;</span>)</span>
+<span id="cb363-2"><a href="datumi.html#cb363-2" tabindex="-1"></a><span class="fu">dmy</span>(<span class="st">&quot;28.2.1983.&quot;</span>)</span>
+<span id="cb363-3"><a href="datumi.html#cb363-3" tabindex="-1"></a><span class="fu">dmy_hm</span>(<span class="st">&quot;17.5.1977. 23:15&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2016-07-31&quot;
+## [1] &quot;1983-02-28&quot;
+## [1] &quot;1977-05-17 23:15:00 UTC&quot;</code></pre>
+</div>
+<hr />
+</div>
+<div id="paket-lubridate-i-vremenske-oznake" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Paket <code>lubridate</code> i vremenske oznake<a href="datumi.html#paket-lubridate-i-vremenske-oznake" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Za razliku od osnovnih funkcija za upravljanje vremenskih oznakama, paket <code>lubridate</code> <strong>uvijek</strong> postavlja UTC kao vremensku zonu (ukoliko neka druga nije naznačena). Ovo osigurava konzistentno ponašanje kod stvaranja vremenskih oznaka. Ukoliko želimo eksplicitno definirati vremensku zonu, funkciji za stvaranje vremenske oznake dodajemo parametar <code>tz</code>.</p>
+<p>Paket <code>lubridate</code> sadrži i dodatne funkcije za izmjenu vremenske zone nakon stvaranja vremenske oznake:</p>
+<ul>
+<li><code>force_tz</code> / <code>tz</code> - “nameće” novu vremensku zonu tj. ostavlja iste vrijednosti vremenske oznake ali postavlja vremensku zonu koju definiramo</li>
+<li><code>with_tz</code> - provodi transformaciju vremenske oznake u onu koja odgovara traženoj vremenskoj zoni</li>
+</ul>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="datumi.html#cb365-1" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">&quot;20161129 09.05.17&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;EST&quot;</span>)</span>
+<span id="cb365-2"><a href="datumi.html#cb365-2" tabindex="-1"></a>t</span>
+<span id="cb365-3"><a href="datumi.html#cb365-3" tabindex="-1"></a></span>
+<span id="cb365-4"><a href="datumi.html#cb365-4" tabindex="-1"></a><span class="fu">force_tz</span>(t, <span class="at">tz =</span> <span class="st">&quot;CET&quot;</span>)  <span class="co"># ili tz(t) = &quot;CET&quot;</span></span>
+<span id="cb365-5"><a href="datumi.html#cb365-5" tabindex="-1"></a><span class="fu">with_tz</span>(t, <span class="at">tz =</span> <span class="st">&quot;CET&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2016-11-29 09:05:17 EST&quot;
+## [1] &quot;2016-11-29 09:05:17 CET&quot;
+## [1] &quot;2016-11-29 15:05:17 CET&quot;</code></pre>
+<hr />
+</div>
+<div id="izvlačenje-i-postavljanje-segmenata-datuma-i-vremena" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Izvlačenje i postavljanje segmenata datuma i vremena<a href="datumi.html#izvla%C4%8Denje-i-postavljanje-segmenata-datuma-i-vremena" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Paket lubridate također uvelike olakšava izvlačenje segmenata datuma i vremena iz vremenskih oznaka uz pomoć funkcija kao što su <code>year</code>, <code>week</code>, <code>month</code> i sl. Uz pomoć istih funkcija možemo lako i izmjeniti neku od komponenti vremena.</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="datumi.html#cb367-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">&quot;2026-12-31&quot;</span>)</span>
+<span id="cb367-2"><a href="datumi.html#cb367-2" tabindex="-1"></a><span class="fu">month</span>(x)</span>
+<span id="cb367-3"><a href="datumi.html#cb367-3" tabindex="-1"></a></span>
+<span id="cb367-4"><a href="datumi.html#cb367-4" tabindex="-1"></a><span class="fu">year</span>(x) <span class="ot">&lt;-</span> <span class="dv">2000</span> </span>
+<span id="cb367-5"><a href="datumi.html#cb367-5" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 12
+## [1] &quot;2000-12-31&quot;</code></pre>
+<p><strong>Zadatak 8.7 - izvlačenje elemenata vremenskih oznaka</strong></p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="datumi.html#cb369-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">dmy_hms</span>(<span class="st">&quot;19.7.1996. 16:15:27&quot;</span>)</span>
+<span id="cb369-2"><a href="datumi.html#cb369-2" tabindex="-1"></a></span>
+<span id="cb369-3"><a href="datumi.html#cb369-3" tabindex="-1"></a><span class="co"># iz gornje vremenske oznake izvucite i ispišite sate </span></span>
+<span id="cb369-4"><a href="datumi.html#cb369-4" tabindex="-1"></a></span>
+<span id="cb369-5"><a href="datumi.html#cb369-5" tabindex="-1"></a><span class="co"># postavite godinu gornje vremenske oznake na 2011., a mjesec na lipanj</span></span>
+<span id="cb369-6"><a href="datumi.html#cb369-6" tabindex="-1"></a></span>
+<span id="cb369-7"><a href="datumi.html#cb369-7" tabindex="-1"></a><span class="co"># ispišite `x`</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="datumi.html#cb370-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">dmy_hms</span>(<span class="st">&quot;19.7.1996. 16:15:27&quot;</span>)</span>
+<span id="cb370-2"><a href="datumi.html#cb370-2" tabindex="-1"></a></span>
+<span id="cb370-3"><a href="datumi.html#cb370-3" tabindex="-1"></a><span class="co"># iz gornje vremenske oznake izvucite i ispišite sate </span></span>
+<span id="cb370-4"><a href="datumi.html#cb370-4" tabindex="-1"></a><span class="fu">hour</span>(x)</span>
+<span id="cb370-5"><a href="datumi.html#cb370-5" tabindex="-1"></a></span>
+<span id="cb370-6"><a href="datumi.html#cb370-6" tabindex="-1"></a><span class="co"># postavite godinu gornje vremenske oznake na 2011., a mjesec na lipanj</span></span>
+<span id="cb370-7"><a href="datumi.html#cb370-7" tabindex="-1"></a><span class="fu">year</span>(x) <span class="ot">&lt;-</span> <span class="dv">2011</span></span>
+<span id="cb370-8"><a href="datumi.html#cb370-8" tabindex="-1"></a><span class="fu">month</span>(x) <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb370-9"><a href="datumi.html#cb370-9" tabindex="-1"></a></span>
+<span id="cb370-10"><a href="datumi.html#cb370-10" tabindex="-1"></a><span class="co"># ispišite `x`</span></span>
+<span id="cb370-11"><a href="datumi.html#cb370-11" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 16
+## [1] &quot;2011-06-19 16:15:27 UTC&quot;</code></pre>
+</div>
+<hr />
+</div>
+</div>
+<div id="trenutci-intervali-trajanja-i-periodi" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Trenutci, intervali, trajanja i periodi<a href="datumi.html#trenutci-intervali-trajanja-i-periodi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Već smo rekli da upravljanje vremenskom komponentom u podacima može postati vrlo kompleksno, pogotovo ako uzmemo u obzir da vremenski intervali mogu biti zadani generički (npr. “2 godine”) ili konkretno (raspon između dva datuma) te da se matematički i kalendarski način računanja vremena često ne poklapaju (npr. “za godinu dana” može značiti točan matematički izračun sekundi u 365 dana, ili kalendarski “isti datum iduće godine”).</p>
+<p>Paket <code>lubridate</code> definira četiri mogućnosti kod definiranja vremena i vremenskih intervala:</p>
+<ul>
+<li>trenutak (<em>instant</em>) - vremenska oznaka zaokružena na sekundu</li>
+<li>interval - vremenski interval između dva točno određena trenutka</li>
+<li>trajanje (<em>duration</em>) - “generički” interval izražen u sekundama</li>
+<li>period - “kalendarski” interval koji može biti izražen i u matematički dvosmislenim jedinicama (npr. “3 mjeseca”)</li>
+</ul>
+<div id="intervali" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Intervali<a href="datumi.html#intervali" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pojam “interval” označava konkretan vremenski interval kojem točno znamo početak i kraj. Interval možemo definirati pomoću funkcije <code>interval</code> kojem dajemo početak i kraj intervala (i opcionalno vremensku zonu), ili uz pomoć operatora <code>%--%</code>.</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="datumi.html#cb372-1" tabindex="-1"></a><span class="fu">interval</span>(<span class="at">start =</span> <span class="fu">now</span>(), <span class="at">end =</span> <span class="fu">now</span>()<span class="sc">+</span><span class="dv">60</span><span class="sc">*</span><span class="dv">60</span>, <span class="at">tzone =</span> <span class="st">&quot;CET&quot;</span>)</span>
+<span id="cb372-2"><a href="datumi.html#cb372-2" tabindex="-1"></a></span>
+<span id="cb372-3"><a href="datumi.html#cb372-3" tabindex="-1"></a><span class="fu">ymd_hms</span>(<span class="st">&quot;2010-01-01 00:00:01&quot;</span>) <span class="sc">%--%</span> <span class="fu">ymd_hms</span>(<span class="st">&quot;2010-01-01 23:59:59&quot;</span>)</span></code></pre></div>
+<p>Početak i kraj intervala možemo dohvatiti ili naknadno promijeniti uz pomoć funkcija <code>int_start</code> i <code>int_end</code>. Također, duljinu intervala (u sekundama) dobijamo uz pomoć funkcije <code>int_length</code>.</p>
+</div>
+<div id="period" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> Period<a href="datumi.html#period" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Za razliku od intervala kod kojih znamo konkretan početak i kraj, trajanja i periodi su “generički intervali” kod kojih definiramo koliko traju, ali ih ne povezujemo sa konkretnim trenutcima. Ovakav vremenski tip podatka često koristimo u svakodnevnoj komunikaciji kada npr. opisujemo trajanje filma ili pjesme, duljinu putovanja i sl.</p>
+<p><strong>Period</strong> ćemo koristiti kada želimo zadati generički interval koji će se u trenutku primjene ravnati po Gregorijanskom kalendaru ali koji ne mora nužni biti matematički precizno definiran. Tipičan primjer je pojam “mjeseca” koji može trajati 28, 30 ili 31 dan i čije trajanje postaje definirano tek kada ga stavimo u kontekst (tj. kad kažemo “mjesec dana od određenog datuma”), ili “godina” koja može trajati 365 ili 366 dana, opet ovisno o kontekstu.</p>
+<p>Periode stvaramo preko pomoćnih funkcija koje koriste engleska imena vremenskih jedinica (<code>seconds</code>, <code>minutes</code>, <code>months</code> itd.) i aritmetičkih funkcija.</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="datumi.html#cb373-1" tabindex="-1"></a><span class="fu">months</span>(<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">weeks</span>(<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">5</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;3m 19d 0H 0M 0S&quot;</code></pre>
+</div>
+<div id="trajanje" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> Trajanje<a href="datumi.html#trajanje" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Trajanje</strong> (engl. <em>duration</em>) ćemo koristiti kada želimo zadati generički interval koji biti precizno definiran brojem sekundi. Ovakav vremenski tip pogodniji je npr. za biološke i kemijske eksperimente gdje nam je ključna konzistentnost i gdje bi dvosmislenost kalendarskih pojmova mogla uzrokovati probleme.</p>
+<p>Trajanja stvaramo preko pomoćnih funkcija koje koriste engleska imena vremenskih jedinica sa dodanim prefiksom <code>d</code> (<code>dseconds</code>, <code>dminutes</code>, itd.) i aritmetičkih funkcija. Uočimo da nema funkcija <code>dmonths</code> i <code>dyears</code> zbog toga što ove pojmove nije moguće jednoznačno izraziti brojem sekundi</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="datumi.html#cb375-1" tabindex="-1"></a><span class="fu">dweeks</span>(<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="fu">dseconds</span>(<span class="dv">3</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;1641603s (~2.71 weeks)&quot;</code></pre>
+<p>NAPOMENA: Objekt klase <code>duration</code> je sličan klasi <code>difftime</code> iz osnovnog R-a, s razlikom da se potonja koristi uglavnom kod računanja razlike dva trenutka/datuma i može uzrokovati problema ako se koristi kao generički interval. Ukoliko <code>difftime</code> želimo koristiti za tu svrhu, trebali bismo ga pretvoriti u trajanje uz pomoć funkcije <code>as.duration</code>.</p>
+<p><strong>Zadatak 8.8 - intervali, trajanja i periodi</strong></p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="datumi.html#cb377-1" tabindex="-1"></a><span class="co"># stvorite varijablu `mojinterval` koja će pohraniti interval od 6 mjeseci prije današnjeg dana</span></span>
+<span id="cb377-2"><a href="datumi.html#cb377-2" tabindex="-1"></a><span class="co"># do 6 mjeseci iza današnjeg dana</span></span>
+<span id="cb377-3"><a href="datumi.html#cb377-3" tabindex="-1"></a></span>
+<span id="cb377-4"><a href="datumi.html#cb377-4" tabindex="-1"></a><span class="co"># ispišite duljinu intervala `mojInterval` u sekundama</span></span>
+<span id="cb377-5"><a href="datumi.html#cb377-5" tabindex="-1"></a></span>
+<span id="cb377-6"><a href="datumi.html#cb377-6" tabindex="-1"></a><span class="co"># stvorite varijablu `mojPeriod` koja će pohraniti period od 5 godina, 3 mjeseca i 2 dana</span></span>
+<span id="cb377-7"><a href="datumi.html#cb377-7" tabindex="-1"></a></span>
+<span id="cb377-8"><a href="datumi.html#cb377-8" tabindex="-1"></a><span class="co"># dodajte gornji period datumu 1.1.2000. i ispišite rezultat</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="datumi.html#cb378-1" tabindex="-1"></a><span class="co"># stvorite varijablu `mojinterval` koja će pohraniti interval od 6 mjeseci prije današnjeg dana</span></span>
+<span id="cb378-2"><a href="datumi.html#cb378-2" tabindex="-1"></a><span class="co"># do 6 mjeseci iza današnjeg dana</span></span>
+<span id="cb378-3"><a href="datumi.html#cb378-3" tabindex="-1"></a>mojInterval <span class="ot">&lt;-</span> <span class="fu">interval</span>(<span class="fu">today</span>() <span class="sc">-</span> <span class="fu">months</span>(<span class="dv">6</span>), <span class="fu">today</span>() <span class="sc">+</span> <span class="fu">months</span>(<span class="dv">6</span>))</span>
+<span id="cb378-4"><a href="datumi.html#cb378-4" tabindex="-1"></a></span>
+<span id="cb378-5"><a href="datumi.html#cb378-5" tabindex="-1"></a><span class="co"># ispišite duljinu intervala `mojInterval` u sekundama</span></span>
+<span id="cb378-6"><a href="datumi.html#cb378-6" tabindex="-1"></a><span class="fu">int_length</span>(mojInterval)</span>
+<span id="cb378-7"><a href="datumi.html#cb378-7" tabindex="-1"></a></span>
+<span id="cb378-8"><a href="datumi.html#cb378-8" tabindex="-1"></a><span class="co"># stvorite varijablu `mojPeriod` koja će pohraniti period od 5 godina, 4 mjeseca, 3 dana i 2 sata</span></span>
+<span id="cb378-9"><a href="datumi.html#cb378-9" tabindex="-1"></a>mojPeriod <span class="ot">&lt;-</span> <span class="fu">years</span>(<span class="dv">5</span>) <span class="sc">+</span> <span class="fu">months</span>(<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">hours</span>(<span class="dv">2</span>)</span>
+<span id="cb378-10"><a href="datumi.html#cb378-10" tabindex="-1"></a></span>
+<span id="cb378-11"><a href="datumi.html#cb378-11" tabindex="-1"></a><span class="co"># dodajte gornji period datumu 1.1.2000. i ispišite rezultat</span></span>
+<span id="cb378-12"><a href="datumi.html#cb378-12" tabindex="-1"></a><span class="fu">dmy</span>(<span class="st">&quot;1.1.2000.&quot;</span>) <span class="sc">+</span> mojPeriod </span></code></pre></div>
+<pre><code>## [1] 31536000
+## [1] &quot;2005-05-04 02:00:00 UTC&quot;</code></pre>
+</div>
+<hr />
+</div>
+<div id="pomoćne-funkcije-za-rad-sa-vremenskim-intervalima" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> Pomoćne funkcije za rad sa vremenskim intervalima<a href="datumi.html#pomo%C4%87ne-funkcije-za-rad-sa-vremenskim-intervalima" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>%within%</code> - provjera da li se trenutak nalazi unutar intervala</li>
+<li><code>int_overlaps()</code> - provjera da li se intervali preklapaju</li>
+<li><code>intersect</code> - presjek dva intervala</li>
+<li><code>as.period</code>/<code>as.duration</code> - pretvorba intervala u period/trajanje</li>
+<li><code>int_diff</code> - pretvorba vektora sa <code>n</code> datuma/vremenskih oznaka u <code>n-1</code> intervala</li>
+</ul>
+<p><strong>Zadatak 8.9 - analiza podatkovnog skupa</strong></p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="datumi.html#cb380-1" tabindex="-1"></a><span class="co"># datoteka `sensorData.csv` sadrži očitanja senzora postavljenog na ulazna vrata stana</span></span>
+<span id="cb380-2"><a href="datumi.html#cb380-2" tabindex="-1"></a><span class="co"># učitajte, proučite i adekvatno pripremite podatke po po potrebi, a onda rješite sljedeće zadatke</span></span>
+<span id="cb380-3"><a href="datumi.html#cb380-3" tabindex="-1"></a></span>
+<span id="cb380-4"><a href="datumi.html#cb380-4" tabindex="-1"></a><span class="co"># podatkovnom okviru dodajte stupac `openInterval` koji će pohraniti interval unutar kojeg su vrata bila otvorena</span></span>
+<span id="cb380-5"><a href="datumi.html#cb380-5" tabindex="-1"></a><span class="co"># i `openDuration` koji će pohraniti koliko su dugo bila otvorena</span></span>
+<span id="cb380-6"><a href="datumi.html#cb380-6" tabindex="-1"></a></span>
+<span id="cb380-7"><a href="datumi.html#cb380-7" tabindex="-1"></a><span class="co"># ispišite sve retke gdje su vrata bila otvorena dulje od 20 minuta</span></span>
+<span id="cb380-8"><a href="datumi.html#cb380-8" tabindex="-1"></a></span>
+<span id="cb380-9"><a href="datumi.html#cb380-9" tabindex="-1"></a><span class="co"># provjerite da li su vrata bila otvorena 2.4.2026. u podne</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="datumi.html#cb381-1" tabindex="-1"></a><span class="co"># datoteka `sensorData.csv` sadrži očitanja senzora postavljenog na ulazna vrata stana</span></span>
+<span id="cb381-2"><a href="datumi.html#cb381-2" tabindex="-1"></a><span class="co"># učitajte, proučite i adekvatno pripremite podatke po po potrebi, a onda rješite sljedeće zadatke</span></span>
+<span id="cb381-3"><a href="datumi.html#cb381-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;sensorData.csv&quot;</span>)</span>
+<span id="cb381-4"><a href="datumi.html#cb381-4" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span>
+<span id="cb381-5"><a href="datumi.html#cb381-5" tabindex="-1"></a></span>
+<span id="cb381-6"><a href="datumi.html#cb381-6" tabindex="-1"></a>df<span class="sc">$</span>door_open <span class="ot">&lt;-</span> <span class="fu">dmy_hms</span>(df<span class="sc">$</span>door_open)</span>
+<span id="cb381-7"><a href="datumi.html#cb381-7" tabindex="-1"></a>df<span class="sc">$</span>door_closed <span class="ot">&lt;-</span> <span class="fu">dmy_hms</span>(df<span class="sc">$</span>door_closed)</span>
+<span id="cb381-8"><a href="datumi.html#cb381-8" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div>
+</div>
+<div class="fold s o">
+<pre><code>## Rows: 134
+## Columns: 3
+## $ id          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,…
+## $ door_open   &lt;chr&gt; &quot;1.4.2026. 08:05:00&quot;, &quot;1.4.2026. 08:35:00&quot;, &quot;1.4.2026. 11:…
+## $ door_closed &lt;chr&gt; &quot;1.4.2026. 08:10:26&quot;, &quot;1.4.2026. 09:03:28&quot;, &quot;1.4.2026. 11:…
+## Rows: 134
+## Columns: 3
+## $ id          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,…
+## $ door_open   &lt;dttm&gt; 2026-04-01 08:05:00, 2026-04-01 08:35:00, 2026-04-01 11:1…
+## $ door_closed &lt;dttm&gt; 2026-04-01 08:10:26, 2026-04-01 09:03:28, 2026-04-01 11:1…</code></pre>
+</div>
+<div class="fold s o">
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="datumi.html#cb383-1" tabindex="-1"></a><span class="co"># podatkovnom okviru dodajte stupac `openInterval` koji će pohraniti interval </span></span>
+<span id="cb383-2"><a href="datumi.html#cb383-2" tabindex="-1"></a><span class="co"># unutar kojeg su vrata bila otvorena</span></span>
+<span id="cb383-3"><a href="datumi.html#cb383-3" tabindex="-1"></a><span class="co"># i `openDuration` koji će pohraniti koliko su dugo bila otvorena</span></span>
+<span id="cb383-4"><a href="datumi.html#cb383-4" tabindex="-1"></a>df<span class="sc">$</span>openInterval <span class="ot">&lt;-</span> df<span class="sc">$</span>door_open <span class="sc">%--%</span> df<span class="sc">$</span>door_closed</span>
+<span id="cb383-5"><a href="datumi.html#cb383-5" tabindex="-1"></a>df<span class="sc">$</span>openDuration <span class="ot">&lt;-</span> <span class="fu">as.duration</span>(df<span class="sc">$</span>door_closed <span class="sc">-</span> df<span class="sc">$</span>door_open)</span>
+<span id="cb383-6"><a href="datumi.html#cb383-6" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div>
+<pre><code>## Rows: 134
+## Columns: 5
+## $ id           &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
+## $ door_open    &lt;dttm&gt; 2026-04-01 08:05:00, 2026-04-01 08:35:00, 2026-04-01 11:…
+## $ door_closed  &lt;dttm&gt; 2026-04-01 08:10:26, 2026-04-01 09:03:28, 2026-04-01 11:…
+## $ openInterval &lt;Interval&gt; 2026-04-01 08:05:00 UTC--2026-04-01 08:10:26 UTC, 20…
+## $ openDuration &lt;Duration&gt; 326s (~5.43 minutes), 1708s (~28.47 minutes), 108s (…</code></pre>
+</div>
+<div class="fold s o">
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="datumi.html#cb385-1" tabindex="-1"></a><span class="co"># ispišite sve retke gdje su vrata bila otvorena dulje od 20 minuta</span></span>
+<span id="cb385-2"><a href="datumi.html#cb385-2" tabindex="-1"></a>df[df<span class="sc">$</span>openDuration <span class="sc">&gt;</span> <span class="fu">minutes</span>(<span class="dv">20</span>),]</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##      id door_open           door_closed        
+##   &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;             
+## 1     2 2026-04-01 08:35:00 2026-04-01 09:03:28
+## 2    17 2026-04-04 16:14:00 2026-04-04 16:45:25
+## 3    33 2026-04-08 10:23:00 2026-04-08 10:44:38
+## 4    40 2026-04-09 16:49:00 2026-04-09 17:16:45
+## 5    91 2026-04-21 08:58:00 2026-04-21 09:32:29
+## 6   103 2026-04-24 00:03:00 2026-04-24 00:28:50
+## # ℹ 2 more variables: openInterval &lt;Interval&gt;, openDuration &lt;Duration&gt;</code></pre>
+</div>
+<div class="fold s o">
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="datumi.html#cb387-1" tabindex="-1"></a><span class="co"># provjerite da li su vrata bila otvorena 2.4.2026. u podne</span></span>
+<span id="cb387-2"><a href="datumi.html#cb387-2" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">dmy_hms</span>(<span class="st">&quot;2.4.2026 12:00:00&quot;</span>) <span class="sc">%within%</span> df<span class="sc">$</span>openInterval)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div id="dodatna-literatura" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Dodatna literatura<a href="datumi.html#dodatna-literatura" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>U ovom dijelu upoznali smo se sa jednim dijelom funkcionalnosti koje nude klase za upravljanje datumima i vremenskim oznakama jezika R te paket <code>lubridate</code>. Za dodatne informacije pogledajte službenu dokumentaciju jezika R i paketa <code>lubridate</code>, a dobar izvor je i članak <em>“Dates and Times Made Easy with lubridate”</em> kojeg je napisao sam autor paketa Hadley Wickham a koji je dostupan na <a href = "https://www.jstatsoft.org/article/view/v040i03/v40i03.pdf">ovoj poveznici</a>.</p>
+</div>
+<div id="zadaci-za-vježbu-6" class="section level2 unnumbered hasAnchor">
+<h2>Zadaci za vježbu<a href="datumi.html#zadaci-za-vje%C5%BEbu-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sljedeći zadaci odnose se na podatkovni skup pohranjen u CSV datoteci <code>crimeSample.csv</code> a koji predstavlja uzorak iz evidencije kriminalnih incidenata u gradu Philadelphiji (originalni podatkovni skup može se naći na <a href = "https://www.opendataphilly.org/dataset/crime-incidents">ovoj poveznici</a>). Originalni skup stupaca je reduciran a iz skupa svih obzervacija slučajnim odabirom uzorkovano je 1000 incidenata.</p>
+<p>Prije rješavanja zadataka učitajte podatke u podatkovni okvir crimes i upoznajte se s podatkovnim skupom (<code>str</code>, <code>head</code>, itd.)</p>
+<ol style="list-style-type: decimal">
+<li><p>Pretvorite stupac sa vremenskom oznakom iz znakovnog tipa u <code>POSIXct</code> tip.</p></li>
+<li><p>Podatkovnom okviru dodajte sljedeće stupce: <code>Year</code>, <code>Month</code>, <code>Hour</code>. Stupce popunite odgovarajućim informacijama iz vremenske oznake. Odgovorite na pitanje: u kojem mjesecu se događa najviše zločina? Koji sat u danu je prema podacima “najopasniji”?</p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cijev.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="nizovi.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "google", "twitter", "weibo", "instapaper"],
+    "google": false,
+    "instapper": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "toolbar": {
+    "position": "fixed",
+    "edit": null,
+    "download": null,
+    "search": true
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
