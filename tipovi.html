@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Osnovni tipovi podataka | Programirajmo u R-u</title>
   <meta name="description" content="Udžbenik za predmet ‘Uvod u znanost o podacima’ studija Primjenjene kognitivne znanosti na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Osnovni tipovi podataka | Programirajmo u R-u" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2026-05-03" />
+<meta name="date" content="2026-05-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,9 +121,8 @@ pre.plot {
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -133,7 +132,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -234,13 +233,13 @@ div.csl-indent {
 <li class="part"><span><b>I Osnovni elementi jezika R</b></span></li>
 <li class="chapter" data-level="1" data-path="uvod.html"><a href="uvod.html"><i class="fa fa-check"></i><b>1</b> Uvod</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="uvod.html"><a href="uvod.html#%C5%A1to-je-programski-jezik-r"><i class="fa fa-check"></i><b>1.1</b> Što je programski jezik R?</a>
+<li class="chapter" data-level="1.1" data-path="uvod.html"><a href="uvod.html#što-je-programski-jezik-r"><i class="fa fa-check"></i><b>1.1</b> Što je programski jezik R?</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="uvod.html"><a href="uvod.html#op%C4%87enito-o-r-u"><i class="fa fa-check"></i><b>1.1.1</b> Općenito o R-u</a></li>
+<li class="chapter" data-level="1.1.1" data-path="uvod.html"><a href="uvod.html#općenito-o-r-u"><i class="fa fa-check"></i><b>1.1.1</b> Općenito o R-u</a></li>
 <li class="chapter" data-level="1.1.2" data-path="uvod.html"><a href="uvod.html#alternative-jeziku-r"><i class="fa fa-check"></i><b>1.1.2</b> Alternative jeziku R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="uvod.html"><a href="uvod.html#instalacija-programske-podr%C5%A1ke"><i class="fa fa-check"></i><b>1.2</b> Instalacija programske podrške</a></li>
-<li class="chapter" data-level="1.3" data-path="uvod.html"><a href="uvod.html#pregled-razvojnog-su%C4%8Delja-rstudio"><i class="fa fa-check"></i><b>1.3</b> Pregled razvojnog sučelja <em>RStudio</em></a>
+<li class="chapter" data-level="1.2" data-path="uvod.html"><a href="uvod.html#instalacija-programske-podrške"><i class="fa fa-check"></i><b>1.2</b> Instalacija programske podrške</a></li>
+<li class="chapter" data-level="1.3" data-path="uvod.html"><a href="uvod.html#pregled-razvojnog-sučelja-rstudio"><i class="fa fa-check"></i><b>1.3</b> Pregled razvojnog sučelja <em>RStudio</em></a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="uvod.html"><a href="uvod.html#interaktivna-konzola"><i class="fa fa-check"></i><b>1.3.1</b> Interaktivna konzola</a></li>
 <li class="chapter" data-level="1.3.2" data-path="uvod.html"><a href="uvod.html#pisanje-r-skripti"><i class="fa fa-check"></i><b>1.3.2</b> Pisanje R skripti</a></li>
@@ -249,18 +248,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="uvod.html"><a href="uvod.html#organizacija-procesa-podatkovne-analize-uz-r-i-rstudio"><i class="fa fa-check"></i><b>1.4</b> Organizacija procesa podatkovne analize uz R i RStudio</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="uvod.html"><a href="uvod.html#po%C5%BEeljne-karakteristike-procesa-analize-podataka"><i class="fa fa-check"></i><b>1.4.1</b> Poželjne karakteristike procesa analize podataka</a></li>
+<li class="chapter" data-level="1.4.1" data-path="uvod.html"><a href="uvod.html#poželjne-karakteristike-procesa-analize-podataka"><i class="fa fa-check"></i><b>1.4.1</b> Poželjne karakteristike procesa analize podataka</a></li>
 <li class="chapter" data-level="1.4.2" data-path="uvod.html"><a href="uvod.html#organizacija-mapa-za-potrebe-analize-podataka"><i class="fa fa-check"></i><b>1.4.2</b> Organizacija mapa za potrebe analize podataka</a></li>
 <li class="chapter" data-level="1.4.3" data-path="uvod.html"><a href="uvod.html#pojam-projekta"><i class="fa fa-check"></i><b>1.4.3</b> Pojam projekta</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="uvod.html"><a href="uvod.html#kako-koristiti-ovaj-ud%C5%BEbenik"><i class="fa fa-check"></i><b>1.5</b> Kako koristiti ovaj udžbenik?</a></li>
+<li class="chapter" data-level="1.5" data-path="uvod.html"><a href="uvod.html#kako-koristiti-ovaj-udžbenik"><i class="fa fa-check"></i><b>1.5</b> Kako koristiti ovaj udžbenik?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tipovi.html"><a href="tipovi.html"><i class="fa fa-check"></i><b>2</b> Osnovni tipovi podataka</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="tipovi.html"><a href="tipovi.html#osnovni-tipovi-podataka"><i class="fa fa-check"></i><b>2.1</b> Osnovni tipovi podataka</a></li>
 <li class="chapter" data-level="2.2" data-path="tipovi.html"><a href="tipovi.html#operatori"><i class="fa fa-check"></i><b>2.2</b> Operatori</a></li>
-<li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostaju%C4%87e-nepoznate-i-nemogu%C4%87e-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
-<li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vje%C5%BEbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostajuće-nepoznate-i-nemoguće-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
+<li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vježbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="vektori.html"><a href="vektori.html"><i class="fa fa-check"></i><b>3</b> Vektori, matrice i liste</a>
 <ul>
@@ -280,7 +279,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="vektori.html"><a href="vektori.html#rezanje-matrica"><i class="fa fa-check"></i><b>3.3.1</b> Rezanje matrica</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vje%C5%BEbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vježbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="okviri.html"><a href="okviri.html"><i class="fa fa-check"></i><b>4</b> Liste, podatkovni okviri i faktori</a>
 <ul>
@@ -291,32 +290,32 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.2" data-path="okviri.html"><a href="okviri.html#dodavanje-i-brisanje-redaka-i-stupaca"><i class="fa fa-check"></i><b>4.2.2</b> Dodavanje i brisanje redaka i stupaca</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="okviri.html"><a href="okviri.html#faktori"><i class="fa fa-check"></i><b>4.3</b> Faktori</a></li>
-<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vje%C5%BEbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vježbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="uvjet.html"><a href="uvjet.html"><i class="fa fa-check"></i><b>5</b> Uvjetne naredbe i petlje</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="uvjet.html"><a href="uvjet.html#naredbe-kontrole-toka"><i class="fa fa-check"></i><b>5.1</b> Naredbe kontrole toka</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="uvjet.html"><a href="uvjet.html#uvjetno-izvo%C4%91enje-naredbi"><i class="fa fa-check"></i><b>5.1.1</b> Uvjetno izvođenje naredbi</a></li>
+<li class="chapter" data-level="5.1.1" data-path="uvjet.html"><a href="uvjet.html#uvjetno-izvođenje-naredbi"><i class="fa fa-check"></i><b>5.1.1</b> Uvjetno izvođenje naredbi</a></li>
 <li class="chapter" data-level="5.1.2" data-path="uvjet.html"><a href="uvjet.html#programske-petlje"><i class="fa fa-check"></i><b>5.1.2</b> Programske petlje</a></li>
 <li class="chapter" data-level="5.1.3" data-path="uvjet.html"><a href="uvjet.html#petlja-repeat"><i class="fa fa-check"></i><b>5.1.3</b> Petlja <code>repeat</code></a></li>
 <li class="chapter" data-level="5.1.4" data-path="uvjet.html"><a href="uvjet.html#petlja-while"><i class="fa fa-check"></i><b>5.1.4</b> Petlja <code>while</code></a></li>
 <li class="chapter" data-level="5.1.5" data-path="uvjet.html"><a href="uvjet.html#petlja-for"><i class="fa fa-check"></i><b>5.1.5</b> Petlja <code>for</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="uvjet.html"><a href="uvjet.html#zadaci-za-vje%C5%BEbu-3"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="uvjet.html"><a href="uvjet.html#zadaci-za-vježbu-3"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="paketi.html"><a href="paketi.html"><i class="fa fa-check"></i><b>6</b> Paketi i funkcije</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="paketi.html"><a href="paketi.html#rad-s-paketima"><i class="fa fa-check"></i><b>6.1</b> Rad s paketima</a></li>
-<li class="chapter" data-level="6.2" data-path="paketi.html"><a href="paketi.html#ugra%C4%91ene-funkcije"><i class="fa fa-check"></i><b>6.2</b> Ugrađene funkcije</a></li>
+<li class="chapter" data-level="6.2" data-path="paketi.html"><a href="paketi.html#ugrađene-funkcije"><i class="fa fa-check"></i><b>6.2</b> Ugrađene funkcije</a></li>
 <li class="chapter" data-level="6.3" data-path="paketi.html"><a href="paketi.html#kako-definirati-funkciju"><i class="fa fa-check"></i><b>6.3</b> Kako definirati funkciju</a></li>
-<li class="chapter" data-level="6.4" data-path="paketi.html"><a href="paketi.html#%C5%A1to-su-apply-funkcije"><i class="fa fa-check"></i><b>6.4</b> Što su <code>apply</code> funkcije?</a>
+<li class="chapter" data-level="6.4" data-path="paketi.html"><a href="paketi.html#što-su-apply-funkcije"><i class="fa fa-check"></i><b>6.4</b> Što su <code>apply</code> funkcije?</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="paketi.html"><a href="paketi.html#funkcija-apply"><i class="fa fa-check"></i><b>6.4.1</b> Funkcija <code>apply</code></a></li>
 <li class="chapter" data-level="6.4.2" data-path="paketi.html"><a href="paketi.html#funkcije-lapply-i-sapply"><i class="fa fa-check"></i><b>6.4.2</b> Funkcije <code>lapply</code> i <code>sapply</code></a></li>
 <li class="chapter" data-level="6.4.3" data-path="paketi.html"><a href="paketi.html#ostale-funkcije-iz-porodice-apply-i-dostupne-alternative"><i class="fa fa-check"></i><b>6.4.3</b> Ostale funkcije iz porodice <code>apply</code> i dostupne alternative</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="paketi.html"><a href="paketi.html#zadaci-za-vje%C5%BEbu-4"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="paketi.html"><a href="paketi.html#zadaci-za-vježbu-4"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="part"><span><b>II Upravljanje podacima i vizualizacije</b></span></li>
 <li class="chapter" data-level="7" data-path="cijev.html"><a href="cijev.html"><i class="fa fa-check"></i><b>7</b> Koncept urednih podataka</a>
@@ -328,7 +327,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.2.2" data-path="cijev.html"><a href="cijev.html#funkcije-separate-i-unite"><i class="fa fa-check"></i><b>7.2.2</b> Funkcije <code>separate</code> i <code>unite</code></a></li>
 <li class="chapter" data-level="7.2.3" data-path="cijev.html"><a href="cijev.html#funkcije-drop_na-i-replace_na"><i class="fa fa-check"></i><b>7.2.3</b> Funkcije <code>drop_NA</code> i <code>replace_NA</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vje%C5%BEbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vježbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="datumi.html"><a href="datumi.html"><i class="fa fa-check"></i><b>8</b> Rad sa vremenskim podacima</a>
 <ul>
@@ -346,17 +345,17 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="datumi.html"><a href="datumi.html#parsiranje-datuma-i-vremenskih-oznaka"><i class="fa fa-check"></i><b>8.2.1</b> Parsiranje datuma i vremenskih oznaka</a></li>
 <li class="chapter" data-level="8.2.2" data-path="datumi.html"><a href="datumi.html#paket-lubridate-i-vremenske-oznake"><i class="fa fa-check"></i><b>8.2.2</b> Paket <code>lubridate</code> i vremenske oznake</a></li>
-<li class="chapter" data-level="8.2.3" data-path="datumi.html"><a href="datumi.html#izvla%C4%8Denje-i-postavljanje-segmenata-datuma-i-vremena"><i class="fa fa-check"></i><b>8.2.3</b> Izvlačenje i postavljanje segmenata datuma i vremena</a></li>
+<li class="chapter" data-level="8.2.3" data-path="datumi.html"><a href="datumi.html#izvlačenje-i-postavljanje-segmenata-datuma-i-vremena"><i class="fa fa-check"></i><b>8.2.3</b> Izvlačenje i postavljanje segmenata datuma i vremena</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="datumi.html"><a href="datumi.html#trenutci-intervali-trajanja-i-periodi"><i class="fa fa-check"></i><b>8.3</b> Trenutci, intervali, trajanja i periodi</a>
 <ul>
 <li class="chapter" data-level="8.3.1" data-path="datumi.html"><a href="datumi.html#intervali"><i class="fa fa-check"></i><b>8.3.1</b> Intervali</a></li>
 <li class="chapter" data-level="8.3.2" data-path="datumi.html"><a href="datumi.html#period"><i class="fa fa-check"></i><b>8.3.2</b> Period</a></li>
 <li class="chapter" data-level="8.3.3" data-path="datumi.html"><a href="datumi.html#trajanje"><i class="fa fa-check"></i><b>8.3.3</b> Trajanje</a></li>
-<li class="chapter" data-level="8.3.4" data-path="datumi.html"><a href="datumi.html#pomo%C4%87ne-funkcije-za-rad-sa-vremenskim-intervalima"><i class="fa fa-check"></i><b>8.3.4</b> Pomoćne funkcije za rad sa vremenskim intervalima</a></li>
+<li class="chapter" data-level="8.3.4" data-path="datumi.html"><a href="datumi.html#pomoćne-funkcije-za-rad-sa-vremenskim-intervalima"><i class="fa fa-check"></i><b>8.3.4</b> Pomoćne funkcije za rad sa vremenskim intervalima</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="datumi.html"><a href="datumi.html#dodatna-literatura"><i class="fa fa-check"></i><b>8.4</b> Dodatna literatura</a></li>
-<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vje%C5%BEbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vježbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="nizovi.html"><a href="nizovi.html"><i class="fa fa-check"></i><b>9</b> Obrada znakovnih nizova</a>
 <ul>
@@ -365,7 +364,7 @@ div.csl-indent {
 <li class="chapter" data-level="9.1.1" data-path="nizovi.html"><a href="nizovi.html#analiza-teksta-i-regularni-izrazi"><i class="fa fa-check"></i><b>9.1.1</b> Analiza teksta i regularni izrazi</a></li>
 <li class="chapter" data-level="9.1.2" data-path="nizovi.html"><a href="nizovi.html#paket-stringr"><i class="fa fa-check"></i><b>9.1.2</b> Paket <code>stringr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vje%C5%BEbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vježbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><i class="fa fa-check"></i><b>10</b> Prilagodba podatkovnih skupova uz paket <code>dplyr</code></a>
 <ul>
@@ -378,16 +377,16 @@ div.csl-indent {
 <li class="chapter" data-level="10.7" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#spajanje-podatkovnih-okvira-uz-join-funkcije"><i class="fa fa-check"></i><b>10.7</b> Spajanje podatkovnih okvira uz join funkcije</a></li>
 <li class="chapter" data-level="10.8" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#integracija-sa-vanjskim-izvorima-podataka"><i class="fa fa-check"></i><b>10.8</b> Integracija sa vanjskim izvorima podataka</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredi%C5%A1te-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
+<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredište-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
 <li class="chapter" data-level="10.8.2" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#rad-sa-relacijskim-bazama"><i class="fa fa-check"></i><b>10.8.2</b> Rad sa relacijskim bazama</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vje%C5%BEbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vježbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>11</b> Vizualizacija podataka uz paket <code>ggplot2</code></a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="ggplot2.html"><a href="ggplot2.html#eksploratorna-analiza-podataka"><i class="fa fa-check"></i><b>11.1</b> Eksploratorna analiza podataka</a></li>
-<li class="chapter" data-level="11.2" data-path="ggplot2.html"><a href="ggplot2.html#vizualizacija-podataka-uz-pomo%C4%87-jezika-r"><i class="fa fa-check"></i><b>11.2</b> Vizualizacija podataka uz pomoć jezika R</a></li>
-<li class="chapter" data-level="11.3" data-path="ggplot2.html"><a href="ggplot2.html#grafi%C4%8Dka-gramatika-i-paket-ggplot2"><i class="fa fa-check"></i><b>11.3</b> Grafička gramatika i paket <code>ggplot2</code></a>
+<li class="chapter" data-level="11.2" data-path="ggplot2.html"><a href="ggplot2.html#vizualizacija-podataka-uz-pomoć-jezika-r"><i class="fa fa-check"></i><b>11.2</b> Vizualizacija podataka uz pomoć jezika R</a></li>
+<li class="chapter" data-level="11.3" data-path="ggplot2.html"><a href="ggplot2.html#grafička-gramatika-i-paket-ggplot2"><i class="fa fa-check"></i><b>11.3</b> Grafička gramatika i paket <code>ggplot2</code></a>
 <ul>
 <li class="chapter" data-level="11.3.1" data-path="ggplot2.html"><a href="ggplot2.html#aspekti-podataka-estetike-i-geometrije"><i class="fa fa-check"></i><b>11.3.1</b> Aspekti podataka, estetike i geometrije</a></li>
 <li class="chapter" data-level="11.3.2" data-path="ggplot2.html"><a href="ggplot2.html#fiksni-parametri-geometrije"><i class="fa fa-check"></i><b>11.3.2</b> Fiksni parametri geometrije</a></li>
@@ -396,8 +395,8 @@ div.csl-indent {
 <li class="chapter" data-level="11.3.5" data-path="ggplot2.html"><a href="ggplot2.html#aspekti-skale-koordinatnog-sustava-i-teme"><i class="fa fa-check"></i><b>11.3.5</b> Aspekti skale, koordinatnog sustava i teme</a></li>
 <li class="chapter" data-level="11.3.6" data-path="ggplot2.html"><a href="ggplot2.html#uvjetni-facetirani-grafovi"><i class="fa fa-check"></i><b>11.3.6</b> Uvjetni (facetirani) grafovi</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="ggplot2.html"><a href="ggplot2.html#grafovi-u-eksploratornoj-analizi-i-izvje%C5%A1tavanju"><i class="fa fa-check"></i><b>11.4</b> Grafovi u eksploratornoj analizi i izvještavanju</a></li>
-<li class="chapter" data-level="" data-path="ggplot2.html"><a href="ggplot2.html#zadaci-za-vje%C5%BEbu-9"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="11.4" data-path="ggplot2.html"><a href="ggplot2.html#grafovi-u-eksploratornoj-analizi-i-izvještavanju"><i class="fa fa-check"></i><b>11.4</b> Grafovi u eksploratornoj analizi i izvještavanju</a></li>
+<li class="chapter" data-level="" data-path="ggplot2.html"><a href="ggplot2.html#zadaci-za-vježbu-9"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 </ul>
 
@@ -730,7 +729,7 @@ div.csl-indent {
 <hr />
 </div>
 <div id="nedostajuće-nepoznate-i-nemoguće-vrijednosti" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Nedostajuće, nepoznate i nemoguće vrijednosti<a href="tipovi.html#nedostaju%C4%87e-nepoznate-i-nemogu%C4%87e-vrijednosti" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">2.3</span> Nedostajuće, nepoznate i nemoguće vrijednosti<a href="tipovi.html#nedostajuće-nepoznate-i-nemoguće-vrijednosti" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>U R-u postoji tri načina modeliranja “nepostojećih” vrijednosti:</p>
 <ul>
 <li><code>NA</code> - (<em>not available</em>) nedostajuća ili nepoznata vrijednost određenog tipa</li>
@@ -829,7 +828,7 @@ div.csl-indent {
 <hr />
 </div>
 <div id="zadaci-za-vježbu" class="section level2 unnumbered hasAnchor">
-<h2>Zadaci za vježbu<a href="tipovi.html#zadaci-za-vje%C5%BEbu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2>Zadaci za vježbu<a href="tipovi.html#zadaci-za-vježbu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Što je rezultat sljedećih naredbi? Razmislite o mogućem rezultatu prije izvršavanja.</li>
 </ol>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Prilagodba podatkovnih skupova uz paket dplyr | Programirajmo u R-u</title>
   <meta name="description" content="Udžbenik za predmet ‘Uvod u znanost o podacima’ studija Primjenjene kognitivne znanosti na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Prilagodba podatkovnih skupova uz paket dplyr | Programirajmo u R-u" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2026-05-03" />
+<meta name="date" content="2026-05-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,9 +121,8 @@ pre.plot {
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -133,7 +132,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -234,13 +233,13 @@ div.csl-indent {
 <li class="part"><span><b>I Osnovni elementi jezika R</b></span></li>
 <li class="chapter" data-level="1" data-path="uvod.html"><a href="uvod.html"><i class="fa fa-check"></i><b>1</b> Uvod</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="uvod.html"><a href="uvod.html#%C5%A1to-je-programski-jezik-r"><i class="fa fa-check"></i><b>1.1</b> Što je programski jezik R?</a>
+<li class="chapter" data-level="1.1" data-path="uvod.html"><a href="uvod.html#što-je-programski-jezik-r"><i class="fa fa-check"></i><b>1.1</b> Što je programski jezik R?</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="uvod.html"><a href="uvod.html#op%C4%87enito-o-r-u"><i class="fa fa-check"></i><b>1.1.1</b> Općenito o R-u</a></li>
+<li class="chapter" data-level="1.1.1" data-path="uvod.html"><a href="uvod.html#općenito-o-r-u"><i class="fa fa-check"></i><b>1.1.1</b> Općenito o R-u</a></li>
 <li class="chapter" data-level="1.1.2" data-path="uvod.html"><a href="uvod.html#alternative-jeziku-r"><i class="fa fa-check"></i><b>1.1.2</b> Alternative jeziku R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="uvod.html"><a href="uvod.html#instalacija-programske-podr%C5%A1ke"><i class="fa fa-check"></i><b>1.2</b> Instalacija programske podrške</a></li>
-<li class="chapter" data-level="1.3" data-path="uvod.html"><a href="uvod.html#pregled-razvojnog-su%C4%8Delja-rstudio"><i class="fa fa-check"></i><b>1.3</b> Pregled razvojnog sučelja <em>RStudio</em></a>
+<li class="chapter" data-level="1.2" data-path="uvod.html"><a href="uvod.html#instalacija-programske-podrške"><i class="fa fa-check"></i><b>1.2</b> Instalacija programske podrške</a></li>
+<li class="chapter" data-level="1.3" data-path="uvod.html"><a href="uvod.html#pregled-razvojnog-sučelja-rstudio"><i class="fa fa-check"></i><b>1.3</b> Pregled razvojnog sučelja <em>RStudio</em></a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="uvod.html"><a href="uvod.html#interaktivna-konzola"><i class="fa fa-check"></i><b>1.3.1</b> Interaktivna konzola</a></li>
 <li class="chapter" data-level="1.3.2" data-path="uvod.html"><a href="uvod.html#pisanje-r-skripti"><i class="fa fa-check"></i><b>1.3.2</b> Pisanje R skripti</a></li>
@@ -249,18 +248,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="uvod.html"><a href="uvod.html#organizacija-procesa-podatkovne-analize-uz-r-i-rstudio"><i class="fa fa-check"></i><b>1.4</b> Organizacija procesa podatkovne analize uz R i RStudio</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="uvod.html"><a href="uvod.html#po%C5%BEeljne-karakteristike-procesa-analize-podataka"><i class="fa fa-check"></i><b>1.4.1</b> Poželjne karakteristike procesa analize podataka</a></li>
+<li class="chapter" data-level="1.4.1" data-path="uvod.html"><a href="uvod.html#poželjne-karakteristike-procesa-analize-podataka"><i class="fa fa-check"></i><b>1.4.1</b> Poželjne karakteristike procesa analize podataka</a></li>
 <li class="chapter" data-level="1.4.2" data-path="uvod.html"><a href="uvod.html#organizacija-mapa-za-potrebe-analize-podataka"><i class="fa fa-check"></i><b>1.4.2</b> Organizacija mapa za potrebe analize podataka</a></li>
 <li class="chapter" data-level="1.4.3" data-path="uvod.html"><a href="uvod.html#pojam-projekta"><i class="fa fa-check"></i><b>1.4.3</b> Pojam projekta</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="uvod.html"><a href="uvod.html#kako-koristiti-ovaj-ud%C5%BEbenik"><i class="fa fa-check"></i><b>1.5</b> Kako koristiti ovaj udžbenik?</a></li>
+<li class="chapter" data-level="1.5" data-path="uvod.html"><a href="uvod.html#kako-koristiti-ovaj-udžbenik"><i class="fa fa-check"></i><b>1.5</b> Kako koristiti ovaj udžbenik?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tipovi.html"><a href="tipovi.html"><i class="fa fa-check"></i><b>2</b> Osnovni tipovi podataka</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="tipovi.html"><a href="tipovi.html#osnovni-tipovi-podataka"><i class="fa fa-check"></i><b>2.1</b> Osnovni tipovi podataka</a></li>
 <li class="chapter" data-level="2.2" data-path="tipovi.html"><a href="tipovi.html#operatori"><i class="fa fa-check"></i><b>2.2</b> Operatori</a></li>
-<li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostaju%C4%87e-nepoznate-i-nemogu%C4%87e-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
-<li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vje%C5%BEbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostajuće-nepoznate-i-nemoguće-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
+<li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vježbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="vektori.html"><a href="vektori.html"><i class="fa fa-check"></i><b>3</b> Vektori, matrice i liste</a>
 <ul>
@@ -280,7 +279,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="vektori.html"><a href="vektori.html#rezanje-matrica"><i class="fa fa-check"></i><b>3.3.1</b> Rezanje matrica</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vje%C5%BEbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vježbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="okviri.html"><a href="okviri.html"><i class="fa fa-check"></i><b>4</b> Liste, podatkovni okviri i faktori</a>
 <ul>
@@ -291,32 +290,32 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.2" data-path="okviri.html"><a href="okviri.html#dodavanje-i-brisanje-redaka-i-stupaca"><i class="fa fa-check"></i><b>4.2.2</b> Dodavanje i brisanje redaka i stupaca</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="okviri.html"><a href="okviri.html#faktori"><i class="fa fa-check"></i><b>4.3</b> Faktori</a></li>
-<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vje%C5%BEbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vježbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="uvjet.html"><a href="uvjet.html"><i class="fa fa-check"></i><b>5</b> Uvjetne naredbe i petlje</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="uvjet.html"><a href="uvjet.html#naredbe-kontrole-toka"><i class="fa fa-check"></i><b>5.1</b> Naredbe kontrole toka</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="uvjet.html"><a href="uvjet.html#uvjetno-izvo%C4%91enje-naredbi"><i class="fa fa-check"></i><b>5.1.1</b> Uvjetno izvođenje naredbi</a></li>
+<li class="chapter" data-level="5.1.1" data-path="uvjet.html"><a href="uvjet.html#uvjetno-izvođenje-naredbi"><i class="fa fa-check"></i><b>5.1.1</b> Uvjetno izvođenje naredbi</a></li>
 <li class="chapter" data-level="5.1.2" data-path="uvjet.html"><a href="uvjet.html#programske-petlje"><i class="fa fa-check"></i><b>5.1.2</b> Programske petlje</a></li>
 <li class="chapter" data-level="5.1.3" data-path="uvjet.html"><a href="uvjet.html#petlja-repeat"><i class="fa fa-check"></i><b>5.1.3</b> Petlja <code>repeat</code></a></li>
 <li class="chapter" data-level="5.1.4" data-path="uvjet.html"><a href="uvjet.html#petlja-while"><i class="fa fa-check"></i><b>5.1.4</b> Petlja <code>while</code></a></li>
 <li class="chapter" data-level="5.1.5" data-path="uvjet.html"><a href="uvjet.html#petlja-for"><i class="fa fa-check"></i><b>5.1.5</b> Petlja <code>for</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="uvjet.html"><a href="uvjet.html#zadaci-za-vje%C5%BEbu-3"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="uvjet.html"><a href="uvjet.html#zadaci-za-vježbu-3"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="paketi.html"><a href="paketi.html"><i class="fa fa-check"></i><b>6</b> Paketi i funkcije</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="paketi.html"><a href="paketi.html#rad-s-paketima"><i class="fa fa-check"></i><b>6.1</b> Rad s paketima</a></li>
-<li class="chapter" data-level="6.2" data-path="paketi.html"><a href="paketi.html#ugra%C4%91ene-funkcije"><i class="fa fa-check"></i><b>6.2</b> Ugrađene funkcije</a></li>
+<li class="chapter" data-level="6.2" data-path="paketi.html"><a href="paketi.html#ugrađene-funkcije"><i class="fa fa-check"></i><b>6.2</b> Ugrađene funkcije</a></li>
 <li class="chapter" data-level="6.3" data-path="paketi.html"><a href="paketi.html#kako-definirati-funkciju"><i class="fa fa-check"></i><b>6.3</b> Kako definirati funkciju</a></li>
-<li class="chapter" data-level="6.4" data-path="paketi.html"><a href="paketi.html#%C5%A1to-su-apply-funkcije"><i class="fa fa-check"></i><b>6.4</b> Što su <code>apply</code> funkcije?</a>
+<li class="chapter" data-level="6.4" data-path="paketi.html"><a href="paketi.html#što-su-apply-funkcije"><i class="fa fa-check"></i><b>6.4</b> Što su <code>apply</code> funkcije?</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="paketi.html"><a href="paketi.html#funkcija-apply"><i class="fa fa-check"></i><b>6.4.1</b> Funkcija <code>apply</code></a></li>
 <li class="chapter" data-level="6.4.2" data-path="paketi.html"><a href="paketi.html#funkcije-lapply-i-sapply"><i class="fa fa-check"></i><b>6.4.2</b> Funkcije <code>lapply</code> i <code>sapply</code></a></li>
 <li class="chapter" data-level="6.4.3" data-path="paketi.html"><a href="paketi.html#ostale-funkcije-iz-porodice-apply-i-dostupne-alternative"><i class="fa fa-check"></i><b>6.4.3</b> Ostale funkcije iz porodice <code>apply</code> i dostupne alternative</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="paketi.html"><a href="paketi.html#zadaci-za-vje%C5%BEbu-4"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="paketi.html"><a href="paketi.html#zadaci-za-vježbu-4"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="part"><span><b>II Upravljanje podacima i vizualizacije</b></span></li>
 <li class="chapter" data-level="7" data-path="cijev.html"><a href="cijev.html"><i class="fa fa-check"></i><b>7</b> Koncept urednih podataka</a>
@@ -328,7 +327,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.2.2" data-path="cijev.html"><a href="cijev.html#funkcije-separate-i-unite"><i class="fa fa-check"></i><b>7.2.2</b> Funkcije <code>separate</code> i <code>unite</code></a></li>
 <li class="chapter" data-level="7.2.3" data-path="cijev.html"><a href="cijev.html#funkcije-drop_na-i-replace_na"><i class="fa fa-check"></i><b>7.2.3</b> Funkcije <code>drop_NA</code> i <code>replace_NA</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vje%C5%BEbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vježbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="datumi.html"><a href="datumi.html"><i class="fa fa-check"></i><b>8</b> Rad sa vremenskim podacima</a>
 <ul>
@@ -346,17 +345,17 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="datumi.html"><a href="datumi.html#parsiranje-datuma-i-vremenskih-oznaka"><i class="fa fa-check"></i><b>8.2.1</b> Parsiranje datuma i vremenskih oznaka</a></li>
 <li class="chapter" data-level="8.2.2" data-path="datumi.html"><a href="datumi.html#paket-lubridate-i-vremenske-oznake"><i class="fa fa-check"></i><b>8.2.2</b> Paket <code>lubridate</code> i vremenske oznake</a></li>
-<li class="chapter" data-level="8.2.3" data-path="datumi.html"><a href="datumi.html#izvla%C4%8Denje-i-postavljanje-segmenata-datuma-i-vremena"><i class="fa fa-check"></i><b>8.2.3</b> Izvlačenje i postavljanje segmenata datuma i vremena</a></li>
+<li class="chapter" data-level="8.2.3" data-path="datumi.html"><a href="datumi.html#izvlačenje-i-postavljanje-segmenata-datuma-i-vremena"><i class="fa fa-check"></i><b>8.2.3</b> Izvlačenje i postavljanje segmenata datuma i vremena</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="datumi.html"><a href="datumi.html#trenutci-intervali-trajanja-i-periodi"><i class="fa fa-check"></i><b>8.3</b> Trenutci, intervali, trajanja i periodi</a>
 <ul>
 <li class="chapter" data-level="8.3.1" data-path="datumi.html"><a href="datumi.html#intervali"><i class="fa fa-check"></i><b>8.3.1</b> Intervali</a></li>
 <li class="chapter" data-level="8.3.2" data-path="datumi.html"><a href="datumi.html#period"><i class="fa fa-check"></i><b>8.3.2</b> Period</a></li>
 <li class="chapter" data-level="8.3.3" data-path="datumi.html"><a href="datumi.html#trajanje"><i class="fa fa-check"></i><b>8.3.3</b> Trajanje</a></li>
-<li class="chapter" data-level="8.3.4" data-path="datumi.html"><a href="datumi.html#pomo%C4%87ne-funkcije-za-rad-sa-vremenskim-intervalima"><i class="fa fa-check"></i><b>8.3.4</b> Pomoćne funkcije za rad sa vremenskim intervalima</a></li>
+<li class="chapter" data-level="8.3.4" data-path="datumi.html"><a href="datumi.html#pomoćne-funkcije-za-rad-sa-vremenskim-intervalima"><i class="fa fa-check"></i><b>8.3.4</b> Pomoćne funkcije za rad sa vremenskim intervalima</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="datumi.html"><a href="datumi.html#dodatna-literatura"><i class="fa fa-check"></i><b>8.4</b> Dodatna literatura</a></li>
-<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vje%C5%BEbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vježbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="nizovi.html"><a href="nizovi.html"><i class="fa fa-check"></i><b>9</b> Obrada znakovnih nizova</a>
 <ul>
@@ -365,7 +364,7 @@ div.csl-indent {
 <li class="chapter" data-level="9.1.1" data-path="nizovi.html"><a href="nizovi.html#analiza-teksta-i-regularni-izrazi"><i class="fa fa-check"></i><b>9.1.1</b> Analiza teksta i regularni izrazi</a></li>
 <li class="chapter" data-level="9.1.2" data-path="nizovi.html"><a href="nizovi.html#paket-stringr"><i class="fa fa-check"></i><b>9.1.2</b> Paket <code>stringr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vje%C5%BEbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vježbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><i class="fa fa-check"></i><b>10</b> Prilagodba podatkovnih skupova uz paket <code>dplyr</code></a>
 <ul>
@@ -378,16 +377,16 @@ div.csl-indent {
 <li class="chapter" data-level="10.7" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#spajanje-podatkovnih-okvira-uz-join-funkcije"><i class="fa fa-check"></i><b>10.7</b> Spajanje podatkovnih okvira uz join funkcije</a></li>
 <li class="chapter" data-level="10.8" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#integracija-sa-vanjskim-izvorima-podataka"><i class="fa fa-check"></i><b>10.8</b> Integracija sa vanjskim izvorima podataka</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredi%C5%A1te-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
+<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredište-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
 <li class="chapter" data-level="10.8.2" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#rad-sa-relacijskim-bazama"><i class="fa fa-check"></i><b>10.8.2</b> Rad sa relacijskim bazama</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vje%C5%BEbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vježbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>11</b> Vizualizacija podataka uz paket <code>ggplot2</code></a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="ggplot2.html"><a href="ggplot2.html#eksploratorna-analiza-podataka"><i class="fa fa-check"></i><b>11.1</b> Eksploratorna analiza podataka</a></li>
-<li class="chapter" data-level="11.2" data-path="ggplot2.html"><a href="ggplot2.html#vizualizacija-podataka-uz-pomo%C4%87-jezika-r"><i class="fa fa-check"></i><b>11.2</b> Vizualizacija podataka uz pomoć jezika R</a></li>
-<li class="chapter" data-level="11.3" data-path="ggplot2.html"><a href="ggplot2.html#grafi%C4%8Dka-gramatika-i-paket-ggplot2"><i class="fa fa-check"></i><b>11.3</b> Grafička gramatika i paket <code>ggplot2</code></a>
+<li class="chapter" data-level="11.2" data-path="ggplot2.html"><a href="ggplot2.html#vizualizacija-podataka-uz-pomoć-jezika-r"><i class="fa fa-check"></i><b>11.2</b> Vizualizacija podataka uz pomoć jezika R</a></li>
+<li class="chapter" data-level="11.3" data-path="ggplot2.html"><a href="ggplot2.html#grafička-gramatika-i-paket-ggplot2"><i class="fa fa-check"></i><b>11.3</b> Grafička gramatika i paket <code>ggplot2</code></a>
 <ul>
 <li class="chapter" data-level="11.3.1" data-path="ggplot2.html"><a href="ggplot2.html#aspekti-podataka-estetike-i-geometrije"><i class="fa fa-check"></i><b>11.3.1</b> Aspekti podataka, estetike i geometrije</a></li>
 <li class="chapter" data-level="11.3.2" data-path="ggplot2.html"><a href="ggplot2.html#fiksni-parametri-geometrije"><i class="fa fa-check"></i><b>11.3.2</b> Fiksni parametri geometrije</a></li>
@@ -396,8 +395,8 @@ div.csl-indent {
 <li class="chapter" data-level="11.3.5" data-path="ggplot2.html"><a href="ggplot2.html#aspekti-skale-koordinatnog-sustava-i-teme"><i class="fa fa-check"></i><b>11.3.5</b> Aspekti skale, koordinatnog sustava i teme</a></li>
 <li class="chapter" data-level="11.3.6" data-path="ggplot2.html"><a href="ggplot2.html#uvjetni-facetirani-grafovi"><i class="fa fa-check"></i><b>11.3.6</b> Uvjetni (facetirani) grafovi</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="ggplot2.html"><a href="ggplot2.html#grafovi-u-eksploratornoj-analizi-i-izvje%C5%A1tavanju"><i class="fa fa-check"></i><b>11.4</b> Grafovi u eksploratornoj analizi i izvještavanju</a></li>
-<li class="chapter" data-level="" data-path="ggplot2.html"><a href="ggplot2.html#zadaci-za-vje%C5%BEbu-9"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="11.4" data-path="ggplot2.html"><a href="ggplot2.html#grafovi-u-eksploratornoj-analizi-i-izvještavanju"><i class="fa fa-check"></i><b>11.4</b> Grafovi u eksploratornoj analizi i izvještavanju</a></li>
+<li class="chapter" data-level="" data-path="ggplot2.html"><a href="ggplot2.html#zadaci-za-vježbu-9"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 </ul>
 
@@ -457,7 +456,7 @@ div.csl-indent {
 <span id="cb411-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb411-3" tabindex="-1"></a><span class="fu">glimpse</span>(titanic)</span>
 <span id="cb411-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb411-4" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
 <pre><code>## Rows: 891 Columns: 12
-## ── Column specification ──────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (5): Name, Sex, Ticket, Cabin, Embarked
 ## dbl (7): PassengerId, Survived, Pclass, Age, SibSp, Parch, Fare
@@ -1237,8 +1236,8 @@ div.csl-indent {
 <span id="cb477-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb477-10" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">MeanArrDelay =</span> <span class="fu">round</span>(<span class="fu">mean</span>(ArrDelay, </span>
 <span id="cb477-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb477-11" tabindex="-1"></a>         <span class="at">na.rm =</span> T) , <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb477-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb477-12" tabindex="-1"></a>         <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(MeanArrDelay))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;DayOfWeek&#39;. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;DayOfWeek&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 21 × 3
 ##    DayOfWeek Dest  MeanArrDelay
 ##        &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt;
@@ -1383,7 +1382,7 @@ div.csl-indent {
 <p>Do sada samo kao izvor podataka gotovo isključivo koristili “čiste” tekstualne datoteke kao što su datoteke <em>CSV</em> standarda. U praksi možemo očekivati vrlo heterogenu prirodu izvora podataka kojima ćemo se morati prilagoditi. Danas gotovo sav softver za upravljanje repozitorijima podataka neovisno o njihovoj implementaciji i modelu podataka nudi mogućnost izvoza podataka u <em>CSV</em> obliku, što nam predstavlja svojevrsni oblik univerzalnog integracijskog rješenja. Usprkos tome, nekad “direktno” priključivanje na izvore (bilo za uvoz ili izvoz podataka) predstavlja brže i praktičnije rješenje, tako da ima smisla proučiti programske strukture koje ovo omogućuju-</p>
 <p>U nastavku ćemo dati kratki pregled dva primjera češćih izvora podataka koje susrećemo u praksi - <strong>Excel</strong> datoteke te <strong>relacijske baze podataka</strong>.</p>
 <div id="excel-datoteka-kao-izvor-odredište-podataka" class="section level3 hasAnchor" number="10.8.1">
-<h3><span class="header-section-number">10.8.1</span> Excel datoteka kao izvor (odredište) podataka<a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredi%C5%A1te-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">10.8.1</span> Excel datoteka kao izvor (odredište) podataka<a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredište-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Microsoft Excel iznimno je popularna aplikacija za upravljanje tabličnim podacima uz pomoć grafičkog sučelja koju danas mnoge tvrtke koriste u svakodnevnom poslovanju. Zato postoji velik interes za lakšom integracijom ove aplikacije (konkretnije, formata XLS koji koristi) i analitičkih alata kao što je programski jezik R. Nažalost, ova integracija u pravilu nije bila jednostavna zbog činjenice da je Microsoft Excel komercijalan softver s vlastitim, zatvorenim standardima koji često zahtijevaju predinstalaciju posebnih softverskih datoteka kako bi integracija bila omogućena. S obzirom na velik broj inačica paketa Microsoft Office čiji je Excel jedan od segmenata, nemogućnost integracije, nekonzistentnost ponašanja programskoga koda koji ju koristi te problemi prenosivosti koda dugo su vremena bili uobičajena pojava. Zbog ove činjenice i dalje je najprikladniji način komunikacije korištenje međurezultata u obliku nekog od otvorenih tekstualnih standarda, poglavito CSV datoteke.</p>
 <p>Paket <code>readxl</code> nudi alternativu ovom pristupu na način da omogućuje čitanje XLS i XLSX datoteka, a bez potrebe za prethodnom instalacijom dodatnoga softvera.</p>
 <p>Rad s ovim paketom jednostavan je. Učitamo paket <code>readxl</code> uz pomoć funkcije <code>library</code>, a potom korištenjem funkcije <code>read_excel</code> i imena XLS ili XLSX datoteke kao parametar učitamo podatke koji se automatski prevode u podatkovni okvir, konkretnije u <code>tibble</code>.</p>
@@ -1400,7 +1399,6 @@ div.csl-indent {
 <span id="cb494-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb494-4" tabindex="-1"></a></span>
 <span id="cb494-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb494-5" tabindex="-1"></a><span class="co"># proučite podatkovni okvir `ExcelSampleData` </span></span>
 <span id="cb494-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb494-6" tabindex="-1"></a><span class="fu">glimpse</span>(sampleData)</span></code></pre></div>
-<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.5.1</code></pre>
 <pre><code>## Rows: 43
 ## Columns: 7
 ## $ OrderDate   &lt;dttm&gt; 2014-09-01, 2015-06-17, 2015-09-10, 2015-11-17, 2015-10-3…
@@ -1417,20 +1415,19 @@ div.csl-indent {
 <p>Paket <code>readxl</code> primarno je namijenjen <strong>čitanju</strong> Excel datoteka. Ako rezultate želimo spremiti u XLSX datoteku, za to postoji niz paketa koji manje ili više uspješno obavljaju ovu zadaću. Jedan od njih je <code>writexl</code> i njegova funkcija <code>write_xlsx</code> kojoj dajemo podatkovni okvir te stazu (<code>path</code>) gdje želimo spremiti datoteku. Pripazite – usprkos sličnosti u imenima, paket <code>writexl</code> nema veze s paketom <code>readxl</code>, nisu ga radili isti autori niti je (u trenutku pisanja ovog udžbenika) dio paketa kolekcije <code>tidyverse</code>.</p>
 <hr />
 <p><strong>Zadatak 10.14 - Funkcija <code>write_xlsx</code></strong></p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb496-1" tabindex="-1"></a><span class="co"># u varijablu `filteredData` ubacite prvih pet redaka i prva tri stupca</span></span>
+<span id="cb496-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb496-2" tabindex="-1"></a><span class="co"># iz varijable `sampleData`</span></span>
+<span id="cb496-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb496-3" tabindex="-1"></a></span>
+<span id="cb496-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb496-4" tabindex="-1"></a><span class="co"># spremite podatke iz `filteredData` u datoteku `datasets/FilteredExcel.xlsx`</span></span></code></pre></div>
+<div class="fold s o">
 <div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-1" tabindex="-1"></a><span class="co"># u varijablu `filteredData` ubacite prvih pet redaka i prva tri stupca</span></span>
 <span id="cb497-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-2" tabindex="-1"></a><span class="co"># iz varijable `sampleData`</span></span>
-<span id="cb497-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-3" tabindex="-1"></a></span>
-<span id="cb497-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-4" tabindex="-1"></a><span class="co"># spremite podatke iz `filteredData` u datoteku `datasets/FilteredExcel.xlsx`</span></span></code></pre></div>
-<div class="fold s o">
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-1" tabindex="-1"></a><span class="co"># u varijablu `filteredData` ubacite prvih pet redaka i prva tri stupca</span></span>
-<span id="cb498-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-2" tabindex="-1"></a><span class="co"># iz varijable `sampleData`</span></span>
-<span id="cb498-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-3" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
-<span id="cb498-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-4" tabindex="-1"></a>filteredData <span class="ot">&lt;-</span> sampleData[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
-<span id="cb498-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-5" tabindex="-1"></a></span>
-<span id="cb498-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-6" tabindex="-1"></a></span>
-<span id="cb498-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-7" tabindex="-1"></a><span class="co"># spremite podatke iz `filteredData` u datoteku `datasets/FilteredExcel.xlsx`</span></span>
-<span id="cb498-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-8" tabindex="-1"></a><span class="fu">write_xlsx</span>(filteredData, <span class="at">path =</span> <span class="st">&quot;datasets/FilteredExcel.xlsx&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: package &#39;writexl&#39; was built under R version 4.5.3</code></pre>
+<span id="cb497-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-3" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb497-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-4" tabindex="-1"></a>filteredData <span class="ot">&lt;-</span> sampleData[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb497-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-5" tabindex="-1"></a></span>
+<span id="cb497-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-6" tabindex="-1"></a></span>
+<span id="cb497-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-7" tabindex="-1"></a><span class="co"># spremite podatke iz `filteredData` u datoteku `datasets/FilteredExcel.xlsx`</span></span>
+<span id="cb497-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb497-8" tabindex="-1"></a><span class="fu">write_xlsx</span>(filteredData, <span class="at">path =</span> <span class="st">&quot;datasets/FilteredExcel.xlsx&quot;</span>)</span></code></pre></div>
 </div>
 <hr />
 <p>Zbog već spomenute činjenice da je Microsoft Excel komercijalan softver s vlastitim standardima te nizom dostupnih inačica, razvoj programskih skripti koje se direktno naslanjaju na XLS i XLSX datoteke uvijek će imati izvjesnu dozu rizika u pogledu nestabilnosti i prenosivosti. Proces koji koristi CSV “međurezultate” jest nešto manje praktičan, no dugoročno puno lakše održiv, pogotovo jer se gotovo u potpunosti uklanja ovisnost o paketima, dodatnom softveru te inačicama Excela i R-a.</p>
@@ -1439,58 +1436,58 @@ div.csl-indent {
 <h3><span class="header-section-number">10.8.2</span> Rad sa relacijskim bazama<a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#rad-sa-relacijskim-bazama" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Relacijske baze česti su izvor podataka za analize koje radimo u jeziku <em>R</em>. Jedna od standardnih procedura pripreme podataka za analitički proces je tzv. “izvoženje” (engl. <em>export</em>) podataka iz baze u <em>CSV</em> datoteku, koja se potom učitava u <em>R</em>. Često se prije stvaranja <em>CSV</em> datoteke prvo podaci iz baze moraju prikupiti i pripremiti na adekvatan način, što znači da cjelokupni proces pripreme podataka incijalno zahtjeva rad u <em>SQL</em>-u nad bazom podataka. Ovo je pogotovo bitno ako radimo sa većim skupovima podataka koji bi nepotrebno opteretili stroj nad kojim radimo analize u <em>R</em>-u, a koji bi se mogli znatno učinkovitije i brže mogli obraditi u bazi podataka.</p>
 <p>Gore navedeno ne znači nužno da nam za prikupljanje podataka iz baze treba zaseban alat pomoću kojeg ćemo izvoditi <em>SQL</em> upite. <em>R</em> sadrži niz paketa za direktno spajanje i rad sa popularnijim bazama podataka, kao što su npr. <em>MySQL</em> ili <em>PostgreSQL</em>. Uz pomoć ovih paketa možemo unutar <em>R</em> skripte uspostaviti konekciju sa bazom i izvoditi <em>SQL</em> upite, a sve uz pomoć R naredbi pri čemu kao konačni rezultat dobivamo podatkovni okvir spreman za daljnje korake analize. Npr. rad direktno nad <em>PostgreSQL</em> bazom može izgledati ovako:</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RPostgreSQL&quot;</span>)</span>
-<span id="cb500-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-2" tabindex="-1"></a></span>
-<span id="cb500-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-3" tabindex="-1"></a><span class="fu">library</span>(RPostgreSQL)</span>
-<span id="cb500-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-4" tabindex="-1"></a></span>
-<span id="cb500-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-5" tabindex="-1"></a><span class="co"># unijeti stvarne parametre kod realnog scenarija!</span></span>
-<span id="cb500-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-6" tabindex="-1"></a>dsn_database <span class="ot">&lt;-</span> <span class="st">&quot;&lt;database name&gt;&quot;</span>   <span class="co"># Naziv tj. URL relacijske baze podataka</span></span>
-<span id="cb500-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-7" tabindex="-1"></a>dsn_hostname <span class="ot">&lt;-</span> <span class="st">&quot;&lt;your host name&gt;&quot;</span>  <span class="co"># Ime računala gdje se nalazi baza</span></span>
-<span id="cb500-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-8" tabindex="-1"></a>dsn_port <span class="ot">&lt;-</span> <span class="st">&quot;&lt;port&gt;&quot;</span>                <span class="co"># Broj ulaza, npr. 98939</span></span>
-<span id="cb500-9"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-9" tabindex="-1"></a>dsn_uid <span class="ot">&lt;-</span> <span class="st">&quot;&lt;your user id&gt;&quot;</span>         <span class="co"># Korisničko ime, npr. &quot;admin&quot;</span></span>
-<span id="cb500-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-10" tabindex="-1"></a>dsn_pwd <span class="ot">&lt;-</span> <span class="st">&quot;&lt;your password&gt;&quot;</span>        <span class="co"># Lozinka, npr. &quot;xxx&quot;</span></span>
-<span id="cb500-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-11" tabindex="-1"></a></span>
-<span id="cb500-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-12" tabindex="-1"></a><span class="fu">tryCatch</span>({</span>
-<span id="cb500-13"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-13" tabindex="-1"></a>    drv <span class="ot">&lt;-</span> <span class="fu">dbDriver</span>(<span class="st">&quot;PostgreSQL&quot;</span>)</span>
-<span id="cb500-14"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-14" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Spajam se na bazu…&quot;</span>)</span>
-<span id="cb500-15"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-15" tabindex="-1"></a>    conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(drv, </span>
-<span id="cb500-16"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-16" tabindex="-1"></a>                 <span class="at">dbname =</span> dsn_database,</span>
-<span id="cb500-17"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-17" tabindex="-1"></a>                 <span class="at">host =</span> dsn_hostname, </span>
-<span id="cb500-18"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-18" tabindex="-1"></a>                 <span class="at">port =</span> dsn_port,</span>
-<span id="cb500-19"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-19" tabindex="-1"></a>                 <span class="at">user =</span> dsn_uid, </span>
-<span id="cb500-20"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-20" tabindex="-1"></a>                 <span class="at">password =</span> dsn_pwd)</span>
-<span id="cb500-21"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-21" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Spajanje uspješno!&quot;</span>)</span>
-<span id="cb500-22"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-22" tabindex="-1"></a>    },</span>
-<span id="cb500-23"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-23" tabindex="-1"></a>    <span class="at">error=</span><span class="cf">function</span>(cond) {</span>
-<span id="cb500-24"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-24" tabindex="-1"></a>            <span class="fu">print</span>(<span class="st">&quot;Ne mogu se spojiti na bazu.&quot;</span>)</span>
-<span id="cb500-25"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-25" tabindex="-1"></a>    })</span>
-<span id="cb500-26"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-26" tabindex="-1"></a></span>
-<span id="cb500-27"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-27" tabindex="-1"></a></span>
-<span id="cb500-28"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb500-28" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">dbSendQuery</span>(conn, <span class="st">&quot;SELECT * FROM MY_TABLE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RPostgreSQL&quot;</span>)</span>
+<span id="cb498-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-2" tabindex="-1"></a></span>
+<span id="cb498-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-3" tabindex="-1"></a><span class="fu">library</span>(RPostgreSQL)</span>
+<span id="cb498-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-4" tabindex="-1"></a></span>
+<span id="cb498-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-5" tabindex="-1"></a><span class="co"># unijeti stvarne parametre kod realnog scenarija!</span></span>
+<span id="cb498-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-6" tabindex="-1"></a>dsn_database <span class="ot">&lt;-</span> <span class="st">&quot;&lt;database name&gt;&quot;</span>   <span class="co"># Naziv tj. URL relacijske baze podataka</span></span>
+<span id="cb498-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-7" tabindex="-1"></a>dsn_hostname <span class="ot">&lt;-</span> <span class="st">&quot;&lt;your host name&gt;&quot;</span>  <span class="co"># Ime računala gdje se nalazi baza</span></span>
+<span id="cb498-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-8" tabindex="-1"></a>dsn_port <span class="ot">&lt;-</span> <span class="st">&quot;&lt;port&gt;&quot;</span>                <span class="co"># Broj ulaza, npr. 98939</span></span>
+<span id="cb498-9"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-9" tabindex="-1"></a>dsn_uid <span class="ot">&lt;-</span> <span class="st">&quot;&lt;your user id&gt;&quot;</span>         <span class="co"># Korisničko ime, npr. &quot;admin&quot;</span></span>
+<span id="cb498-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-10" tabindex="-1"></a>dsn_pwd <span class="ot">&lt;-</span> <span class="st">&quot;&lt;your password&gt;&quot;</span>        <span class="co"># Lozinka, npr. &quot;xxx&quot;</span></span>
+<span id="cb498-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-11" tabindex="-1"></a></span>
+<span id="cb498-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-12" tabindex="-1"></a><span class="fu">tryCatch</span>({</span>
+<span id="cb498-13"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-13" tabindex="-1"></a>    drv <span class="ot">&lt;-</span> <span class="fu">dbDriver</span>(<span class="st">&quot;PostgreSQL&quot;</span>)</span>
+<span id="cb498-14"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-14" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Spajam se na bazu…&quot;</span>)</span>
+<span id="cb498-15"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-15" tabindex="-1"></a>    conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(drv, </span>
+<span id="cb498-16"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-16" tabindex="-1"></a>                 <span class="at">dbname =</span> dsn_database,</span>
+<span id="cb498-17"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-17" tabindex="-1"></a>                 <span class="at">host =</span> dsn_hostname, </span>
+<span id="cb498-18"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-18" tabindex="-1"></a>                 <span class="at">port =</span> dsn_port,</span>
+<span id="cb498-19"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-19" tabindex="-1"></a>                 <span class="at">user =</span> dsn_uid, </span>
+<span id="cb498-20"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-20" tabindex="-1"></a>                 <span class="at">password =</span> dsn_pwd)</span>
+<span id="cb498-21"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-21" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Spajanje uspješno!&quot;</span>)</span>
+<span id="cb498-22"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-22" tabindex="-1"></a>    },</span>
+<span id="cb498-23"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-23" tabindex="-1"></a>    <span class="at">error=</span><span class="cf">function</span>(cond) {</span>
+<span id="cb498-24"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-24" tabindex="-1"></a>            <span class="fu">print</span>(<span class="st">&quot;Ne mogu se spojiti na bazu.&quot;</span>)</span>
+<span id="cb498-25"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-25" tabindex="-1"></a>    })</span>
+<span id="cb498-26"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-26" tabindex="-1"></a></span>
+<span id="cb498-27"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-27" tabindex="-1"></a></span>
+<span id="cb498-28"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb498-28" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">dbSendQuery</span>(conn, <span class="st">&quot;SELECT * FROM MY_TABLE&quot;</span>)</span></code></pre></div>
 <p>Vidimo da prvo moramo učitati paket s podrškom za spajanje na odabranu bazu, potom uspostavljamo konekciju sa bazom (parametre nam obično daje administrator same baze), a onda uz pomoć odgovarajućih funkcija postavljamo <em>SQL</em> upite). Iako ovakav pristup nije kompliciran i relativno se često koristi, on neumitno zahtijeva miješanje programskog koda u <em>SQL</em>-u i programskog koda u <em>R</em>-u.</p>
 <p>Paket dplyr može ovdje pomoći na način da rastereti programera od potrebe pisanja <em>SQL</em> upita unutar <em>R</em> skripte. Naime, <code>dplyr</code> sadrži integriranu podršku za automatsku konverziju izraza koji koriste <code>dplyr</code> funkcije direktno u <em>SQL</em> upit, a što je transparentno za korisnika. Drugim riječima, do izvjesne mjere možemo na isti način raditi nad relacijskom bazom podataka kao da se radi o podatkovnim okvirima u memoriji računala. Ovdje trebamo biti oprezni jer ne možemo očekivati da će nam sve funkcionalnosti <code>dplyr</code>-a moći biti automatski prevedene u <em>SQL</em>, ali neke standardne pripremne operacije poput spajanje i filtriranja se na ovaj način mogu raditi direktno u bazi, a kroz čisti <em>R</em> programski kod.</p>
 <p>Kako bi mogli ovo isprobati u praksi, potrebna nam je relacijska baza podataka. Budući da nije praktično u ovom trenutku instalirati ili pripremati postojeću relacijsku bazu podataka samo za potrebe nekolicine primjera, učinit ćemo ono što radi većina <em>R</em> programera kada želi razvijati programski kod vezan uz relacijske baze, ali izbjeći potrebu za pristupom konkretnoj bazi podataka - koristiti ćemo se tzv. <em>SQLite </em>bazom. Ovo je jednostavna baza koja ne zahtijeva posebnu instalaciju, ne koristi poslužitelj i sve podatke drži u jednoj datoteci.</p>
 <p>U sljedećem programskom odsječku učitavamo paket <em>RSQLite</em>, stvaramo novu bazu kreiranjem nove datoteke (ili se spajamo na postojeću ako datoteka ne postoji) te spremamo okvir <code>mtcars</code> u tablicu <em>AUTI</em> što će nam glumiti “podatke u bazi”.</p>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-1" tabindex="-1"></a><span class="co"># instalacija i učitavanje paketa `RSQLite` (izvesti ako je potrebno)</span></span>
-<span id="cb501-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-2" tabindex="-1"></a><span class="co">#install.packages(&quot;RSQLite&quot;)      </span></span>
-<span id="cb501-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-3" tabindex="-1"></a><span class="co">#library(RSQLite)                 </span></span>
-<span id="cb501-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-4" tabindex="-1"></a></span>
-<span id="cb501-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-5" tabindex="-1"></a><span class="co"># otvaramo konekciju sa bazom &quot;SQLite&quot;</span></span>
-<span id="cb501-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-6" tabindex="-1"></a><span class="co"># (zapravo stvaramo datoteku &#39;moja.baza&#39;)</span></span>
-<span id="cb501-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-7" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="at">drv=</span><span class="fu">SQLite</span>(), <span class="at">dbname=</span><span class="st">&quot;moja.baza&quot;</span>)</span>
-<span id="cb501-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-8" tabindex="-1"></a></span>
-<span id="cb501-9"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-9" tabindex="-1"></a><span class="co"># stvaramo tablicu `AUTI` u koju pohranjujemo</span></span>
-<span id="cb501-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-10" tabindex="-1"></a><span class="co"># prvih 100 redaka tablice `mtcars`</span></span>
-<span id="cb501-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-11" tabindex="-1"></a><span class="co"># ovo simulira &quot;tablicu u bazi&quot;</span></span>
-<span id="cb501-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-12" tabindex="-1"></a><span class="fu">dbWriteTable</span>(conn, <span class="st">&quot;AUTI&quot;</span>, mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,], <span class="at">overwrite =</span> T)</span>
-<span id="cb501-13"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-13" tabindex="-1"></a></span>
-<span id="cb501-14"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-14" tabindex="-1"></a><span class="co"># provjeramo popis svih tablica</span></span>
-<span id="cb501-15"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-15" tabindex="-1"></a><span class="fu">dbListTables</span>(conn)</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-1" tabindex="-1"></a><span class="co"># instalacija i učitavanje paketa `RSQLite` (izvesti ako je potrebno)</span></span>
+<span id="cb499-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-2" tabindex="-1"></a><span class="co">#install.packages(&quot;RSQLite&quot;)      </span></span>
+<span id="cb499-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-3" tabindex="-1"></a><span class="co">#library(RSQLite)                 </span></span>
+<span id="cb499-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-4" tabindex="-1"></a></span>
+<span id="cb499-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-5" tabindex="-1"></a><span class="co"># otvaramo konekciju sa bazom &quot;SQLite&quot;</span></span>
+<span id="cb499-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-6" tabindex="-1"></a><span class="co"># (zapravo stvaramo datoteku &#39;moja.baza&#39;)</span></span>
+<span id="cb499-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-7" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="at">drv=</span><span class="fu">SQLite</span>(), <span class="at">dbname=</span><span class="st">&quot;moja.baza&quot;</span>)</span>
+<span id="cb499-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-8" tabindex="-1"></a></span>
+<span id="cb499-9"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-9" tabindex="-1"></a><span class="co"># stvaramo tablicu `AUTI` u koju pohranjujemo</span></span>
+<span id="cb499-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-10" tabindex="-1"></a><span class="co"># prvih 100 redaka tablice `mtcars`</span></span>
+<span id="cb499-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-11" tabindex="-1"></a><span class="co"># ovo simulira &quot;tablicu u bazi&quot;</span></span>
+<span id="cb499-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-12" tabindex="-1"></a><span class="fu">dbWriteTable</span>(conn, <span class="st">&quot;AUTI&quot;</span>, mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,], <span class="at">overwrite =</span> T)</span>
+<span id="cb499-13"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-13" tabindex="-1"></a></span>
+<span id="cb499-14"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-14" tabindex="-1"></a><span class="co"># provjeramo popis svih tablica</span></span>
+<span id="cb499-15"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb499-15" tabindex="-1"></a><span class="fu">dbListTables</span>(conn)</span></code></pre></div>
 <pre><code>## [1] &quot;AUTI&quot;</code></pre>
 <p>Uobičajeni način prikupljanja podataka iz baze jest ugradnja <em>SQL</em> upita direktno u <em>R</em> programski kod i pohrana rezultata u varijablu.</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-1" tabindex="-1"></a><span class="co"># ispisujemo podatke o maksimalnoj brzini i težini svih automobila sa 6 cilindara</span></span>
-<span id="cb503-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-2" tabindex="-1"></a></span>
-<span id="cb503-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-3" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;SELECT mpg, wt FROM AUTI WHERE cyl = 6&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-1" tabindex="-1"></a><span class="co"># ispisujemo podatke o maksimalnoj brzini i težini svih automobila sa 6 cilindara</span></span>
+<span id="cb501-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-2" tabindex="-1"></a></span>
+<span id="cb501-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb501-3" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;SELECT mpg, wt FROM AUTI WHERE cyl = 6&quot;</span>)</span></code></pre></div>
 <pre><code>##    mpg    wt
 ## 1 21.0 2.620
 ## 2 21.0 2.875
@@ -1501,18 +1498,18 @@ div.csl-indent {
 ## 7 19.7 2.770</code></pre>
 <p>Ako dobro poznajemo SQL, onda ovakav način prikupljanja podataka vjerojatno ne izgleda pretjerano kompleksno i uistinu, veliki broj programera i analitičara rado kombinira <em>SQL</em> i <em>R</em> kako bi optimizirali proces prikupljanja i pripreme podataka. No ako nismo “jaki” u <em>SQ</em>L-u, ili jednostavno želimo “čistiji” kod, možemo se koristiti alatima koje nam nudi paket <code>dplyr</code>.</p>
 <p>U idućem primjeru ponoviti ćemo dio gore prikazanog postupka (spojiti ćemo se na <em>SQLite</em> bazu nazvanu <em>moja.baza</em> i ispisati podatke iz tablice <em>AUTI</em>), ali ćemo sve izvesti uz pomoć <code>dplyr</code> funkcija.</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-1" tabindex="-1"></a><span class="co"># povezujem se sa postojećom SQLite bazom</span></span>
-<span id="cb505-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-2" tabindex="-1"></a>conn2 <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="at">drv=</span><span class="fu">SQLite</span>(), <span class="at">dbname=</span><span class="st">&quot;datasets/10/moja.baza&quot;</span>)</span>
-<span id="cb505-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-3" tabindex="-1"></a></span>
-<span id="cb505-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-4" tabindex="-1"></a><span class="co"># pogledajmo da li je tablica AUTI u bazi</span></span>
-<span id="cb505-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-5" tabindex="-1"></a><span class="fu">dbListTables</span>(conn2)</span>
-<span id="cb505-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-6" tabindex="-1"></a></span>
-<span id="cb505-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-7" tabindex="-1"></a><span class="co"># stvaram referencu na ovu tablicu</span></span>
-<span id="cb505-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-8" tabindex="-1"></a><span class="co"># (ništa se ne učitava dok ne pristupam podacima!)</span></span>
-<span id="cb505-9"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-9" tabindex="-1"></a>auti <span class="ot">&lt;-</span> <span class="fu">src_sqlite</span>(conn2, <span class="st">&quot;AUTI&quot;</span>)</span>
-<span id="cb505-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-10" tabindex="-1"></a></span>
-<span id="cb505-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-11" tabindex="-1"></a><span class="co"># ispisujemo podatke o maksimalnoj brzini i težini svih automobila sa 6 cilindara</span></span>
-<span id="cb505-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-12" tabindex="-1"></a>auti <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(mpg, wt) <span class="sc">%&gt;%</span> collect</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-1" tabindex="-1"></a><span class="co"># povezujem se sa postojećom SQLite bazom</span></span>
+<span id="cb503-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-2" tabindex="-1"></a>conn2 <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="at">drv=</span><span class="fu">SQLite</span>(), <span class="at">dbname=</span><span class="st">&quot;datasets/10/moja.baza&quot;</span>)</span>
+<span id="cb503-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-3" tabindex="-1"></a></span>
+<span id="cb503-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-4" tabindex="-1"></a><span class="co"># pogledajmo da li je tablica AUTI u bazi</span></span>
+<span id="cb503-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-5" tabindex="-1"></a><span class="fu">dbListTables</span>(conn2)</span>
+<span id="cb503-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-6" tabindex="-1"></a></span>
+<span id="cb503-7"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-7" tabindex="-1"></a><span class="co"># stvaram referencu na ovu tablicu</span></span>
+<span id="cb503-8"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-8" tabindex="-1"></a><span class="co"># (ništa se ne učitava dok ne pristupam podacima!)</span></span>
+<span id="cb503-9"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-9" tabindex="-1"></a>auti <span class="ot">&lt;-</span> <span class="fu">src_sqlite</span>(conn2, <span class="st">&quot;AUTI&quot;</span>)</span>
+<span id="cb503-10"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-10" tabindex="-1"></a></span>
+<span id="cb503-11"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-11" tabindex="-1"></a><span class="co"># ispisujemo podatke o maksimalnoj brzini i težini svih automobila sa 6 cilindara</span></span>
+<span id="cb503-12"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb503-12" tabindex="-1"></a>auti <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(mpg, wt) <span class="sc">%&gt;%</span> collect</span></code></pre></div>
 <pre><code>## [1] &quot;AUTI&quot;
 ## # A tibble: 7 × 2
 ##     mpg    wt
@@ -1529,7 +1526,7 @@ div.csl-indent {
 </div>
 </div>
 <div id="zadaci-za-vježbu-8" class="section level2 unnumbered hasAnchor">
-<h2>Zadaci za vježbu<a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vje%C5%BEbu-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2>Zadaci za vježbu<a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vježbu-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>U zadacima za vježbu poslužiti ćemo se proširenom podatkovnim skupom <em>mammals sleep</em> dostupnim u vizualizacijskom paketu <code>ggplot2</code>. Učitajte paket <code>ggplot2</code> te potom prenesite podatkovni okvir <code>msleep</code> u globalnu okolinu uz pomoć funkcije <code>data</code>.</p>
 <p>Prije rješavanja učitajte podatkovni skup i upoznajte se s njim uz pomoć uobičajenih funkcija.</p>
 <ol style="list-style-type: decimal">
@@ -1538,12 +1535,12 @@ div.csl-indent {
 <li><p>Podijelite ukupno vrijeme spavanja u 5 razreda jednoliko po ukupnoj duljini dnevnog spavanja. Za svaki razred ispišite ukupan broj životinja koje pripadaju razredu, a potom posebno ukupan broj pripadnika razreda koji nisu biljojedi. Ispis poredajte od razreda životinja koje najmanje spavaju naviše. Stupce nazovite smisleno i pripazite da konačna tablica nema NA vrijednosti.</p></li>
 <li><p>Sljedeći okvir sadrži šifre statusa očuvanja životinja i njihove opise:</p></li>
 </ol>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb507-1" tabindex="-1"></a>conservationStatus <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( </span>
-<span id="cb507-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb507-2" tabindex="-1"></a>  <span class="at">code =</span> <span class="fu">c</span>(<span class="st">&quot;ex&quot;</span>, <span class="st">&quot;ew&quot;</span>, <span class="st">&quot;cr&quot;</span>, <span class="st">&quot;en&quot;</span>, <span class="st">&quot;vu&quot;</span>, <span class="st">&quot;nt&quot;</span>, <span class="st">&quot;cd&quot;</span>, <span class="st">&quot;lc&quot;</span>),</span>
-<span id="cb507-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb507-3" tabindex="-1"></a>  <span class="at">description =</span> <span class="fu">c</span>(<span class="st">&quot;extinct&quot;</span>, <span class="st">&quot;extinct in the wild&quot;</span>, </span>
-<span id="cb507-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb507-4" tabindex="-1"></a>                 <span class="st">&quot;critically endangered&quot;</span>, <span class="st">&quot;endangered&quot;</span>,</span>
-<span id="cb507-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb507-5" tabindex="-1"></a>                 <span class="st">&quot;vulnerable&quot;</span>, <span class="st">&quot;near threatened&quot;</span>, </span>
-<span id="cb507-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb507-6" tabindex="-1"></a>                 <span class="st">&quot;conservation dependent&quot;</span>, <span class="st">&quot;least concern&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-1" tabindex="-1"></a>conservationStatus <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( </span>
+<span id="cb505-2"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-2" tabindex="-1"></a>  <span class="at">code =</span> <span class="fu">c</span>(<span class="st">&quot;ex&quot;</span>, <span class="st">&quot;ew&quot;</span>, <span class="st">&quot;cr&quot;</span>, <span class="st">&quot;en&quot;</span>, <span class="st">&quot;vu&quot;</span>, <span class="st">&quot;nt&quot;</span>, <span class="st">&quot;cd&quot;</span>, <span class="st">&quot;lc&quot;</span>),</span>
+<span id="cb505-3"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-3" tabindex="-1"></a>  <span class="at">description =</span> <span class="fu">c</span>(<span class="st">&quot;extinct&quot;</span>, <span class="st">&quot;extinct in the wild&quot;</span>, </span>
+<span id="cb505-4"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-4" tabindex="-1"></a>                 <span class="st">&quot;critically endangered&quot;</span>, <span class="st">&quot;endangered&quot;</span>,</span>
+<span id="cb505-5"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-5" tabindex="-1"></a>                 <span class="st">&quot;vulnerable&quot;</span>, <span class="st">&quot;near threatened&quot;</span>, </span>
+<span id="cb505-6"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#cb505-6" tabindex="-1"></a>                 <span class="st">&quot;conservation dependent&quot;</span>, <span class="st">&quot;least concern&quot;</span>))</span></code></pre></div>
 <p>Dodajte okviru <code>msleep</code> stupac <code>conservationDesc</code> koji će sadržavati pripadajuće opise preuzete iz gornjeg okvira. Pripazite da kod proširenja ne izgubite nijedan redak iz okvira <code>msleep</code>.</p>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Programirajmo u R-u</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.fer.unizg.hr/en/damir.pintar" property="cc:attributionName" rel="cc:attributionURL">Damir Pintar</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://ratnip.github.io/FER_OPJR/" rel="dct:source">https://ratnip.github.io/FER_OPJR/</a></p>
