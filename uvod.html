@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Uvod | Programirajmo u R-u</title>
   <meta name="description" content="Udžbenik za predmet ‘Uvod u znanost o podacima’ studija Primjenjene kognitivne znanosti na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Uvod | Programirajmo u R-u" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2026-05-14" />
+<meta name="date" content="2026-05-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,9 +121,8 @@ pre.plot {
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -133,7 +132,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -234,13 +233,13 @@ div.csl-indent {
 <li class="part"><span><b>I Osnovni elementi jezika R</b></span></li>
 <li class="chapter" data-level="1" data-path="uvod.html"><a href="uvod.html"><i class="fa fa-check"></i><b>1</b> Uvod</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="uvod.html"><a href="uvod.html#%C5%A1to-je-programski-jezik-r"><i class="fa fa-check"></i><b>1.1</b> Što je programski jezik R?</a>
+<li class="chapter" data-level="1.1" data-path="uvod.html"><a href="uvod.html#što-je-programski-jezik-r"><i class="fa fa-check"></i><b>1.1</b> Što je programski jezik R?</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="uvod.html"><a href="uvod.html#op%C4%87enito-o-r-u"><i class="fa fa-check"></i><b>1.1.1</b> Općenito o R-u</a></li>
+<li class="chapter" data-level="1.1.1" data-path="uvod.html"><a href="uvod.html#općenito-o-r-u"><i class="fa fa-check"></i><b>1.1.1</b> Općenito o R-u</a></li>
 <li class="chapter" data-level="1.1.2" data-path="uvod.html"><a href="uvod.html#alternative-jeziku-r"><i class="fa fa-check"></i><b>1.1.2</b> Alternative jeziku R</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="uvod.html"><a href="uvod.html#instalacija-programske-podr%C5%A1ke"><i class="fa fa-check"></i><b>1.2</b> Instalacija programske podrške</a></li>
-<li class="chapter" data-level="1.3" data-path="uvod.html"><a href="uvod.html#pregled-razvojnog-su%C4%8Delja-rstudio"><i class="fa fa-check"></i><b>1.3</b> Pregled razvojnog sučelja <em>RStudio</em></a>
+<li class="chapter" data-level="1.2" data-path="uvod.html"><a href="uvod.html#instalacija-programske-podrške"><i class="fa fa-check"></i><b>1.2</b> Instalacija programske podrške</a></li>
+<li class="chapter" data-level="1.3" data-path="uvod.html"><a href="uvod.html#pregled-razvojnog-sučelja-rstudio"><i class="fa fa-check"></i><b>1.3</b> Pregled razvojnog sučelja <em>RStudio</em></a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="uvod.html"><a href="uvod.html#interaktivna-konzola"><i class="fa fa-check"></i><b>1.3.1</b> Interaktivna konzola</a></li>
 <li class="chapter" data-level="1.3.2" data-path="uvod.html"><a href="uvod.html#pisanje-r-skripti"><i class="fa fa-check"></i><b>1.3.2</b> Pisanje R skripti</a></li>
@@ -249,18 +248,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="uvod.html"><a href="uvod.html#organizacija-procesa-podatkovne-analize-uz-r-i-rstudio"><i class="fa fa-check"></i><b>1.4</b> Organizacija procesa podatkovne analize uz R i RStudio</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="uvod.html"><a href="uvod.html#po%C5%BEeljne-karakteristike-procesa-analize-podataka"><i class="fa fa-check"></i><b>1.4.1</b> Poželjne karakteristike procesa analize podataka</a></li>
+<li class="chapter" data-level="1.4.1" data-path="uvod.html"><a href="uvod.html#poželjne-karakteristike-procesa-analize-podataka"><i class="fa fa-check"></i><b>1.4.1</b> Poželjne karakteristike procesa analize podataka</a></li>
 <li class="chapter" data-level="1.4.2" data-path="uvod.html"><a href="uvod.html#organizacija-mapa-za-potrebe-analize-podataka"><i class="fa fa-check"></i><b>1.4.2</b> Organizacija mapa za potrebe analize podataka</a></li>
 <li class="chapter" data-level="1.4.3" data-path="uvod.html"><a href="uvod.html#pojam-projekta"><i class="fa fa-check"></i><b>1.4.3</b> Pojam projekta</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="uvod.html"><a href="uvod.html#kako-koristiti-ovaj-ud%C5%BEbenik"><i class="fa fa-check"></i><b>1.5</b> Kako koristiti ovaj udžbenik?</a></li>
+<li class="chapter" data-level="1.5" data-path="uvod.html"><a href="uvod.html#kako-koristiti-ovaj-udžbenik"><i class="fa fa-check"></i><b>1.5</b> Kako koristiti ovaj udžbenik?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tipovi.html"><a href="tipovi.html"><i class="fa fa-check"></i><b>2</b> Osnovni tipovi podataka</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="tipovi.html"><a href="tipovi.html#osnovni-tipovi-podataka"><i class="fa fa-check"></i><b>2.1</b> Osnovni tipovi podataka</a></li>
 <li class="chapter" data-level="2.2" data-path="tipovi.html"><a href="tipovi.html#operatori"><i class="fa fa-check"></i><b>2.2</b> Operatori</a></li>
-<li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostaju%C4%87e-nepoznate-i-nemogu%C4%87e-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
-<li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vje%C5%BEbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="2.3" data-path="tipovi.html"><a href="tipovi.html#nedostajuće-nepoznate-i-nemoguće-vrijednosti"><i class="fa fa-check"></i><b>2.3</b> Nedostajuće, nepoznate i nemoguće vrijednosti</a></li>
+<li class="chapter" data-level="" data-path="tipovi.html"><a href="tipovi.html#zadaci-za-vježbu"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="vektori.html"><a href="vektori.html"><i class="fa fa-check"></i><b>3</b> Vektori, matrice i liste</a>
 <ul>
@@ -280,7 +279,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="vektori.html"><a href="vektori.html#rezanje-matrica"><i class="fa fa-check"></i><b>3.3.1</b> Rezanje matrica</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vje%C5%BEbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="vektori.html"><a href="vektori.html#zadaci-za-vježbu-1"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="okviri.html"><a href="okviri.html"><i class="fa fa-check"></i><b>4</b> Liste, podatkovni okviri i faktori</a>
 <ul>
@@ -291,32 +290,32 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.2" data-path="okviri.html"><a href="okviri.html#dodavanje-i-brisanje-redaka-i-stupaca"><i class="fa fa-check"></i><b>4.2.2</b> Dodavanje i brisanje redaka i stupaca</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="okviri.html"><a href="okviri.html#faktori"><i class="fa fa-check"></i><b>4.3</b> Faktori</a></li>
-<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vje%C5%BEbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="okviri.html"><a href="okviri.html#zadaci-za-vježbu-2"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="uvjet.html"><a href="uvjet.html"><i class="fa fa-check"></i><b>5</b> Uvjetne naredbe i petlje</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="uvjet.html"><a href="uvjet.html#naredbe-kontrole-toka"><i class="fa fa-check"></i><b>5.1</b> Naredbe kontrole toka</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="uvjet.html"><a href="uvjet.html#uvjetno-izvo%C4%91enje-naredbi"><i class="fa fa-check"></i><b>5.1.1</b> Uvjetno izvođenje naredbi</a></li>
+<li class="chapter" data-level="5.1.1" data-path="uvjet.html"><a href="uvjet.html#uvjetno-izvođenje-naredbi"><i class="fa fa-check"></i><b>5.1.1</b> Uvjetno izvođenje naredbi</a></li>
 <li class="chapter" data-level="5.1.2" data-path="uvjet.html"><a href="uvjet.html#programske-petlje"><i class="fa fa-check"></i><b>5.1.2</b> Programske petlje</a></li>
 <li class="chapter" data-level="5.1.3" data-path="uvjet.html"><a href="uvjet.html#petlja-repeat"><i class="fa fa-check"></i><b>5.1.3</b> Petlja <code>repeat</code></a></li>
 <li class="chapter" data-level="5.1.4" data-path="uvjet.html"><a href="uvjet.html#petlja-while"><i class="fa fa-check"></i><b>5.1.4</b> Petlja <code>while</code></a></li>
 <li class="chapter" data-level="5.1.5" data-path="uvjet.html"><a href="uvjet.html#petlja-for"><i class="fa fa-check"></i><b>5.1.5</b> Petlja <code>for</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="uvjet.html"><a href="uvjet.html#zadaci-za-vje%C5%BEbu-3"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="uvjet.html"><a href="uvjet.html#zadaci-za-vježbu-3"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="paketi.html"><a href="paketi.html"><i class="fa fa-check"></i><b>6</b> Paketi i funkcije</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="paketi.html"><a href="paketi.html#rad-s-paketima"><i class="fa fa-check"></i><b>6.1</b> Rad s paketima</a></li>
-<li class="chapter" data-level="6.2" data-path="paketi.html"><a href="paketi.html#ugra%C4%91ene-funkcije"><i class="fa fa-check"></i><b>6.2</b> Ugrađene funkcije</a></li>
+<li class="chapter" data-level="6.2" data-path="paketi.html"><a href="paketi.html#ugrađene-funkcije"><i class="fa fa-check"></i><b>6.2</b> Ugrađene funkcije</a></li>
 <li class="chapter" data-level="6.3" data-path="paketi.html"><a href="paketi.html#kako-definirati-funkciju"><i class="fa fa-check"></i><b>6.3</b> Kako definirati funkciju</a></li>
-<li class="chapter" data-level="6.4" data-path="paketi.html"><a href="paketi.html#%C5%A1to-su-apply-funkcije"><i class="fa fa-check"></i><b>6.4</b> Što su <code>apply</code> funkcije?</a>
+<li class="chapter" data-level="6.4" data-path="paketi.html"><a href="paketi.html#što-su-apply-funkcije"><i class="fa fa-check"></i><b>6.4</b> Što su <code>apply</code> funkcije?</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="paketi.html"><a href="paketi.html#funkcija-apply"><i class="fa fa-check"></i><b>6.4.1</b> Funkcija <code>apply</code></a></li>
 <li class="chapter" data-level="6.4.2" data-path="paketi.html"><a href="paketi.html#funkcije-lapply-i-sapply"><i class="fa fa-check"></i><b>6.4.2</b> Funkcije <code>lapply</code> i <code>sapply</code></a></li>
 <li class="chapter" data-level="6.4.3" data-path="paketi.html"><a href="paketi.html#ostale-funkcije-iz-porodice-apply-i-dostupne-alternative"><i class="fa fa-check"></i><b>6.4.3</b> Ostale funkcije iz porodice <code>apply</code> i dostupne alternative</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="paketi.html"><a href="paketi.html#zadaci-za-vje%C5%BEbu-4"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="paketi.html"><a href="paketi.html#zadaci-za-vježbu-4"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="part"><span><b>II Upravljanje podacima i vizualizacije</b></span></li>
 <li class="chapter" data-level="7" data-path="cijev.html"><a href="cijev.html"><i class="fa fa-check"></i><b>7</b> Koncept urednih podataka</a>
@@ -328,7 +327,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.2.2" data-path="cijev.html"><a href="cijev.html#funkcije-separate-i-unite"><i class="fa fa-check"></i><b>7.2.2</b> Funkcije <code>separate</code> i <code>unite</code></a></li>
 <li class="chapter" data-level="7.2.3" data-path="cijev.html"><a href="cijev.html#funkcije-drop_na-i-replace_na"><i class="fa fa-check"></i><b>7.2.3</b> Funkcije <code>drop_NA</code> i <code>replace_NA</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vje%C5%BEbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vježbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="datumi.html"><a href="datumi.html"><i class="fa fa-check"></i><b>8</b> Rad sa vremenskim podacima</a>
 <ul>
@@ -346,17 +345,17 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="datumi.html"><a href="datumi.html#parsiranje-datuma-i-vremenskih-oznaka"><i class="fa fa-check"></i><b>8.2.1</b> Parsiranje datuma i vremenskih oznaka</a></li>
 <li class="chapter" data-level="8.2.2" data-path="datumi.html"><a href="datumi.html#paket-lubridate-i-vremenske-oznake"><i class="fa fa-check"></i><b>8.2.2</b> Paket <code>lubridate</code> i vremenske oznake</a></li>
-<li class="chapter" data-level="8.2.3" data-path="datumi.html"><a href="datumi.html#izvla%C4%8Denje-i-postavljanje-segmenata-datuma-i-vremena"><i class="fa fa-check"></i><b>8.2.3</b> Izvlačenje i postavljanje segmenata datuma i vremena</a></li>
+<li class="chapter" data-level="8.2.3" data-path="datumi.html"><a href="datumi.html#izvlačenje-i-postavljanje-segmenata-datuma-i-vremena"><i class="fa fa-check"></i><b>8.2.3</b> Izvlačenje i postavljanje segmenata datuma i vremena</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="datumi.html"><a href="datumi.html#trenutci-intervali-trajanja-i-periodi"><i class="fa fa-check"></i><b>8.3</b> Trenutci, intervali, trajanja i periodi</a>
 <ul>
 <li class="chapter" data-level="8.3.1" data-path="datumi.html"><a href="datumi.html#intervali"><i class="fa fa-check"></i><b>8.3.1</b> Intervali</a></li>
 <li class="chapter" data-level="8.3.2" data-path="datumi.html"><a href="datumi.html#period"><i class="fa fa-check"></i><b>8.3.2</b> Period</a></li>
 <li class="chapter" data-level="8.3.3" data-path="datumi.html"><a href="datumi.html#trajanje"><i class="fa fa-check"></i><b>8.3.3</b> Trajanje</a></li>
-<li class="chapter" data-level="8.3.4" data-path="datumi.html"><a href="datumi.html#pomo%C4%87ne-funkcije-za-rad-sa-vremenskim-intervalima"><i class="fa fa-check"></i><b>8.3.4</b> Pomoćne funkcije za rad sa vremenskim intervalima</a></li>
+<li class="chapter" data-level="8.3.4" data-path="datumi.html"><a href="datumi.html#pomoćne-funkcije-za-rad-sa-vremenskim-intervalima"><i class="fa fa-check"></i><b>8.3.4</b> Pomoćne funkcije za rad sa vremenskim intervalima</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="datumi.html"><a href="datumi.html#dodatna-literatura"><i class="fa fa-check"></i><b>8.4</b> Dodatna literatura</a></li>
-<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vje%C5%BEbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="datumi.html"><a href="datumi.html#zadaci-za-vježbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="nizovi.html"><a href="nizovi.html"><i class="fa fa-check"></i><b>9</b> Obrada znakovnih nizova</a>
 <ul>
@@ -365,7 +364,7 @@ div.csl-indent {
 <li class="chapter" data-level="9.1.1" data-path="nizovi.html"><a href="nizovi.html#analiza-teksta-i-regularni-izrazi"><i class="fa fa-check"></i><b>9.1.1</b> Analiza teksta i regularni izrazi</a></li>
 <li class="chapter" data-level="9.1.2" data-path="nizovi.html"><a href="nizovi.html#paket-stringr"><i class="fa fa-check"></i><b>9.1.2</b> Paket <code>stringr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vje%C5%BEbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="nizovi.html"><a href="nizovi.html#zadaci-za-vježbu-7"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><i class="fa fa-check"></i><b>10</b> Prilagodba podatkovnih skupova uz paket <code>dplyr</code></a>
 <ul>
@@ -378,16 +377,16 @@ div.csl-indent {
 <li class="chapter" data-level="10.7" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#spajanje-podatkovnih-okvira-uz-join-funkcije"><i class="fa fa-check"></i><b>10.7</b> Spajanje podatkovnih okvira uz join funkcije</a></li>
 <li class="chapter" data-level="10.8" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#integracija-sa-vanjskim-izvorima-podataka"><i class="fa fa-check"></i><b>10.8</b> Integracija sa vanjskim izvorima podataka</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredi%C5%A1te-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
+<li class="chapter" data-level="10.8.1" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#excel-datoteka-kao-izvor-odredište-podataka"><i class="fa fa-check"></i><b>10.8.1</b> Excel datoteka kao izvor (odredište) podataka</a></li>
 <li class="chapter" data-level="10.8.2" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#rad-sa-relacijskim-bazama"><i class="fa fa-check"></i><b>10.8.2</b> Rad sa relacijskim bazama</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vje%C5%BEbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html"><a href="prilagodba-podatkovnih-skupova-uz-paket-dplyr.html#zadaci-za-vježbu-8"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>11</b> Vizualizacija podataka uz paket <code>ggplot2</code></a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="ggplot2.html"><a href="ggplot2.html#eksploratorna-analiza-podataka"><i class="fa fa-check"></i><b>11.1</b> Eksploratorna analiza podataka</a></li>
-<li class="chapter" data-level="11.2" data-path="ggplot2.html"><a href="ggplot2.html#vizualizacija-podataka-uz-pomo%C4%87-jezika-r"><i class="fa fa-check"></i><b>11.2</b> Vizualizacija podataka uz pomoć jezika R</a></li>
-<li class="chapter" data-level="11.3" data-path="ggplot2.html"><a href="ggplot2.html#grafi%C4%8Dka-gramatika-i-paket-ggplot2"><i class="fa fa-check"></i><b>11.3</b> Grafička gramatika i paket <code>ggplot2</code></a>
+<li class="chapter" data-level="11.2" data-path="ggplot2.html"><a href="ggplot2.html#vizualizacija-podataka-uz-pomoć-jezika-r"><i class="fa fa-check"></i><b>11.2</b> Vizualizacija podataka uz pomoć jezika R</a></li>
+<li class="chapter" data-level="11.3" data-path="ggplot2.html"><a href="ggplot2.html#grafička-gramatika-i-paket-ggplot2"><i class="fa fa-check"></i><b>11.3</b> Grafička gramatika i paket <code>ggplot2</code></a>
 <ul>
 <li class="chapter" data-level="11.3.1" data-path="ggplot2.html"><a href="ggplot2.html#aspekti-podataka-estetike-i-geometrije"><i class="fa fa-check"></i><b>11.3.1</b> Aspekti podataka, estetike i geometrije</a></li>
 <li class="chapter" data-level="11.3.2" data-path="ggplot2.html"><a href="ggplot2.html#fiksni-parametri-geometrije"><i class="fa fa-check"></i><b>11.3.2</b> Fiksni parametri geometrije</a></li>
@@ -396,19 +395,31 @@ div.csl-indent {
 <li class="chapter" data-level="11.3.5" data-path="ggplot2.html"><a href="ggplot2.html#aspekti-skale-koordinatnog-sustava-i-teme"><i class="fa fa-check"></i><b>11.3.5</b> Aspekti skale, koordinatnog sustava i teme</a></li>
 <li class="chapter" data-level="11.3.6" data-path="ggplot2.html"><a href="ggplot2.html#uvjetni-facetirani-grafovi"><i class="fa fa-check"></i><b>11.3.6</b> Uvjetni (facetirani) grafovi</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="ggplot2.html"><a href="ggplot2.html#grafovi-u-eksploratornoj-analizi-i-izvje%C5%A1tavanju"><i class="fa fa-check"></i><b>11.4</b> Grafovi u eksploratornoj analizi i izvještavanju</a></li>
-<li class="chapter" data-level="" data-path="ggplot2.html"><a href="ggplot2.html#zadaci-za-vje%C5%BEbu-9"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="11.4" data-path="ggplot2.html"><a href="ggplot2.html#grafovi-u-eksploratornoj-analizi-i-izvještavanju"><i class="fa fa-check"></i><b>11.4</b> Grafovi u eksploratornoj analizi i izvještavanju</a></li>
+<li class="chapter" data-level="" data-path="ggplot2.html"><a href="ggplot2.html#zadaci-za-vježbu-9"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 <li class="part"><span><b>III Statistika i strojno učenje u jeziku R</b></span></li>
 <li class="chapter" data-level="12" data-path="razdiobe.html"><a href="razdiobe.html"><i class="fa fa-check"></i><b>12</b> Razdiobe i simulacije</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="razdiobe.html"><a href="razdiobe.html#generiranje-slu%C4%8Dajnih-brojeva"><i class="fa fa-check"></i><b>12.1</b> Generiranje slučajnih brojeva</a></li>
+<li class="chapter" data-level="12.1" data-path="razdiobe.html"><a href="razdiobe.html#generiranje-slučajnih-brojeva"><i class="fa fa-check"></i><b>12.1</b> Generiranje slučajnih brojeva</a></li>
 <li class="chapter" data-level="12.2" data-path="razdiobe.html"><a href="razdiobe.html#rad-sa-razdiobama-vjerojatnosti-u-jeziku-r"><i class="fa fa-check"></i><b>12.2</b> Rad sa razdiobama vjerojatnosti u jeziku R</a></li>
 <li class="chapter" data-level="12.3" data-path="razdiobe.html"><a href="razdiobe.html#binomna-razdioba"><i class="fa fa-check"></i><b>12.3</b> Binomna razdioba</a></li>
 <li class="chapter" data-level="12.4" data-path="razdiobe.html"><a href="razdiobe.html#normalna-razdioba"><i class="fa fa-check"></i><b>12.4</b> Normalna razdioba</a></li>
-<li class="chapter" data-level="12.5" data-path="razdiobe.html"><a href="razdiobe.html#procjena-funkcije-gusto%C4%87e-razdiobe-i-kvantil-kvantil-graf"><i class="fa fa-check"></i><b>12.5</b> Procjena funkcije gustoće razdiobe i kvantil-kvantil graf</a></li>
+<li class="chapter" data-level="12.5" data-path="razdiobe.html"><a href="razdiobe.html#procjena-funkcije-gustoće-razdiobe-i-kvantil-kvantil-graf"><i class="fa fa-check"></i><b>12.5</b> Procjena funkcije gustoće razdiobe i kvantil-kvantil graf</a></li>
 <li class="chapter" data-level="12.6" data-path="razdiobe.html"><a href="razdiobe.html#monte-carlo-simulacije"><i class="fa fa-check"></i><b>12.6</b> Monte Carlo Simulacije</a></li>
-<li class="chapter" data-level="" data-path="razdiobe.html"><a href="razdiobe.html#zadaci-za-vje%C5%BEbu-10"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+<li class="chapter" data-level="" data-path="razdiobe.html"><a href="razdiobe.html#zadaci-za-vježbu-10"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="part"><span><b>IV Strojno učenje i prediktivna analitika</b></span></li>
+<li class="chapter" data-level="13" data-path="regresija.html"><a href="regresija.html"><i class="fa fa-check"></i><b>13</b> Odabrane metode strojnog učenja: regresijska analiza</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="regresija.html"><a href="regresija.html#strojno-učenje"><i class="fa fa-check"></i><b>13.1</b> Strojno učenje</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="regresija.html"><a href="regresija.html#jednostavna-linearna-regresija"><i class="fa fa-check"></i><b>13.1.1</b> Jednostavna linearna regresija</a></li>
+<li class="chapter" data-level="13.1.2" data-path="regresija.html"><a href="regresija.html#funkcija-lm"><i class="fa fa-check"></i><b>13.1.2</b> Funkcija <code>lm</code></a></li>
+<li class="chapter" data-level="13.1.3" data-path="regresija.html"><a href="regresija.html#linearna-regresija-i-kategorijske-varijable"><i class="fa fa-check"></i><b>13.1.3</b> Linearna regresija i kategorijske varijable</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="regresija.html"><a href="regresija.html#višestruka-multipla-linearna-regresija"><i class="fa fa-check"></i><b>13.2</b> Višestruka (multipla) linearna regresija</a></li>
+<li class="chapter" data-level="" data-path="regresija.html"><a href="regresija.html#zadaci-za-vježbu-11"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 </ul>
 
@@ -431,9 +442,9 @@ div.csl-indent {
 <h1><span class="header-section-number">1</span> Uvod<a href="uvod.html#uvod" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
 <div id="što-je-programski-jezik-r" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Što je programski jezik R?<a href="uvod.html#%C5%A1to-je-programski-jezik-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">1.1</span> Što je programski jezik R?<a href="uvod.html#što-je-programski-jezik-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="općenito-o-r-u" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Općenito o R-u<a href="uvod.html#op%C4%87enito-o-r-u" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">1.1.1</span> Općenito o R-u<a href="uvod.html#općenito-o-r-u" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Programski jezik R proizašao je iz <strong>programskog jezika S</strong>, razvijenog za potrebe <em>Bell Telephone</em> Laboratorija u vlasništvu <em>AT &amp; T</em> korporacije. Zamišljen je kao interni <strong>alat za statističku analizu</strong>. Osnovna filozofija jezika S (koju je naslijedio i programski jezik R) bila je <strong>domenska orijentiranost</strong> - tj. olakšavanje posla podatkovnim analitičarima bez potrebe za prilagođavanjem konvencijama tradicionalnih programskih jezika. Jezik S je kroz 80.-te i 90.-te dosegnuo značajnu popularnost u krugovima poslovnih analitičara i statističara, no dostupan samo kroz <strong>komercijalnu varijantu nazvanoj S-PLUS</strong>.</p>
 <p><strong>Programski jezik R</strong> nastao je na sveučilištu u Aucklandu (NZ) po uzoru na S, a 2000. objavljuje se pod <strong>GNU licencom otvorenog koda</strong>.</p>
 <p>Standardna distribucija R programskog jezika sastoji se od:</p>
@@ -461,7 +472,7 @@ div.csl-indent {
 </div>
 </div>
 <div id="instalacija-programske-podrške" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Instalacija programske podrške<a href="uvod.html#instalacija-programske-podr%C5%A1ke" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">1.2</span> Instalacija programske podrške<a href="uvod.html#instalacija-programske-podrške" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Instalacija programske podrške za jezik R je prilično jednostavna, pogotovo ako se kao platforma koristi preporučeno razvojno sučelje <strong>RStudio</strong>. Ovo nije jedina opcija - jedna od popularnih alternativa jest i višejezična platforma <strong>Jupyter Notebook</strong> koja nudi vlastitu podršku za R. Čitateljima se dugoročno preporučuje istraživanje svih dostupnih opcija i konačni odabir onog sučelja koje osobno procijene najboljim za svoje potrebe, no ovaj udžbenik će se usredotočiti na <strong>RStudio</strong> ponajviše zbog jasnog, preglednog sučelja, lake instalacije i vrlo bogate podrške za različite funkcionalnosti - od instalacije novih paketa, lakog dohvaćanja dokumentacije, prikaza vizualizacija do stvaranja i objave izvještaja. Radne bilježnice o kojima će više riječi biti u nastavku uglavnom pretpostavljaju da ste odabrali sučelje <strong>RStudio</strong>.</p>
 <p>Za uspješno postavljanje razvojne platforme potrebno je instalirati dvije stvari</p>
 <ul>
@@ -480,7 +491,7 @@ div.csl-indent {
 <p>Izvršne datoteke možete pokrenuti i pustiti čarobnjaka da instalira sve potrebne komponente na vaše računalo. Preporučuje se prihvatiti sve nazivne opcije osim mape instalacije - umjesto podmape “<em>Program Files</em>” bolje je instalirati R direktno u osnovnu mapu (npr. “<em>C:\R\R-4.4.1</em>”). Na ovaj način biti će lakše pronaći trenutno instaliranu inačicu i eventualno kasnije ažurirati. Iz istih razloga preporučuje se <em>RStudio</em> instalirati u mapu “<em>C:\R\RStudio</em>”. U slučaju da niste mogućnosti ili ne želite odabrati ove mape, možete definirati neke druge ili zadržati nazivne opcije - ovaj izbor ne bi u konačnici trebao bitno utjecati na daljnji rad.</p>
 <p>Nakon instalacije sučelja <em>RStudio</em> dovoljno je isto jednostavno pokrenuti uz pomoć stvorene kratice na radnoj mapi (ili alternativno, uz pomoć izvršne datoteke <em>RStudio.exe</em> u odabranoj mapi za instalaciju). Nakon pokretanja aplikacija bi trebala izgledati slično sljedećoj slici:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="figures/RStudio1.png" alt="Izgled sučelja RStudio"  />
+<img src="figures/RStudio1.png" alt="Izgled sučelja RStudio" width="583" />
 <p class="caption">
 Slika 1.1: Izgled sučelja RStudio
 </p>
@@ -489,7 +500,7 @@ Slika 1.1: Izgled sučelja RStudio
 <hr />
 </div>
 <div id="pregled-razvojnog-sučelja-rstudio" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Pregled razvojnog sučelja <em>RStudio</em><a href="uvod.html#pregled-razvojnog-su%C4%8Delja-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">1.3</span> Pregled razvojnog sučelja <em>RStudio</em><a href="uvod.html#pregled-razvojnog-sučelja-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Pogledajmo sučelje <em>RStudio</em>. Vidimo da je podijeljeno na tri prozora - lijevi dio je “radni” i u njega upisujemo programski kod. S desne strane se nalaze pomoćni prozori koji prikazuju različite stvari, ovisno o odabranoj kartici; u gornjem desnom dijelu između ostalog možemo vidjeti što se trenutno nalazi u našoj radnoj okolini (koja je na početku prazna) te povijest naredbi koje smo izvršavali. Donji dio služi za prikaz dokumentacije, datoteka u radnoj mapi, instaliranih paketa, vizualizacija i sl.</p>
 <hr />
 <div id="interaktivna-konzola" class="section level3 hasAnchor" number="1.3.1">
@@ -499,7 +510,7 @@ Slika 1.1: Izgled sučelja RStudio
 <p>Prikažimo kako radi interaktivna konzola. Uz pomoć tipkovnice možemo utipkati jednostavan matematički izraz - npr. <code>3 + 2</code> i stisnuti tipku <em>ENTER</em>. Vidimo da će nam R odmah pružiti rezultat - možemo ga koristiti i kao kalkulator!</p>
 <p>Za matematičke izraze koje nije jednostavno “utipkati” moramo koristiti funkcije. Tako npr. drugi korijen možemo izračunati uz pomoć funkcije <code>sqrt()</code>. Pokušajmo u konzolu utipkati <code>sqrt(10)</code> i stisnuti <em>ENTER</em>. R nam opet odmah prikazuje rezultat. U ovom trenutku zaslon bi nam trebao izgledati otprilike kao na sljedećoj slici.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="figures/RStudio2.png" alt="R kao kalkulator"  />
+<img src="figures/RStudio2.png" alt="R kao kalkulator" width="587" />
 <p class="caption">
 Slika 1.2: R kao kalkulator
 </p>
@@ -513,7 +524,7 @@ Slika 1.2: R kao kalkulator
 <p>Vidimo da se “radni dio” na lijevoj strani razdvojio na dva dijela. Gornji dio predstavlja prostor za našu “skriptu” - zapravo niz naredbi koje želimo izvršiti - dok interaktivna konzola sada zauzima donji dio radne plohe. Ukoliko želimo, možemo pomicanjem granice promijeniti veličinu ovih (a i ostalih prozora), no za sada je bitno da imamo pregled i skripte i konzole.</p>
 <p>Upišimo dvije naredbe u prozor za pisanje skripte - prva neka bude <code>print("Pozdrav!")</code> a ispod nje opet jednostavan matematički izraz <code>3 + 4</code>. Vratimo kursor na prvi redak i stisnimo kombinaciju tipki CTRL + ENTER. Ukoliko smo ispravno pratili navedene korake, naredba na mjestu koje se nalazio kursor automatski će se preslikati u interaktivnu konzolu i izvršiti. Kursor će sada biti na mjestu sljedeće naredbe koju također možemo izvršiti sa CTRL + ENTER. Zaslon bi sada trebao izgledati slično sljedećoj slici.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="figures/RStudio3.png" alt="R skripta"  />
+<img src="figures/RStudio3.png" alt="R skripta" width="582" />
 <p class="caption">
 Slika 1.3: R skripta
 </p>
@@ -559,7 +570,7 @@ Slika 1.3: R skripta
 <p>Isječak koda ponaša se isto kao i standardna R skripta - možemo upisivati naredbe i izvršavati ih. Razlika je samo u tome što - ukoliko želimo - rezultate možemo vidjeti i odmah u samom <em>R Markdown</em> dokumentu. Ako nam ova opcija smeta možemo ju isključiti (klik na zupčanik u alatnoj traci i odabir <code>Chunk output in console</code>) no u pravilu nam odgovara da se rezultat ugradi u dokument kako bi naknadno mogli ponovo pregledavati rezultate prethodnih isječaka.</p>
 <p>Ako smo pratili upute, zaslon bi mogao izgledati slično sljedećoj slici:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
-<img src="figures/RStudio4.png" alt="R Markdown dokument"  />
+<img src="figures/RStudio4.png" alt="R Markdown dokument" width="584" />
 <p class="caption">
 Slika 1.4: R Markdown dokument
 </p>
@@ -572,10 +583,10 @@ Slika 1.4: R Markdown dokument
 <div id="organizacija-procesa-podatkovne-analize-uz-r-i-rstudio" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Organizacija procesa podatkovne analize uz R i RStudio<a href="uvod.html#organizacija-procesa-podatkovne-analize-uz-r-i-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="poželjne-karakteristike-procesa-analize-podataka" class="section level3 hasAnchor" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Poželjne karakteristike procesa analize podataka<a href="uvod.html#po%C5%BEeljne-karakteristike-procesa-analize-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">1.4.1</span> Poželjne karakteristike procesa analize podataka<a href="uvod.html#poželjne-karakteristike-procesa-analize-podataka" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Analiza podataka kroz programske skripte specifičan je proces koji se razlikuje od uobičajenog pristupa programiranju. Ovo je pogotovo slučaj kada se radi o inicijalnom, istraživačkom segmentu analize gdje smo usredotočeni na otkrivanje karakteristika podatkovnog skupa, definiranje određenih pretpostavki, postavljanje hipoteza i donošenje zaključaka. Ovakva analiza podatake je često, složen, iterativan i naglašeno interaktivan proces, koji zahtjeva strogo kontrolorani i organizirani pristup njegovoj provedbi.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
-<img src="figures/proces0.png" alt="R Markdown dokument"  />
+<img src="figures/proces0.png" alt="R Markdown dokument" width="366" />
 <p class="caption">
 Slika 1.5: R Markdown dokument
 </p>
@@ -653,7 +664,7 @@ Slika 1.7: Mape koje stvara ProjectTemplate
 </div>
 </div>
 <div id="kako-koristiti-ovaj-udžbenik" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Kako koristiti ovaj udžbenik?<a href="uvod.html#kako-koristiti-ovaj-ud%C5%BEbenik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">1.5</span> Kako koristiti ovaj udžbenik?<a href="uvod.html#kako-koristiti-ovaj-udžbenik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Osnovna ideja ovog udžbenika jest “učenje kroz primjenu”. Zbog toga se u lekcijama u nastavku neće koristiti previše primjera, već se čitatelja potiče da svaki novi koncept usvoji kroz rješavanje niza lakših i težih zadataka.</p>
 <p>Svako poglavlje koje slijedi ima prateću “radnu bilježnicu”. Jednostavno rečeno, radi se o RMD datoteci koja sadrži sve primjere iz zadatke iz ovog udžbenika, popraćene sažetim tekstom radi lakšeg snalaženja i referenciranja na koncepte koji se obrađuju. Osnovna ideja je da čitatelj paralelno čita udžbenik i rješava radnu bilježnicu, gledajući rješenje zadatka tek nakon što ga samostalno riješi unutar programskog alata.</p>
 <p>Poneki zadaci zahtijevati će jednostavno uklanjanje znaka <code>#</code> (koji označava “komentar”) sa početka naredbe te njezino izvršavanje. Usprkos trivijalnom pristupu, na ovaj način se ipak jasnije potiče čitatelja za samostalno isprobavanje naredbe, umjesto da samo pogleda njezin rezultat. Drugi zadaci zahtijevati će nešto veći angažman. Konačno, nakon svake lekcije nalazi se niz “Zadataka za vježbu” uz koje se neće nalaziti rješenje te koji će predstavljati svojevrsnu provjeru svih danih koncepata lekcije. Čitateljima se snažno preporučuje rješavanje svih primjera i zadataka prije prelaska na iduću lekciju, budući da lekcije koje slijede pretpostavljaju dobro usvojeno znanje svih do tada obrađenih tema.</p>
