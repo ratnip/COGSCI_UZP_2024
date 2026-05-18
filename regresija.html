@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13 Odabrane metode strojnog učenja: regresijska analiza | Programirajmo u R-u</title>
   <meta name="description" content="Udžbenik za predmet ‘Uvod u znanost o podacima’ studija Primjenjene kognitivne znanosti na Fakultetu elektrotehnike i računarstva, Sveučilište u Zagrebu." />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13 Odabrane metode strojnog učenja: regresijska analiza | Programirajmo u R-u" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2026-05-16" />
+<meta name="date" content="2026-05-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="razdiobe.html"/>
-
+<link rel="next" href="prediktivno_modeliranje.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -421,6 +421,17 @@ div.csl-indent {
 <li class="chapter" data-level="13.2" data-path="regresija.html"><a href="regresija.html#višestruka-multipla-linearna-regresija"><i class="fa fa-check"></i><b>13.2</b> Višestruka (multipla) linearna regresija</a></li>
 <li class="chapter" data-level="" data-path="regresija.html"><a href="regresija.html#zadaci-za-vježbu-11"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html"><i class="fa fa-check"></i><b>14</b> Uvod u prediktivno modeliranje</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#što-je-prediktivno-modeliranje"><i class="fa fa-check"></i><b>14.1</b> Što je prediktivno modeliranje?</a></li>
+<li class="chapter" data-level="14.2" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#podaci-za-treniranje-i-testiranje-modela"><i class="fa fa-check"></i><b>14.2</b> Podaci za treniranje i testiranje modela</a></li>
+<li class="chapter" data-level="14.3" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#metode-unakrsne-validacije"><i class="fa fa-check"></i><b>14.3</b> Metode unakrsne validacije</a></li>
+<li class="chapter" data-level="14.4" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#loocv-krosvalidacija"><i class="fa fa-check"></i><b>14.4</b> LOOCV krosvalidacija</a></li>
+<li class="chapter" data-level="14.5" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#paket-caret-i-prediktivno-modeliranje"><i class="fa fa-check"></i><b>14.5</b> Paket <code>caret</code> i prediktivno modeliranje</a></li>
+<li class="chapter" data-level="14.6" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#klasifikacijski-prediktivni-modeli---knn-klasifikacija"><i class="fa fa-check"></i><b>14.6</b> Klasifikacijski prediktivni modeli - kNN klasifikacija</a></li>
+<li class="chapter" data-level="14.7" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#napredne-klasifikacijske-metode"><i class="fa fa-check"></i><b>14.7</b> Napredne klasifikacijske metode</a></li>
+<li class="chapter" data-level="14.8" data-path="prediktivno_modeliranje.html"><a href="prediktivno_modeliranje.html#zaključak"><i class="fa fa-check"></i><b>14.8</b> Zaključak</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -480,7 +491,7 @@ div.csl-indent {
 <span id="cb635-7"><a href="regresija.html#cb635-7" tabindex="-1"></a></span>
 <span id="cb635-8"><a href="regresija.html#cb635-8" tabindex="-1"></a><span class="fu">grid.arrange</span>(g1, g2, g3, g4)</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 5
-## ── Column specification ──────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl (5): x, y1, y2, y3, y4
 ## 
@@ -761,7 +772,7 @@ div.csl-indent {
 <span id="cb657-4"><a href="regresija.html#cb657-4" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span>
 <span id="cb657-5"><a href="regresija.html#cb657-5" tabindex="-1"></a>df<span class="sc">$</span>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>x)</span></code></pre></div>
 <pre><code>## Rows: 100 Columns: 2
-## ── Column specification ──────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): x
 ## dbl (1): y
@@ -1206,14 +1217,6 @@ div.csl-indent {
 </ol>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Programirajmo u R-u</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.fer.unizg.hr/en/damir.pintar" property="cc:attributionName" rel="cc:attributionURL">Damir Pintar</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://ratnip.github.io/FER_OPJR/" rel="dct:source">https://ratnip.github.io/FER_OPJR/</a></p>
 
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div class="csl-entry">
-Bache, Stefan Milton, and Hadley Wickham. 2014. <em>Magrittr: A Forward-Pipe Operator for r</em>. <a href="https://CRAN.R-project.org/package=magrittr">https://CRAN.R-project.org/package=magrittr</a>.
-</div>
-<div class="csl-entry">
-Diez, D. M., C. D. Barr, and M. Çetinkaya-Rundel. 2015. <em>OpenIntro Statistics</em>. OpenIntro, Incorporated. <a href="https://books.google.hr/books?id=xNMWswEACAAJ">https://books.google.hr/books?id=xNMWswEACAAJ</a>.
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -1221,8 +1224,8 @@ Diez, D. M., C. D. Barr, and M. Çetinkaya-Rundel. 2015. <em>OpenIntro Statistic
           </div>
         </div>
       </div>
-<a href="razdiobe.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="razdiobe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prediktivno_modeliranje.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

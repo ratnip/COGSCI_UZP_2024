@@ -125,3 +125,12 @@ jednostavna-linearna-regresija
 funkcija-lm
 linearna-regresija-i-kategorijske-varijable
 višestruka-multipla-linearna-regresija
+prediktivno_modeliranje
+što-je-prediktivno-modeliranje
+podaci-za-treniranje-i-testiranje-modela
+metode-unakrsne-validacije
+loocv-krosvalidacija
+paket-caret-i-prediktivno-modeliranje
+klasifikacijski-prediktivni-modeli---knn-klasifikacija
+napredne-klasifikacijske-metode
+zaključak
