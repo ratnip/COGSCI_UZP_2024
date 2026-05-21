@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2026-05-18" />
+<meta name="date" content="2026-05-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -479,7 +479,7 @@ div.csl-indent {
 <p>Funkcija <code>as.Date()</code> po <em>default</em>-u prihvaća datume oblika <code>%Y-%m-%d</code>, gdje <code>%Y</code> predstavlja četveroznamenkastu godinu, a <code>%m</code> i <code>%d</code> dvoznamenkasti mjesec i dan.</p>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="datumi.html#cb326-1" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span>
 <span id="cb326-2"><a href="datumi.html#cb326-2" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2026-04-01&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;2026-05-18&quot;
+<pre><code>## [1] &quot;2026-05-21&quot;
 ## [1] &quot;2026-04-01&quot;</code></pre>
 <hr />
 </div>
@@ -501,7 +501,7 @@ div.csl-indent {
 <p>Funkcija <code>as.POSIXct()</code> najčešće očekuje vremensku oznaku oblika <code>%Y-%m-%d %H:%M:%S</code>, gdje <code>%H</code>, <code>%M</code> i <code>%S</code> predstavljaju sate, minute i sekunde u 24-satnom obliku zapisa.</p>
 <div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="datumi.html#cb330-1" tabindex="-1"></a><span class="fu">Sys.time</span>()</span>
 <span id="cb330-2"><a href="datumi.html#cb330-2" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2026-04-01 14:05:12&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;2026-05-18 09:49:04 CEST&quot;
+<pre><code>## [1] &quot;2026-05-21 12:56:45 CEST&quot;
 ## [1] &quot;2026-04-01 14:05:12 CEST&quot;</code></pre>
 <hr />
 </div>
@@ -546,8 +546,8 @@ div.csl-indent {
 <span id="cb335-17"><a href="datumi.html#cb335-17" tabindex="-1"></a><span class="co"># &quot;01-12-2001 14:30&quot;   &lt;-- oznaka očitana u New York-u, SAD, vremenska zona EST</span></span>
 <span id="cb335-18"><a href="datumi.html#cb335-18" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2015-10-28 15:30:42&quot;</span>)</span>
 <span id="cb335-19"><a href="datumi.html#cb335-19" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;01-12-2001 14:30&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;EST&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d-%m-%Y %H:%M&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;2026-05-18&quot;
-## [1] &quot;2026-05-18 09:49:05 CEST&quot;
+<pre><code>## [1] &quot;2026-05-21&quot;
+## [1] &quot;2026-05-21 12:56:45 CEST&quot;
 ## [1] &quot;1986-12-27&quot;
 ## [1] &quot;2016-05-31&quot;
 ## [1] &quot;2015-09-17&quot;
@@ -567,7 +567,7 @@ div.csl-indent {
 <p>Kod datuma se cijeli broj interpretira kao broj dana, a kod vremenskih oznaka kao broj sekundi.</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="datumi.html#cb337-1" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> <span class="dv">100</span></span>
 <span id="cb337-2"><a href="datumi.html#cb337-2" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2026-10-01&quot;</span>) <span class="sc">-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2025-10-01&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;2026-05-18 09:47:25 CEST&quot;
+<pre><code>## [1] &quot;2026-05-21 12:55:05 CEST&quot;
 ## Time difference of 365 days</code></pre>
 <hr />
 <p><strong>Zadatak 8.2 - aritmetika s datumima</strong></p>
@@ -586,10 +586,10 @@ div.csl-indent {
 <span id="cb340-7"><a href="datumi.html#cb340-7" tabindex="-1"></a></span>
 <span id="cb340-8"><a href="datumi.html#cb340-8" tabindex="-1"></a><span class="co"># ispišite koliko je dana prošlo od 1.1.2000. do danas</span></span>
 <span id="cb340-9"><a href="datumi.html#cb340-9" tabindex="-1"></a><span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2000-01-01&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;2023-08-22&quot;
+<pre><code>## [1] &quot;2023-08-25&quot;
 ## [1] &quot;2015-03-01&quot;
 ## [1] &quot;2016-02-29&quot;
-## Time difference of 9634 days</code></pre>
+## Time difference of 9637 days</code></pre>
 </div>
 <hr />
 <p><strong>Zadatak 8.3 - aritmetika s vremenskim oznakama</strong></p>
@@ -602,8 +602,8 @@ div.csl-indent {
 <span id="cb343-3"><a href="datumi.html#cb343-3" tabindex="-1"></a></span>
 <span id="cb343-4"><a href="datumi.html#cb343-4" tabindex="-1"></a><span class="co"># ispišite koliko je prošlo sati od ponoći 1.1.2015. do sad</span></span>
 <span id="cb343-5"><a href="datumi.html#cb343-5" tabindex="-1"></a><span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;2015-01-01 00:00:00&quot;</span>, <span class="at">units =</span> <span class="st">&quot;hours&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;2026-05-18 10:05:45 CEST&quot;
-## Time difference of 99728.82 hours</code></pre>
+<pre><code>## [1] &quot;2026-05-21 13:13:26 CEST&quot;
+## Time difference of 99803.95 hours</code></pre>
 </div>
 <hr />
 </div>
@@ -612,7 +612,7 @@ div.csl-indent {
 <p>Kada oduzimamo dva datuma ili dvije vremenske oznake, rezultat nije običan broj nego objekt klase <code>difftime</code>, koji predstavlja vremenski razmak.</p>
 <p>Kod ispisa se po <em>default</em>-u koristi automatski odabir jedinice (<code>units = "auto"</code>). Ako želimo rezultat u točno određenoj jedinici, koristimo funkciju <code>difftime()</code> i parametar <code>units</code>, npr. <code>"seconds"</code>, <code>"minutes"</code>, <code>"hours"</code>, <code>"days"</code> ili <code>"weeks"</code>.</p>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="datumi.html#cb345-1" tabindex="-1"></a><span class="fu">difftime</span>(<span class="fu">Sys.Date</span>(), <span class="st">&quot;2000-01-01&quot;</span>, <span class="at">units =</span> <span class="st">&quot;hours&quot;</span>)</span></code></pre></div>
-<pre><code>## Time difference of 231217 hours</code></pre>
+<pre><code>## Time difference of 231289 hours</code></pre>
 <p>Funkcija <code>difftime()</code> radi i s vremenskim oznakama, pa se možemo spustiti sve do razine sekunde. Ako nam treba samo broj, rezultat možemo pretvoriti pomoću funkcije <code>as.numeric()</code>.</p>
 <hr />
 <p><strong>Zadatak 8.4 - funkcija <code>difftime</code></strong></p>
@@ -629,7 +629,7 @@ div.csl-indent {
 <span id="cb348-4"><a href="datumi.html#cb348-4" tabindex="-1"></a><span class="co"># koliko je prošlo sati od 1.3.2015. do danas?</span></span>
 <span id="cb348-5"><a href="datumi.html#cb348-5" tabindex="-1"></a><span class="fu">difftime</span>(<span class="fu">Sys.Date</span>(), <span class="st">&quot;2015-03-01&quot;</span>, <span class="at">units =</span> <span class="st">&quot;hours&quot;</span>)</span></code></pre></div>
 <pre><code>## Time difference of 52.28571 weeks
-## Time difference of 98305 hours</code></pre>
+## Time difference of 98377 hours</code></pre>
 </div>
 <hr />
 </div>
@@ -684,14 +684,14 @@ div.csl-indent {
 <div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="datumi.html#cb354-1" tabindex="-1"></a><span class="co"># ispišite sekvencu koja predstavlja današnji dan jednoliko razdijeljen u 15 vremenskih oznaka</span></span>
 <span id="cb354-2"><a href="datumi.html#cb354-2" tabindex="-1"></a><span class="co"># NAPOMENA: pripazite na tip podatka koji `seq` očekuje i vremensku zonu!</span></span>
 <span id="cb354-3"><a href="datumi.html#cb354-3" tabindex="-1"></a><span class="fu">seq</span>(<span class="fu">as.POSIXct</span>(<span class="fu">Sys.Date</span>(), <span class="at">tz =</span> <span class="st">&quot;CET&quot;</span>), <span class="fu">as.POSIXct</span>(<span class="fu">Sys.Date</span>()<span class="sc">+</span><span class="dv">1</span>, <span class="at">tz =</span> <span class="st">&quot;CET&quot;</span>), <span class="at">length.out =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;2026-05-18 02:00:00 CEST&quot; &quot;2026-05-18 03:42:51 CEST&quot;
-##  [3] &quot;2026-05-18 05:25:42 CEST&quot; &quot;2026-05-18 07:08:34 CEST&quot;
-##  [5] &quot;2026-05-18 08:51:25 CEST&quot; &quot;2026-05-18 10:34:17 CEST&quot;
-##  [7] &quot;2026-05-18 12:17:08 CEST&quot; &quot;2026-05-18 14:00:00 CEST&quot;
-##  [9] &quot;2026-05-18 15:42:51 CEST&quot; &quot;2026-05-18 17:25:42 CEST&quot;
-## [11] &quot;2026-05-18 19:08:34 CEST&quot; &quot;2026-05-18 20:51:25 CEST&quot;
-## [13] &quot;2026-05-18 22:34:17 CEST&quot; &quot;2026-05-19 00:17:08 CEST&quot;
-## [15] &quot;2026-05-19 02:00:00 CEST&quot;</code></pre>
+<pre><code>##  [1] &quot;2026-05-21 02:00:00 CEST&quot; &quot;2026-05-21 03:42:51 CEST&quot;
+##  [3] &quot;2026-05-21 05:25:42 CEST&quot; &quot;2026-05-21 07:08:34 CEST&quot;
+##  [5] &quot;2026-05-21 08:51:25 CEST&quot; &quot;2026-05-21 10:34:17 CEST&quot;
+##  [7] &quot;2026-05-21 12:17:08 CEST&quot; &quot;2026-05-21 14:00:00 CEST&quot;
+##  [9] &quot;2026-05-21 15:42:51 CEST&quot; &quot;2026-05-21 17:25:42 CEST&quot;
+## [11] &quot;2026-05-21 19:08:34 CEST&quot; &quot;2026-05-21 20:51:25 CEST&quot;
+## [13] &quot;2026-05-21 22:34:17 CEST&quot; &quot;2026-05-22 00:17:08 CEST&quot;
+## [15] &quot;2026-05-22 02:00:00 CEST&quot;</code></pre>
 </div>
 <div class="fold s o">
 <div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="datumi.html#cb356-1" tabindex="-1"></a><span class="co"># dodajte stupac `ciscenje` sa po jednim datumom za svaki pojedini stan </span></span>
@@ -700,16 +700,16 @@ div.csl-indent {
 <span id="cb356-4"><a href="datumi.html#cb356-4" tabindex="-1"></a>    <span class="at">along.with =</span> stanovi<span class="sc">$</span>broj_stana) <span class="ot">-&gt;</span> stanovi<span class="sc">$</span>ciscenje</span>
 <span id="cb356-5"><a href="datumi.html#cb356-5" tabindex="-1"></a>stanovi</span></code></pre></div>
 <pre><code>##    broj_stana prezime   ciscenje
-## 1           1   Ebert 2026-05-18
-## 2           2 Ladovac 2026-06-08
-## 3           3   Cerić 2026-06-29
-## 4           4   Dikla 2026-07-20
-## 5           5    Anić 2026-08-10
-## 6           6   Perić 2026-08-31
-## 7           7   Žužić 2026-09-21
-## 8           8   Babić 2026-10-12
-## 9           9    Ibiz 2026-11-02
-## 10         10  Radler 2026-11-23</code></pre>
+## 1           1   Ebert 2026-05-21
+## 2           2 Ladovac 2026-06-11
+## 3           3   Cerić 2026-07-02
+## 4           4   Dikla 2026-07-23
+## 5           5    Anić 2026-08-13
+## 6           6   Perić 2026-09-03
+## 7           7   Žužić 2026-09-24
+## 8           8   Babić 2026-10-15
+## 9           9    Ibiz 2026-11-05
+## 10         10  Radler 2026-11-26</code></pre>
 </div>
 <div class="fold s o">
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="datumi.html#cb358-1" tabindex="-1"></a><span class="co"># (za ambiciozne: dodajte 5 takvih stupaca koji će pokrivati 50</span></span>
@@ -730,12 +730,12 @@ div.csl-indent {
 <pre><code>## # A tibble: 6 × 7
 ##   broj_stana prezime ciklus_1   ciklus_2   ciklus_3   ciklus_4   ciklus_5  
 ##        &lt;int&gt; &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;     &lt;date&gt;     &lt;date&gt;     &lt;date&gt;    
-## 1          1 Ebert   2026-05-18 2026-12-14 2027-07-12 2028-02-07 2028-09-04
-## 2          2 Ladovac 2026-06-08 2027-01-04 2027-08-02 2028-02-28 2028-09-25
-## 3          3 Cerić   2026-06-29 2027-01-25 2027-08-23 2028-03-20 2028-10-16
-## 4          4 Dikla   2026-07-20 2027-02-15 2027-09-13 2028-04-10 2028-11-06
-## 5          5 Anić    2026-08-10 2027-03-08 2027-10-04 2028-05-01 2028-11-27
-## 6          6 Perić   2026-08-31 2027-03-29 2027-10-25 2028-05-22 2028-12-18</code></pre>
+## 1          1 Ebert   2026-05-21 2026-12-17 2027-07-15 2028-02-10 2028-09-07
+## 2          2 Ladovac 2026-06-11 2027-01-07 2027-08-05 2028-03-02 2028-09-28
+## 3          3 Cerić   2026-07-02 2027-01-28 2027-08-26 2028-03-23 2028-10-19
+## 4          4 Dikla   2026-07-23 2027-02-18 2027-09-16 2028-04-13 2028-11-09
+## 5          5 Anić    2026-08-13 2027-03-11 2027-10-07 2028-05-04 2028-11-30
+## 6          6 Perić   2026-09-03 2027-04-01 2027-10-28 2028-05-25 2028-12-21</code></pre>
 </div>
 <hr />
 </div>
@@ -765,7 +765,7 @@ div.csl-indent {
 <span id="cb360-2"><a href="datumi.html#cb360-2" tabindex="-1"></a><span class="fu">dmy_hms</span>(<span class="st">&quot;12.12.2024. 11:35:45pm&quot;</span>)</span>
 <span id="cb360-3"><a href="datumi.html#cb360-3" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;2024-12-12 23:35:45 UTC&quot;
-## [1] &quot;2026-05-18&quot;</code></pre>
+## [1] &quot;2026-05-21&quot;</code></pre>
 <p><strong>Zadatak 8.6 - funkcije paketa <code>lubridate</code> za parsiranje datuma i vremenskih oznaka</strong></p>
 <div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="datumi.html#cb362-1" tabindex="-1"></a><span class="co"># library(lubridate)   #učitati ako je potrebno!</span></span>
 <span id="cb362-2"><a href="datumi.html#cb362-2" tabindex="-1"></a></span>

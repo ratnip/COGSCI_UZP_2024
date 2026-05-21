@@ -23,7 +23,7 @@
 <meta name="author" content="Damir Pintar" />
 
 
-<meta name="date" content="2026-05-18" />
+<meta name="date" content="2026-05-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -907,7 +907,7 @@ div.csl-indent {
 <p>Sve dosadašnje metode svele su se na “pogađanje” numeričke ciljne varijable. Opravdano je postaviti pitanje - možemo li razviti prediktivni model koji će pokušati pogoditi vrijednost kategorijske varijable? Ovo je iznimno važan segment prediktivnog modeliranja, budući da se u mnogim domenama pojavljuju problemi vezani uz određivanje vrijednosti neke kategorije (pacijent je bolestan ili nije, uređaj je pokvaren ili ispravan, transakcija je regularna ili rezultat prijevare, klijent banke je sposoban vratiti kredit ili ne i sl.)</p>
 <p>Ovo je tzv. “klasifikacijski” problem za kojeg - kao i za “regresijski”, tj. pogađanje numeričkih vrijednosti - postoji iznimno veliki skup razvijenih metoda. Vrlo često se slične metode mogu koristiti i za jednu i drugu svrhu (nekad uz određene prilagodbe), pa tako iako linearna regresija nije napodobnija za klasifikacijske probleme, njoj srodna “logistička regresija” predstavlja vrlo učinkoviti i popularni pristup takvom tipu problema.</p>
 <p>U ovom dijelu usredotočiti ćemo se na jednu drugu, također vrlo popularnu klasifikacijsku metodu, čiji način rada je vrlo intuitivan i lako objašnjiv, ali koja omogućuje uvid u niz zanimljivih elemenata prediktivnog modeliranja koje do sada nismo spominjali. Radi se o metodi “k najbližih susjeda”, ili “kNN klasifikaciji” (engl. <em>K nearest neighbours</em>).</p>
-<p>Ova metoda radi na vrlo jednostavan način. Ako ne znamo kategoriju neke opservacije, jednostavno pronađemo određeni broj opservacija “najbližih” toj novoj opservaciji, pogledamo njihove kategorije i potom većinskim glasovanjem odredimo koju kategoriju pridijeliti novoj opservaciji. Pokušajmo ovo vizualizirati.</p>
+<p>Ova metoda radi na vrlo jednostavan način. Ako ne znamo kategoriju neke opservacije, jednostavno pronađemo određeni broj opservacija “najbližih” toj novoj opservaciji, pogledamo njihove kategorije i potom većinskim glasovanjem odredimo koju kategoriju pridijeliti novoj opservaciji. Pokušajmo ovo vizualizirati. Postaviti ćemo jednostavno pitanje - možemo li odrediti o kojem se tipu vina radi samo na osnovi količine šećera i koncentracije alkohola?</p>
 <p><strong>Zadatak 14.10 - Vizualizacija ideje metode kNN klasifikacije</strong></p>
 <div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="prediktivno_modeliranje.html#cb737-1" tabindex="-1"></a><span class="co"># jednostavno rastavljanje na trening i test skup</span></span>
 <span id="cb737-2"><a href="prediktivno_modeliranje.html#cb737-2" tabindex="-1"></a>train_ind <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(wine), <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(wine) <span class="sc">%&gt;%</span> round) <span class="co"># indeksi trening opservacija</span></span>
@@ -915,21 +915,15 @@ div.csl-indent {
 <span id="cb737-4"><a href="prediktivno_modeliranje.html#cb737-4" tabindex="-1"></a>wine.test <span class="ot">&lt;-</span> wine[<span class="sc">-</span>train_ind, ]</span>
 <span id="cb737-5"><a href="prediktivno_modeliranje.html#cb737-5" tabindex="-1"></a></span>
 <span id="cb737-6"><a href="prediktivno_modeliranje.html#cb737-6" tabindex="-1"></a><span class="co"># nacrtajte točkasti graf skupa `wine.train`</span></span>
-<span id="cb737-7"><a href="prediktivno_modeliranje.html#cb737-7" tabindex="-1"></a><span class="co"># postavite `chlorides` na os x</span></span>
-<span id="cb737-8"><a href="prediktivno_modeliranje.html#cb737-8" tabindex="-1"></a><span class="co"># i `volatile.acidity` na os y</span></span>
+<span id="cb737-7"><a href="prediktivno_modeliranje.html#cb737-7" tabindex="-1"></a><span class="co"># postavite `residualSugar` na os x</span></span>
+<span id="cb737-8"><a href="prediktivno_modeliranje.html#cb737-8" tabindex="-1"></a><span class="co"># i `alochol` na os y</span></span>
 <span id="cb737-9"><a href="prediktivno_modeliranje.html#cb737-9" tabindex="-1"></a><span class="co"># točke obojajte prema tipu vina</span></span>
-<span id="cb737-10"><a href="prediktivno_modeliranje.html#cb737-10" tabindex="-1"></a><span class="co"># postavite prozirnost točaka na 0.5</span></span></code></pre></div>
+<span id="cb737-10"><a href="prediktivno_modeliranje.html#cb737-10" tabindex="-1"></a><span class="co"># postavite prozirnost točaka na 0.4</span></span></code></pre></div>
 <div class="fold s o">
-<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="prediktivno_modeliranje.html#cb738-1" tabindex="-1"></a><span class="co"># nacrtajte točkasti graf skupa `wine.train`</span></span>
-<span id="cb738-2"><a href="prediktivno_modeliranje.html#cb738-2" tabindex="-1"></a><span class="co"># postavite `chlorides` na os x</span></span>
-<span id="cb738-3"><a href="prediktivno_modeliranje.html#cb738-3" tabindex="-1"></a><span class="co"># i `volatile.acidity` na os y</span></span>
-<span id="cb738-4"><a href="prediktivno_modeliranje.html#cb738-4" tabindex="-1"></a><span class="co"># točke obojajte prema tipu vina</span></span>
-<span id="cb738-5"><a href="prediktivno_modeliranje.html#cb738-5" tabindex="-1"></a><span class="co"># postavite prozirnost točaka na 0.5</span></span>
-<span id="cb738-6"><a href="prediktivno_modeliranje.html#cb738-6" tabindex="-1"></a></span>
-<span id="cb738-7"><a href="prediktivno_modeliranje.html#cb738-7" tabindex="-1"></a><span class="fu">ggplot</span>(wine.train, <span class="fu">aes</span>(chlorides, volatileAcidity, <span class="at">col =</span> type)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="prediktivno_modeliranje.html#cb738-1" tabindex="-1"></a><span class="fu">ggplot</span>(wine.train, <span class="fu">aes</span>(residualSugar, alcohol, <span class="at">col =</span> type)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="osnoveR_files/figure-html/unnamed-chunk-572-1.png" width="672" /></p>
 </div>
-<p>Na grafu možemo jasno vidjeti kako točke formiraju “grozdove” istih boja na određenim područjima. Ako bismo uzeli novu opservaciju vezanu uz vino nepoznatog tipa, ali poznatih vrijednosti mjera postavljenih na osi x i y grafa, gledanjem njenog neposrednog susjedstva mogli bismo zaključiti o kojem se tipu vina radi. Opservacija koja se nalazi duboko unutar jednog od “oblaka” vrlo vjerojatno pripada prikazanom tipu (iako vidimo da ima iznimaka!). S druge strane, opservacija koja se nalazi unutar “graničnih” područja ima puno veću vjerojatnost da će biti pogrešno klasificirana, a različit odabir broja susjeda mogao bi rezultirati različiti rezultatom klasifikacije.</p>
+<p>Na grafu možemo jasno vidjeti kako točke formiraju “grozdove” istih boja na određenim područjima. Ako bismo uzeli novu opservaciju vezanu uz vino nepoznatog tipa, ali poznatih vrijednosti mjera postavljenih na osi x i y grafa, gledanjem njenog neposrednog susjedstva mogli bismo potencijalno zaključiti o kojem se tipu vina radi. Opservacija koja se nalazi duboko unutar jednog od “oblaka” vrlo vjerojatno pripada prikazanom tipu (iako vidimo da ima iznimaka!). S druge strane, opservacija koja se nalazi unutar “graničnih” područja ima puno veću vjerojatnost da će biti pogrešno klasificirana, a različit odabir broja susjeda mogao bi rezultirati različiti rezultatom klasifikacije.</p>
 <p>kNN klasifikacija zasniva se na <strong>konceptu udaljenosti</strong>. Iako postoje različite opcije za odabir udaljenosti, često se oslanjamo na tzv. “Euklidsku udaljenost”, koju u dvo- i trodimenzionalnom kartezijevom sustavu vrlo lako predočimo najkraćim putem između dvije točke, a samu vrijednost računamo uz pomoć njihovih koordinata i Pitagorinog teorema. Ova udaljenost lako se primjenjuje na n-dimenzionalne prostore, tako da iako ne možemo lako predočiti točke u prostoru čija dimenzija odgovara broju prediktora, i dalje možemo lako izračunati vrijednost Euklidske udaljenosti između točaka.</p>
 <p>Dakle, način rada kNN klasifikacije možemo jednostavno opisati ovako:</p>
 <ul>
@@ -964,17 +958,17 @@ div.csl-indent {
 <span id="cb741-2"><a href="prediktivno_modeliranje.html#cb741-2" tabindex="-1"></a><span class="co"># stvorite varijablu `kNNMod` koja će predstavljati </span></span>
 <span id="cb741-3"><a href="prediktivno_modeliranje.html#cb741-3" tabindex="-1"></a><span class="co"># rezultat korištenja metode `knn` nad skupom `wine.train`</span></span>
 <span id="cb741-4"><a href="prediktivno_modeliranje.html#cb741-4" tabindex="-1"></a><span class="co"># ciljna varijabla je `type`</span></span>
-<span id="cb741-5"><a href="prediktivno_modeliranje.html#cb741-5" tabindex="-1"></a><span class="co"># a prediktori su sve ostale varijable osim `quality`</span></span>
+<span id="cb741-5"><a href="prediktivno_modeliranje.html#cb741-5" tabindex="-1"></a><span class="co"># a prediktori su `residualSugar` i `alcohol`</span></span>
 <span id="cb741-6"><a href="prediktivno_modeliranje.html#cb741-6" tabindex="-1"></a></span>
 <span id="cb741-7"><a href="prediktivno_modeliranje.html#cb741-7" tabindex="-1"></a><span class="co"># za korake pretprocesiranja odaberite &quot;center&quot; i &quot;scale&quot;</span></span>
-<span id="cb741-8"><a href="prediktivno_modeliranje.html#cb741-8" tabindex="-1"></a><span class="co"># a za parametar k isprobajte vrijednosti 3, 5, 7, 10, 20 i 100</span></span>
+<span id="cb741-8"><a href="prediktivno_modeliranje.html#cb741-8" tabindex="-1"></a><span class="co"># a za parametar k isprobajte vrijednosti 3, 5, 7, 10, 20, 50 i 100</span></span>
 <span id="cb741-9"><a href="prediktivno_modeliranje.html#cb741-9" tabindex="-1"></a></span>
 <span id="cb741-10"><a href="prediktivno_modeliranje.html#cb741-10" tabindex="-1"></a><span class="co"># ispišite na zaslon konačni model</span></span>
 <span id="cb741-11"><a href="prediktivno_modeliranje.html#cb741-11" tabindex="-1"></a></span>
 <span id="cb741-12"><a href="prediktivno_modeliranje.html#cb741-12" tabindex="-1"></a><span class="co"># proslijedite model funkciji `plot` i objasnite što je prikazano</span></span></code></pre></div>
 <div class="fold s o">
 <div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="prediktivno_modeliranje.html#cb742-1" tabindex="-1"></a><span class="co">#library(caret)   # ako je potrebno</span></span>
-<span id="cb742-2"><a href="prediktivno_modeliranje.html#cb742-2" tabindex="-1"></a>kNNMod <span class="ot">&lt;-</span> <span class="fu">train</span>(type <span class="sc">~</span> . <span class="sc">-</span> quality, </span>
+<span id="cb742-2"><a href="prediktivno_modeliranje.html#cb742-2" tabindex="-1"></a>kNNMod <span class="ot">&lt;-</span> <span class="fu">train</span>(type <span class="sc">~</span> residualSugar <span class="sc">+</span> alcohol, </span>
 <span id="cb742-3"><a href="prediktivno_modeliranje.html#cb742-3" tabindex="-1"></a>                 <span class="at">data =</span> wine.train, </span>
 <span id="cb742-4"><a href="prediktivno_modeliranje.html#cb742-4" tabindex="-1"></a>                 <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>),</span>
 <span id="cb742-5"><a href="prediktivno_modeliranje.html#cb742-5" tabindex="-1"></a>                 <span class="at">method =</span> <span class="st">&quot;knn&quot;</span>, <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">100</span>)))</span>
@@ -983,24 +977,24 @@ div.csl-indent {
 <pre><code>## k-Nearest Neighbors 
 ## 
 ## 4546 samples
-##   12 predictor
+##    2 predictor
 ##    2 classes: &#39;red&#39;, &#39;white&#39; 
 ## 
-## Pre-processing: centered (11), scaled (11) 
+## Pre-processing: centered (2), scaled (2) 
 ## Resampling: Bootstrapped (25 reps) 
 ## Summary of sample sizes: 4546, 4546, 4546, 4546, 4546, 4546, ... 
 ## Resampling results across tuning parameters:
 ## 
 ##   k    Accuracy   Kappa    
-##     3  0.9910307  0.9758164
-##     5  0.9911102  0.9760431
-##     7  0.9914191  0.9769098
-##    10  0.9918925  0.9781645
-##    20  0.9916058  0.9773764
-##   100  0.9897403  0.9722823
+##     3  0.8238425  0.5265089
+##     5  0.8291830  0.5361819
+##     7  0.8374451  0.5558300
+##    10  0.8419183  0.5671070
+##    20  0.8493603  0.5875673
+##   100  0.8429989  0.5617007
 ## 
 ## Accuracy was used to select the optimal model using the largest value.
-## The final value used for the model was k = 10.</code></pre>
+## The final value used for the model was k = 20.</code></pre>
 </div>
 <div class="fold s o">
 <div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="prediktivno_modeliranje.html#cb744-1" tabindex="-1"></a><span class="fu">plot</span>(kNNMod)</span></code></pre></div>
@@ -1012,45 +1006,53 @@ div.csl-indent {
 <span id="cb745-3"><a href="prediktivno_modeliranje.html#cb745-3" tabindex="-1"></a><span class="co"># nad tim skupom</span></span>
 <span id="cb745-4"><a href="prediktivno_modeliranje.html#cb745-4" tabindex="-1"></a><span class="co"># postavite parametar `type` na `&quot;raw&quot;`</span></span>
 <span id="cb745-5"><a href="prediktivno_modeliranje.html#cb745-5" tabindex="-1"></a></span>
-<span id="cb745-6"><a href="prediktivno_modeliranje.html#cb745-6" tabindex="-1"></a><span class="co"># ispišite sve retke kod kojih klasifikator nije uspješno pogodio klasu</span></span></code></pre></div>
+<span id="cb745-6"><a href="prediktivno_modeliranje.html#cb745-6" tabindex="-1"></a><span class="co"># potom ponovo primijenite `kNNMod` s parametrom `type` na `&quot;prob&quot;`</span></span>
+<span id="cb745-7"><a href="prediktivno_modeliranje.html#cb745-7" tabindex="-1"></a><span class="co"># i rezultantni podatkovni okvir dodajte okviru `wine.test` </span></span>
+<span id="cb745-8"><a href="prediktivno_modeliranje.html#cb745-8" tabindex="-1"></a><span class="co"># uz pomoć metode `cbind`</span></span>
+<span id="cb745-9"><a href="prediktivno_modeliranje.html#cb745-9" tabindex="-1"></a><span class="co"># (ovo dodaje stupce `red` i `white` sa vjerojatnostima)</span></span>
+<span id="cb745-10"><a href="prediktivno_modeliranje.html#cb745-10" tabindex="-1"></a></span>
+<span id="cb745-11"><a href="prediktivno_modeliranje.html#cb745-11" tabindex="-1"></a><span class="co"># za prvih deset redaka kod kojih klasifikator nije uspješno pogodio klasu</span></span>
+<span id="cb745-12"><a href="prediktivno_modeliranje.html#cb745-12" tabindex="-1"></a><span class="co"># ispišite tip, predviđeni tip i vjerojatnosti </span></span></code></pre></div>
 <div class="fold s o">
 <div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="prediktivno_modeliranje.html#cb746-1" tabindex="-1"></a>wine.test<span class="sc">$</span>predictedType <span class="ot">&lt;-</span> <span class="fu">predict</span>(kNNMod, <span class="at">newdata =</span> wine.test, <span class="at">type =</span> <span class="st">&quot;raw&quot;</span>)</span>
-<span id="cb746-2"><a href="prediktivno_modeliranje.html#cb746-2" tabindex="-1"></a>wine.test <span class="sc">%&gt;%</span> <span class="fu">filter</span>(type <span class="sc">!=</span> predictedType)</span></code></pre></div>
-<pre><code>## # A tibble: 16 × 14
-##    fixedAcidity volatileAcidity citricAcid residualSugar chlorides
-##           &lt;dbl&gt;           &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;
-##  1          6.9           0.605       0.12          10.7     0.073
-##  2          5.6           0.31        0.37           1.4     0.074
-##  3          6.7           0.28        0.28           2.4     0.012
-##  4          5.8           1.01        0.66           2       0.039
-##  5          8             0.18        0.37           0.9     0.049
-##  6          6.4           0.39        0.33           3.3     0.046
-##  7          7.9           0.3         0.68           8.3     0.05 
-##  8          5             0.4         0.5            4.3     0.046
-##  9          6.7           0.48        0.02           2.2     0.08 
-## 10          6.9           0.63        0.33           6.7     0.235
-## 11          5.6           0.31        0.78          13.9     0.074
-## 12          9.1           0.59        0.38           1.6     0.066
-## 13          7.9           0.64        0.46          10.6     0.244
-## 14          9.8           0.93        0.45           8.6     0.052
-## 15          8             0.74        0.21           4       0.05 
-## 16          6.1           1.1         0.16           4.4     0.033
-## # ℹ 9 more variables: freeSulfurDioxide &lt;dbl&gt;, totalSulfurDioxide &lt;dbl&gt;,
-## #   density &lt;dbl&gt;, pH &lt;dbl&gt;, sulphates &lt;dbl&gt;, alcohol &lt;dbl&gt;, quality &lt;dbl&gt;,
-## #   type &lt;fct&gt;, predictedType &lt;fct&gt;</code></pre>
+<span id="cb746-2"><a href="prediktivno_modeliranje.html#cb746-2" tabindex="-1"></a>wine.test <span class="ot">&lt;-</span> <span class="fu">cbind</span>(wine.test, <span class="fu">predict</span>(kNNMod, <span class="at">newdata =</span> wine.test, <span class="at">type =</span> <span class="st">&quot;prob&quot;</span>))</span>
+<span id="cb746-3"><a href="prediktivno_modeliranje.html#cb746-3" tabindex="-1"></a></span>
+<span id="cb746-4"><a href="prediktivno_modeliranje.html#cb746-4" tabindex="-1"></a>wine.test <span class="sc">%&gt;%</span> <span class="fu">filter</span>(type <span class="sc">!=</span> predictedType) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb746-5"><a href="prediktivno_modeliranje.html#cb746-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(type, predictedType, red, white)</span></code></pre></div>
+<pre><code>##    type predictedType        red     white
+## 1   red         white 0.00000000 1.0000000
+## 2   red         white 0.48387097 0.5161290
+## 3   red         white 0.40000000 0.6000000
+## 4   red         white 0.33333333 0.6666667
+## 5   red         white 0.30000000 0.7000000
+## 6   red         white 0.04545455 0.9545455
+## 7   red         white 0.42857143 0.5714286
+## 8   red         white 0.06250000 0.9375000
+## 9   red         white 0.30769231 0.6923077
+## 10  red         white 0.04761905 0.9523810</code></pre>
 </div>
+<p>Pogreške možemo i vizualizirati:</p>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="prediktivno_modeliranje.html#cb748-1" tabindex="-1"></a><span class="fu">ggplot</span>(wine.test, <span class="fu">aes</span>(residualSugar, alcohol, <span class="at">col =</span> type)) <span class="sc">+</span></span>
+<span id="cb748-2"><a href="prediktivno_modeliranje.html#cb748-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb748-3"><a href="prediktivno_modeliranje.html#cb748-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb748-4"><a href="prediktivno_modeliranje.html#cb748-4" tabindex="-1"></a>    <span class="at">data =</span> wine.test[wine.test<span class="sc">$</span>type <span class="sc">!=</span> wine.test<span class="sc">$</span>predictedType, ],</span>
+<span id="cb748-5"><a href="prediktivno_modeliranje.html#cb748-5" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb748-6"><a href="prediktivno_modeliranje.html#cb748-6" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">2</span>,</span>
+<span id="cb748-7"><a href="prediktivno_modeliranje.html#cb748-7" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">1</span></span>
+<span id="cb748-8"><a href="prediktivno_modeliranje.html#cb748-8" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="osnoveR_files/figure-html/unnamed-chunk-580-1.png" width="672" /></p>
 <p>Kako možemo procijeniti uspješnost klasifikatora? Tipična procedura (kod binarnih klasifikatora) jest izrada tzv. “matrice konfuzije” (engl. <em>confusion matrix</em>). Ovo jednostavno znači da ćemo napraviti tablicu koja će pokazati koliko se dobro poklapaju predviđene vrijednosti sa stvarnim vrijednostima. Najlakši način za izradu ove tablice jest jednostavno pozvati funkciju <code>table</code> sa stupcem predikcija i stupcem stvarnih vrijednosti kao parametrima.</p>
 <p><strong>Zadatak 14.13 - Jednostavna matrica konfuzije</strong></p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="prediktivno_modeliranje.html#cb748-1" tabindex="-1"></a><span class="co"># ispišite matricu konfuzije pozivom funkcije `table`</span></span>
-<span id="cb748-2"><a href="prediktivno_modeliranje.html#cb748-2" tabindex="-1"></a><span class="co"># nad odgovarajućim stupcima skupa `wine.test`</span></span></code></pre></div>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="prediktivno_modeliranje.html#cb749-1" tabindex="-1"></a><span class="co"># ispišite matricu konfuzije pozivom funkcije `table`</span></span>
+<span id="cb749-2"><a href="prediktivno_modeliranje.html#cb749-2" tabindex="-1"></a><span class="co"># nad odgovarajućim stupcima skupa `wine.test`</span></span></code></pre></div>
 <div class="fold s o">
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="prediktivno_modeliranje.html#cb749-1" tabindex="-1"></a><span class="fu">table</span>(wine.test<span class="sc">$</span>predictedType, wine.test<span class="sc">$</span>type)</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="prediktivno_modeliranje.html#cb750-1" tabindex="-1"></a><span class="fu">table</span>(wine.test<span class="sc">$</span>predictedType, wine.test<span class="sc">$</span>type)</span></code></pre></div>
 <pre><code>##        
 ##          red white
-##   red    471     5
-##   white   11  1462</code></pre>
+##   red    344   129
+##   white  138  1338</code></pre>
 </div>
-<p>Gledajući rezultate možemo intuitivno zaključiti da u ovom slučaju klasifikator radi iznimno dobro, tj. da bijela i crvena vina možemo na ovaj način vrlo dobro razlikovati uz pomoć njihovih kemijskih sredstava. No vrlo često kvalitetu klasifikatora želimo opisati objektivnom, numeričkom mjerom. Postoji veći broj takvih mjera, a većinu njih možemo direktno izračunati korištenjem podataka iz matrice konfuzije.</p>
+<p>Gledajući rezultate možemo intuitivno zaključiti da u ovom slučaju klasifikator radi relativno dobro, tj. da bijela i crvena vina možemo donekle dobro razlikovati uz pomoć informacija o slatkoći i koncentraciji alkohola. No vrlo često kvalitetu klasifikatora želimo opisati objektivnom, numeričkom mjerom. Postoji veći broj takvih mjera, a većinu njih možemo direktno izračunati korištenjem podataka iz matrice konfuzije.</p>
 <p>Konkretno, nazovimo kućice matrice konfuzije <em>TP</em>, <em>TN</em>, <em>FP</em>, <em>FN</em> (engl. <em>true positive</em>, <em>true negative</em>, <em>false positive</em> - “lažna uzbuna”, <em>false negative</em> - “promašaj”), gdje smo jednu klasu nazvali “pozitivnom” te prema tome pridjelili nazive pripadnih kućica u ovisnosti da li je klasifikator ispravno pogodio klasu (glavna dijagonala) ili ne (sporedna dijagonala). U ovom slučaju iz matrice konfuzije možemo izvesti sljedeće mjere (navodimo samo neke):</p>
 <ul>
 <li>točnost (engl. <em>accuracy</em>): <span class="math inline">\(\frac{TP + TN}{TP + FP + TN + FN}\)</span></li>
@@ -1062,44 +1064,44 @@ div.csl-indent {
 <p>Iako je točnost možda najlogičniji odabir (jer nam zapravo daje postotak “pogođenih” kategorija), vrlo često moramo biti oprezni jer nam može davati iskrivljenu sliku učinkovitosti klasifikatora, pogotovo kod velikog disbalansa kategorija ili slučajeva kada nam je jedan tip pogrešaka puno opasniji od drugog. Tipičan primjer je dijagnostika rijetke bolesti - ako se bolest javlja u samo 0.1% slučajeva, onda trivijalni klasifikator koji za sve opservacije dijagnosticira da bolest nije prisutna dobro radi u 99.9% slučajeva. Isto tako, ako se radi o opasnoj bolesti, onda nam je <em>FP</em> greška (bolest je dijagnosticirana iako nije prisutna) daleko manje važna od <em>FN</em> greške (bolest je prisutna ali nije prepoznata). U ovim slučajevima odabir neke druge mjere (npr. “osjetljivost” ili “udio negativnih pogrešaka”) je često puno bolji pokazatelj kvalitete klasifikatora.</p>
 <p>Uz pomoć jezika R vrlo je lako “ručno” izračunati sve ove mjere. No funkcija <code>confusionMatrix</code> paketa <code>caret</code> (koja se usput naslanja na paket <code>e1071</code>) nam daje isti rezultat kao i funkcija <code>table</code>, ali uz dodatnu pogodnost izračuna velikog broja mjera koju nam mogu pomoći pri procjeni kvalitete klasifikatora.</p>
 <p><strong>Zadatak 14.14 - Funkcija <code>confusionMatrix</code></strong></p>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="prediktivno_modeliranje.html#cb751-1" tabindex="-1"></a><span class="co"># u varijablu `confMat` učitajte matricu konfuzije</span></span>
-<span id="cb751-2"><a href="prediktivno_modeliranje.html#cb751-2" tabindex="-1"></a><span class="co"># nastalu pozivom funkcije `confusionMatrix`</span></span>
-<span id="cb751-3"><a href="prediktivno_modeliranje.html#cb751-3" tabindex="-1"></a><span class="co"># nad odgovarajućim stupcima skupa `wine.test`</span></span>
-<span id="cb751-4"><a href="prediktivno_modeliranje.html#cb751-4" tabindex="-1"></a></span>
-<span id="cb751-5"><a href="prediktivno_modeliranje.html#cb751-5" tabindex="-1"></a><span class="co"># ispišite varijablu `confMat`</span></span></code></pre></div>
-<div class="fold s o">
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="prediktivno_modeliranje.html#cb752-1" tabindex="-1"></a><span class="co">#library(e1071)  # ako je potrebno</span></span>
-<span id="cb752-2"><a href="prediktivno_modeliranje.html#cb752-2" tabindex="-1"></a><span class="co">#library(caret)  # ako je potrebno</span></span>
-<span id="cb752-3"><a href="prediktivno_modeliranje.html#cb752-3" tabindex="-1"></a>confMat <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(wine.test<span class="sc">$</span>predictedType, wine.test<span class="sc">$</span>type)</span>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="prediktivno_modeliranje.html#cb752-1" tabindex="-1"></a><span class="co"># u varijablu `confMat` učitajte matricu konfuzije</span></span>
+<span id="cb752-2"><a href="prediktivno_modeliranje.html#cb752-2" tabindex="-1"></a><span class="co"># nastalu pozivom funkcije `confusionMatrix`</span></span>
+<span id="cb752-3"><a href="prediktivno_modeliranje.html#cb752-3" tabindex="-1"></a><span class="co"># nad odgovarajućim stupcima skupa `wine.test`</span></span>
 <span id="cb752-4"><a href="prediktivno_modeliranje.html#cb752-4" tabindex="-1"></a></span>
-<span id="cb752-5"><a href="prediktivno_modeliranje.html#cb752-5" tabindex="-1"></a><span class="co"># ispišite varijablu `confMat`</span></span>
-<span id="cb752-6"><a href="prediktivno_modeliranje.html#cb752-6" tabindex="-1"></a>confMat</span></code></pre></div>
+<span id="cb752-5"><a href="prediktivno_modeliranje.html#cb752-5" tabindex="-1"></a><span class="co"># ispišite varijablu `confMat`</span></span></code></pre></div>
+<div class="fold s o">
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="prediktivno_modeliranje.html#cb753-1" tabindex="-1"></a><span class="co">#library(e1071)  # ako je potrebno</span></span>
+<span id="cb753-2"><a href="prediktivno_modeliranje.html#cb753-2" tabindex="-1"></a><span class="co">#library(caret)  # ako je potrebno</span></span>
+<span id="cb753-3"><a href="prediktivno_modeliranje.html#cb753-3" tabindex="-1"></a>confMat <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(wine.test<span class="sc">$</span>predictedType, wine.test<span class="sc">$</span>type)</span>
+<span id="cb753-4"><a href="prediktivno_modeliranje.html#cb753-4" tabindex="-1"></a></span>
+<span id="cb753-5"><a href="prediktivno_modeliranje.html#cb753-5" tabindex="-1"></a><span class="co"># ispišite varijablu `confMat`</span></span>
+<span id="cb753-6"><a href="prediktivno_modeliranje.html#cb753-6" tabindex="-1"></a>confMat</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
 ## Prediction  red white
-##      red    471     5
-##      white   11  1462
-##                                           
-##                Accuracy : 0.9918          
-##                  95% CI : (0.9867, 0.9953)
-##     No Information Rate : 0.7527          
-##     P-Value [Acc &gt; NIR] : &lt;2e-16          
-##                                           
-##                   Kappa : 0.9779          
-##                                           
-##  Mcnemar&#39;s Test P-Value : 0.2113          
-##                                           
-##             Sensitivity : 0.9772          
-##             Specificity : 0.9966          
-##          Pos Pred Value : 0.9895          
-##          Neg Pred Value : 0.9925          
-##              Prevalence : 0.2473          
-##          Detection Rate : 0.2417          
-##    Detection Prevalence : 0.2442          
-##       Balanced Accuracy : 0.9869          
-##                                           
-##        &#39;Positive&#39; Class : red             
+##      red    344   129
+##      white  138  1338
+##                                          
+##                Accuracy : 0.863          
+##                  95% CI : (0.8469, 0.878)
+##     No Information Rate : 0.7527         
+##     P-Value [Acc &gt; NIR] : &lt;2e-16         
+##                                          
+##                   Kappa : 0.6297         
+##                                          
+##  Mcnemar&#39;s Test P-Value : 0.6244         
+##                                          
+##             Sensitivity : 0.7137         
+##             Specificity : 0.9121         
+##          Pos Pred Value : 0.7273         
+##          Neg Pred Value : 0.9065         
+##              Prevalence : 0.2473         
+##          Detection Rate : 0.1765         
+##    Detection Prevalence : 0.2427         
+##       Balanced Accuracy : 0.8129         
+##                                          
+##        &#39;Positive&#39; Class : red            
 ## </code></pre>
 </div>
 <p>Budući da je varijabla <code>confMat</code> S3 objekt, uz pomoć funkcije <code>unlist</code> i odabir željenog elementa vrlo lako možemo dobiti samo numeričku vrijednost mjere koja nas zanima, npr. za potrebe usporedbe većeg broja modela unutar programske skripte.</p>
@@ -1107,29 +1109,31 @@ div.csl-indent {
 <div id="napredne-klasifikacijske-metode" class="section level2 hasAnchor" number="14.7">
 <h2><span class="header-section-number">14.7</span> Napredne klasifikacijske metode<a href="prediktivno_modeliranje.html#napredne-klasifikacijske-metode" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Slično kao kod regresijskih metoda, uz pomoć paketa <code>caret</code> možemo vrlo lako testirati i naprednije klasifikacijske metode, bitno je samo da korektno definiramo ulazne parametre, pripazimo na pretprocesiranje podataka, rešetke hiperparametara te sve ostale specifičnosti modela kojeg koristimo. Primjerice, ukoliko želimo prethodni zadatak riješiti kroz klasifikator zasnovan na neuronskim mrežama, to možemo učiniti ovako:</p>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="prediktivno_modeliranje.html#cb754-1" tabindex="-1"></a><span class="co"># model neuronske mreže iz paketa `nnet`</span></span>
-<span id="cb754-2"><a href="prediktivno_modeliranje.html#cb754-2" tabindex="-1"></a></span>
-<span id="cb754-3"><a href="prediktivno_modeliranje.html#cb754-3" tabindex="-1"></a>nnGrid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
-<span id="cb754-4"><a href="prediktivno_modeliranje.html#cb754-4" tabindex="-1"></a>  <span class="at">size =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>),       <span class="co"># broj jedinica u skrivenom sloju</span></span>
-<span id="cb754-5"><a href="prediktivno_modeliranje.html#cb754-5" tabindex="-1"></a>  <span class="at">decay =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>) <span class="co"># regularizacija, manji broj daje veću fleksibilnost</span></span>
-<span id="cb754-6"><a href="prediktivno_modeliranje.html#cb754-6" tabindex="-1"></a>)</span>
-<span id="cb754-7"><a href="prediktivno_modeliranje.html#cb754-7" tabindex="-1"></a>nnMod <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb754-8"><a href="prediktivno_modeliranje.html#cb754-8" tabindex="-1"></a>  type <span class="sc">~</span> . <span class="sc">-</span> quality,</span>
-<span id="cb754-9"><a href="prediktivno_modeliranje.html#cb754-9" tabindex="-1"></a>  <span class="at">data =</span> wine.train,</span>
-<span id="cb754-10"><a href="prediktivno_modeliranje.html#cb754-10" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;nnet&quot;</span>,</span>
-<span id="cb754-11"><a href="prediktivno_modeliranje.html#cb754-11" tabindex="-1"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>),</span>
-<span id="cb754-12"><a href="prediktivno_modeliranje.html#cb754-12" tabindex="-1"></a>  <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>),</span>
-<span id="cb754-13"><a href="prediktivno_modeliranje.html#cb754-13" tabindex="-1"></a>  <span class="at">tuneGrid =</span> nnGrid,</span>
-<span id="cb754-14"><a href="prediktivno_modeliranje.html#cb754-14" tabindex="-1"></a>  <span class="at">trace =</span> <span class="cn">FALSE</span></span>
-<span id="cb754-15"><a href="prediktivno_modeliranje.html#cb754-15" tabindex="-1"></a>)</span>
-<span id="cb754-16"><a href="prediktivno_modeliranje.html#cb754-16" tabindex="-1"></a></span>
-<span id="cb754-17"><a href="prediktivno_modeliranje.html#cb754-17" tabindex="-1"></a>wine.test<span class="sc">$</span>predictedTypeNN <span class="ot">&lt;-</span> <span class="fu">predict</span>(nnMod, <span class="at">newdata =</span> wine.test, <span class="at">type =</span> <span class="st">&quot;raw&quot;</span>)</span>
-<span id="cb754-18"><a href="prediktivno_modeliranje.html#cb754-18" tabindex="-1"></a><span class="fu">table</span>(wine.test<span class="sc">$</span>predictedTypeNN, wine.test<span class="sc">$</span>type)</span></code></pre></div>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="prediktivno_modeliranje.html#cb755-1" tabindex="-1"></a><span class="co"># model neuronske mreže iz paketa `nnet`</span></span>
+<span id="cb755-2"><a href="prediktivno_modeliranje.html#cb755-2" tabindex="-1"></a></span>
+<span id="cb755-3"><a href="prediktivno_modeliranje.html#cb755-3" tabindex="-1"></a>nnGrid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb755-4"><a href="prediktivno_modeliranje.html#cb755-4" tabindex="-1"></a>  <span class="at">size =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>),       <span class="co"># broj jedinica u skrivenom sloju</span></span>
+<span id="cb755-5"><a href="prediktivno_modeliranje.html#cb755-5" tabindex="-1"></a>  <span class="at">decay =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>) <span class="co"># regularizacija, manji broj daje veću fleksibilnost</span></span>
+<span id="cb755-6"><a href="prediktivno_modeliranje.html#cb755-6" tabindex="-1"></a>)</span>
+<span id="cb755-7"><a href="prediktivno_modeliranje.html#cb755-7" tabindex="-1"></a>nnMod <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb755-8"><a href="prediktivno_modeliranje.html#cb755-8" tabindex="-1"></a>  type <span class="sc">~</span> residualSugar <span class="sc">+</span> alcohol,</span>
+<span id="cb755-9"><a href="prediktivno_modeliranje.html#cb755-9" tabindex="-1"></a>  <span class="at">data =</span> wine.train,</span>
+<span id="cb755-10"><a href="prediktivno_modeliranje.html#cb755-10" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;nnet&quot;</span>,</span>
+<span id="cb755-11"><a href="prediktivno_modeliranje.html#cb755-11" tabindex="-1"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">number =</span> <span class="dv">5</span>),</span>
+<span id="cb755-12"><a href="prediktivno_modeliranje.html#cb755-12" tabindex="-1"></a>  <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>),</span>
+<span id="cb755-13"><a href="prediktivno_modeliranje.html#cb755-13" tabindex="-1"></a>  <span class="at">tuneGrid =</span> nnGrid,</span>
+<span id="cb755-14"><a href="prediktivno_modeliranje.html#cb755-14" tabindex="-1"></a>  <span class="at">trace =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb755-15"><a href="prediktivno_modeliranje.html#cb755-15" tabindex="-1"></a>  <span class="at">maxit =</span> <span class="dv">1000</span></span>
+<span id="cb755-16"><a href="prediktivno_modeliranje.html#cb755-16" tabindex="-1"></a>)</span>
+<span id="cb755-17"><a href="prediktivno_modeliranje.html#cb755-17" tabindex="-1"></a></span>
+<span id="cb755-18"><a href="prediktivno_modeliranje.html#cb755-18" tabindex="-1"></a>wine.test<span class="sc">$</span>predictedTypeNN <span class="ot">&lt;-</span> <span class="fu">predict</span>(nnMod, <span class="at">newdata =</span> wine.test, <span class="at">type =</span> <span class="st">&quot;raw&quot;</span>)</span>
+<span id="cb755-19"><a href="prediktivno_modeliranje.html#cb755-19" tabindex="-1"></a><span class="fu">table</span>(wine.test<span class="sc">$</span>predictedTypeNN, wine.test<span class="sc">$</span>type)</span></code></pre></div>
 <pre><code>##        
 ##          red white
-##   red    475     1
-##   white    7  1466</code></pre>
-<p>Pri čemu u rezultatima možemo vidjeti da ovaj model radi nešto bolje od prethodnog klasifikatora.</p>
+##   red    335   133
+##   white  147  1334</code></pre>
+<p>Pri čemu u rezultatima možemo vidjeti da ovaj model radi otprilike jednako ili čak malo lošije od prethodnog klasifikatora. Razlog tome je što neuronske mreže nisu nužno bolje rješenje za svaki problem, pogotovo kada radimo s malim brojem prediktora i relativno jednostavnom granicom između klasa. U ovom slučaju kNN algoritam vrlo dobro iskorištava lokalnu strukturu podataka, odnosno činjenicu da se vina sličnih karakteristika nalaze blizu jedni drugima u prostoru prediktora.</p>
+<p>Također, neuronske mreže zahtijevaju pažljiv odabir arhitekture i hiperparametara te često postižu bolje rezultate tek na kompleksnijim problemima i većem broju varijabli. Zbog toga ovdje možemo zaključiti da složeniji model ne mora nužno dati bolje performanse od jednostavnijeg pristupa.</p>
 </div>
 <div id="zaključak" class="section level2 hasAnchor" number="14.8">
 <h2><span class="header-section-number">14.8</span> Zaključak<a href="prediktivno_modeliranje.html#zaključak" class="anchor-section" aria-label="Anchor link to header"></a></h2>
